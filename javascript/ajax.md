@@ -1,7 +1,6 @@
-# ajax fa42468481e94ca38f111b24709e6e40
 # ajax
-Created: Dec 30, 2019 2:59 PM
-Tags: javascript
+
+
 
 AJAX不是`JavaScript`的规范，它只是一个哥们“发明”的缩写：`Asynchronous JavaScript and XML`，意思就是用`JavaScript`执行异步网络请求。
 
@@ -123,5 +122,3 @@ $(function(){
     });
 });
 ```
-
-#前端/JavaScript

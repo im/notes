@@ -1,6 +1,6 @@
 # node 获取本地ip地址
 
-## node 获取内网ip
+
 
 ```jsx
 function getLocalIP() {
@@ -21,5 +21,3 @@ function getLocalIP() {
     return locatIp;
 }
 ```
-
-#前端/JavaScript

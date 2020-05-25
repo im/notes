@@ -222,6 +222,3 @@ git checkout HEAD <file>
 ```bash
 git revert <commit>
 ```
-
-
-#前端/git

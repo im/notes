@@ -10,7 +10,7 @@ npm —registry https://registry.npm.taobao.org install express
 ```bash
 npm config set registry https://registry.npm.taobao.org 
 ```
-     
+
 配置后可通过下面方式来验证是否成功 
 
 ```bash
@@ -56,5 +56,3 @@ npm confit set https-proxy http://username:password@server:port
 npm config delete proxy 
 npm config delete https-proxy 
 ```
-
-#前端/npm

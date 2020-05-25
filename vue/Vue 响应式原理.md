@@ -4,6 +4,7 @@
 ## 如何追踪变化
 
 [在 Vue Mastery 观看视频讲解](https://www.vuemastery.com/courses/advanced-components/build-a-reactivity-system)
+
 当你把一个普通的 JavaScript 对象传入 Vue 实例作为 `data` 选项，Vue 将遍历此对象所有的 property，并使用 [Object.defineProperty](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty) 把这些 property 全部转为 [getter/setter](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Working_with_Objects#定义_getters_与_setters) 。 `Object.defineProperty` 是 ES5 中一个无法 shim 的特性，这也就是 Vue 不支持 IE8 以及更低版本浏览器的原因。
 
 这些 getter_setter 对用户来说是不可见的，但是在内部它们让 Vue 能够追踪依赖，在 property 被访问和修改时通知变更。这里需要注意的是不同浏览器在控制台打印数据对象时对 getter_setter 的格式化并不同，所以建议安装 [vue-devtools](https://github.com/vuejs/vue-devtools) 来获取对检查数据更加友好的用户界面。
@@ -11,7 +12,7 @@
 每个组件实例都对应一个 **watcher** 实例，它会在组件渲染的过程中把“接触”过的数据 property 记录为依赖。之后当依赖项的 setter 触发时，会通知 watcher，从而使它关联的组件重新渲染。
 
 
-![](Vue%20%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86/data.png)
+![data](https://cn.vuejs.org/images/data.png)
 
 ## 检测变化的注意事项
 
@@ -176,5 +177,3 @@ methods: {
 ```
 
 [原文地址](https://cn.vuejs.org/v2/guide/reactivity.html#search-query-nav)
-
-#前端/JavaScript #前端/Vue

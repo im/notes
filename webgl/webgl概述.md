@@ -1,14 +1,14 @@
 # webgl概述
 
-## 一、WebGL概述(https://www.cnblogs.com/mirror-pc/p/4178897.html)
 
-本系列是本人阅读、学习《WebGL编程指南》的读书笔记，主要目的是摘录、总结，以便对所学进行巩固。
 
 WebGL，是一项用来在网页上绘制和渲染复杂三维图形（3D图形），并允许用户与之交互的技术。随着个人计算机和浏览器的性能越来越强，我们能够在Web上创建越来越精美、越来越复杂的3D图形。[http://webglsamples.org/](http://webglsamples.org/) 这个网址展示了Google发布的一些示例WebGL程序，在惊叹美轮美奂的效果的同时，我们发现发布和运行也变得非常简单。（就像使用普通的网页一样）
 
 WebGL是一种免费的、开放的、跨平台的技术；WebGL派生于OpenGL ES，后者是专用于嵌入式计算机、智能手机、家用游戏机等设备；WebGL基于OpenGL ES 2.0。下图显示了OpenGL、OpenGL ES 和 WebGL的关系：
 
-https://images0.cnblogs.com/blog/332382/201412/222059338585675.png
+![](https://cdn.jsdelivr.net/gh/im/oss@master/notes/images/2020/05/25/222059338585675.png)
+
+
 
 从2.0版本开始，OpenGL支持了一项非常重要的特性，即**可编程着色器方法**。该特性被OpenGL ES 2.0继承，并成为了WebGL 1.0标准的核心部分。
 
@@ -18,8 +18,10 @@ https://images0.cnblogs.com/blog/332382/201412/222059338585675.png
 
 下图显示了WebGL程序的结构：
 
-https://images0.cnblogs.com/blog/332382/201412/222120593439118.png
+
+
+![222120593439118.png (583×230)](https://cdn.jsdelivr.net/gh/im/oss@master/notes/images/2020/05/25/222120593439118.png)
+
+
 
 由于GLSL ES通常是以字符串的形式在JavaScript中编写的，所以虽然WebGL网页更加复杂，但它仍然保持着与传统的动态网页相同的结构：只用到HTML文件和JavaScript文件。
-
-#前端/JavaScript #前端/webgl
