@@ -1,21 +1,23 @@
 # chrome调试
 
-## *console*
 
-```jsx
+
+## console
+
+```js
 console.log("打印字符串"); // 在控制台打印自定义字符串
 console.error("我是个错误"); // 在控制台打印自定义错误信息
 console.info("我是个信息"); // 在控制台打印自定义信息
 console.warn("我是个警告"); // 在控制台打印自定义警告信息
 console.debug("我是个调试"); // 在控制台打印自定义调试信息
-cosole.clear(); // 清空控制台（这个下方截图中没有）
+console.clear(); // 清空控制台（这个下方截图中没有）
 ```
 
-![](chrome%E8%B0%83%E8%AF%95/console.png)
+![image-20200527215730244](https://cdn.jsdelivr.net/gh/im/oss@master/notes/images/2020/05/27/image-20200527215730244.png)
 
 ## 格式化输出
 
-```jsx
+```js
 console.log("%s年", 2016); // %s表示字符串
 console.log("%d年%d月", 2016, 11); // %d表示整数
 console.log("%f", 3.1415926); // %f小数
@@ -24,15 +26,13 @@ console.log("%c自定义样式", "font-size: 30px;color: #00f");
 console.log("%c我是%c自定义样式", "font-size: 20px; color: green", "font-size: 10px; color: red");
 ```
 
-![](chrome%E8%B0%83%E8%AF%95/style.png)
+![image-20200527215806044](https://cdn.jsdelivr.net/gh/im/oss@master/notes/images/2020/05/27/image-20200527215806044.png)
 ## DOM输出
 
 ```jsx
 var ul = document.getElementsByTagName("ul");
 console.dirxml(ul);
 ```
-
-![](chrome%E8%B0%83%E8%AF%95/dom.png)
 
 ## 对象输出
 
@@ -44,7 +44,9 @@ var o = {
 console.dir(o);
 ```
 
-![](chrome%E8%B0%83%E8%AF%95/object.png)
+![image-20200527215900409](https://cdn.jsdelivr.net/gh/im/oss@master/notes/images/2020/05/27/image-20200527215900409.png)
+
+
 
 > 对于多个对象的集合，可以这样，输出更清晰：  
 
@@ -65,7 +67,7 @@ var stu = [{
 console.table(stu);
 ```
 
-![](chrome%E8%B0%83%E8%AF%95/table.png)
+![image-20200527215931362](https://cdn.jsdelivr.net/gh/im/oss@master/notes/images/2020/05/27/image-20200527215931362.png)
 
 ## 成组输出
 
@@ -78,7 +80,7 @@ console.log("sub1");
 console.groupEnd("end");
 ```
 
-![](chrome%E8%B0%83%E8%AF%95/group.png)
+![image-20200527172705493](https://cdn.jsdelivr.net/gh/im/oss@master/notes/images/2020/05/27/image-20200527172705493.png)
 
 ## 函数计数和跟踪
 
@@ -99,7 +101,7 @@ function fib(n){
 fib(6);
 ```
 
-![](chrome%E8%B0%83%E8%AF%95/count.png)
+![image-20200527172625875](https://cdn.jsdelivr.net/gh/im/oss@master/notes/images/2020/05/27/image-20200527172625875.png)
 ## 计时
 
 ```jsx
@@ -108,7 +110,7 @@ fib(100); // 用上述函数计算100个斐波那契数
 console.timeEnd(); // 计时结束并输出时长
 ```
 
-![](chrome%E8%B0%83%E8%AF%95/time.png)
+![image-20200527172523846](https://cdn.jsdelivr.net/gh/im/oss@master/notes/images/2020/05/27/image-20200527172523846.png)
 
 ## 断言
 
@@ -119,10 +121,8 @@ console.assert(true, '我错了');
 console.assert(false, '我真的错了');
 ```
 
-![](chrome%E8%B0%83%E8%AF%95/assert.png)
+![image-20200527172338831](https://cdn.jsdelivr.net/gh/im/oss@master/notes/images/2020/05/27/image-20200527172338831.png)
 ## debugger
 
-> 单步调试就是点一下，执行一句程序，并且可以查看当前作用域可见的所有变量和值。而debugger就是告诉程序在那里停下来进行单步调试，俗称断点。  
-![](chrome%E8%B0%83%E8%AF%95/debugger.png)
+单步调试就是点一下，执行一句程序，并且可以查看当前作用域可见的所有变量和值。而debugger就是告诉程序在那里停下来进行单步调试，俗称断点。
 
-#前端/chrome

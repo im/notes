@@ -162,14 +162,14 @@ chrome://flags/#enable-devtools-experiments # 启用实验功能
 ![1722a93b6e99b826](/var/folders/_c/w_tdj7xx3bl2wwvnj10lyq800000gn/T/net.shinyfrog.bear/BearTemp.2JvXS8/1722a93b6e99b826.jpeg)
 
 最后同样用一个动图做下展示：
-![1722a93b4564c113](/var/folders/_c/w_tdj7xx3bl2wwvnj10lyq800000gn/T/net.shinyfrog.bear/BearTemp.6KrRvH/1722a93b4564c113.jpeg)
+![1722a93b4564c113](/var/folders/_c/w_tdj7xx3bl2wwvnj10lyq800000gn/T/net.shinyfrog.bear/BearTemp.FtO4Uf/1722a93b4564c113.jpeg)
 
 ## 自定义代码片段 Snippets 🌰
 
 在平常开发过程中，我们经常有些 `JavaScript` 的代码想在 `Chrome Devtools` 中调试，直接在 `console` 下 写比较麻烦，或者我们经常有些代码片段(防抖、节流、获取地址栏参数等)想保存起来，每次打开 `Devtools` 都能获取到这些代码片段，而不用再去 `google` ，正好 `Chrome Devtool` 就提供了这种功能。
 
 如图所示，在 `Sources` 这个 `tab` 栏下，有个 `Snippets` 标签，在里面可以添加一些常用的代码片段。 
-![1722a93b457b30a4](/var/folders/_c/w_tdj7xx3bl2wwvnj10lyq800000gn/T/net.shinyfrog.bear/BearTemp.HdBtEj/1722a93b457b30a4.jpeg)
+![1722a93b457b30a4](https://cdn.jsdelivr.net/gh/im/oss@master/notes/images/2020/05/27/1722a93b457b30a4.jpeg)
 
 ## 将图片复制为数据 URI 🦊
 
@@ -178,30 +178,33 @@ chrome://flags/#enable-devtools-experiments # 启用实验功能
 * 选择 `Network` 面板
 * 在资源面板中选择 `Img`
 * 右键单击将其复制为数据 `URI` （已编码为 `base 64` ）
-![1722a93b51195416](/var/folders/_c/w_tdj7xx3bl2wwvnj10lyq800000gn/T/net.shinyfrog.bear/BearTemp.FlBraU/1722a93b51195416.jpeg)
+![1722a93b51195416](https://cdn.jsdelivr.net/gh/im/oss@master/notes/images/2020/05/27/1722a93b51195416.jpeg)
 
 ## 媒体查询 🔭
 媒体查询是自适应网页设计的基本部分。在 `Chrome Devtools` 中的 `设备模式` 下，在三圆点菜单中点击 `Show Media queries` 即可启用： 
 
-![1722a93b59840a11](/var/folders/_c/w_tdj7xx3bl2wwvnj10lyq800000gn/T/net.shinyfrog.bear/BearTemp.5fnxej/1722a93b59840a11.jpeg)
+![1722a93b59840a11](https://cdn.jsdelivr.net/gh/im/oss@master/notes/images/2020/05/27/1722a93b59840a11.jpeg)
 
- `Devtools` 会在样式表中检测媒体查询，并在顶端标尺中将它们显示为彩色条形
-:
 
-![1722a93b5f1f9a5a](/var/folders/_c/w_tdj7xx3bl2wwvnj10lyq800000gn/T/net.shinyfrog.bear/BearTemp.6wIcOU/1722a93b5f1f9a5a.jpeg)
+
+ `Devtools` 会在样式表中检测媒体查询，并在顶端标尺中将它们显示为彩色条形:
+
+
+
+![1722a93b5f1f9a5a](https://cdn.jsdelivr.net/gh/im/oss@master/notes/images/2020/05/27/1722a93b5f1f9a5a.jpeg)
 
  那怎么使用呢？其实也很简单：
 
 * 点击媒体查询条形，调整视口大小和预览适合目标屏幕大小的样式
 * 右键点击某个条形，查看媒体查询在 `CSS` 中何处定义并跳到源代码中的定义
 
-![1722a93b7e64c956](/var/folders/_c/w_tdj7xx3bl2wwvnj10lyq800000gn/T/net.shinyfrog.bear/BearTemp.zn6Kzl/1722a93b7e64c956.jpeg)
+![1722a93b7e64c956](/var/folders/_c/w_tdj7xx3bl2wwvnj10lyq800000gn/T/net.shinyfrog.bear/BearTemp.QghGRA/1722a93b7e64c956.jpeg)
 
 ## keys/values 🎯
 
 这个是 `Devtools` 提供的快速查看一个对象的 `key`、`values` 的 `API` 。用起来也很简单： 
 
-![1722a93b89bad104](/var/folders/_c/w_tdj7xx3bl2wwvnj10lyq800000gn/T/net.shinyfrog.bear/BearTemp.euvzc9/1722a93b89bad104.jpeg)
+![1722a93b89bad104](https://cdn.jsdelivr.net/gh/im/oss@master/notes/images/2020/05/27/1722a93b89bad104.jpeg)
 
 
 > 你可能会说 `Object.keys()` 和 `Object.values()` 也可以实现啊，但这个不是更简单点吗 🤠  
@@ -209,6 +212,7 @@ chrome://flags/#enable-devtools-experiments # 启用实验功能
 ## table 🦐
 
 `Devtools` 提供的用于将对象数组记录为表格的 `API`: 
-![1722a93b9db53e5b](/var/folders/_c/w_tdj7xx3bl2wwvnj10lyq800000gn/T/net.shinyfrog.bear/BearTemp.F9uRe6/1722a93b9db53e5b.jpeg)
+
+![1722a93b9db53e5b](https://cdn.jsdelivr.net/gh/im/oss@master/notes/images/2020/05/27/1722a93b9db53e5b.jpeg)
 
 [原文链接
