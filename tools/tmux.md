@@ -2,7 +2,7 @@
 title: tmux
 ---
 
-## [tmux ?](https://www.hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/)
+## [tmux ](https://www.hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/)
 
 `tmux（terminal multiplexer）`是Linux上的终端复用神器，可从一个屏幕上管理多个终端（准确说是伪终端）。使用该工具，用户可以连接或断开会话，而保持终端在后台运行。
 
@@ -14,7 +14,7 @@ brew install tmux
 
 ## tmux 结构
 
-![](../../images/tmux/tmux.png)
+![img](https://cdn.jsdelivr.net/gh/im/oss@master/notes/images/2020/05/27/tmux.3a0b3e47.png)
 
 
 ## tmux快捷键前缀（prefix）

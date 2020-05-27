@@ -6,13 +6,7 @@ title: 开源许可
 
 * 先借用一张大牛画的图来看看各大开源协议的区别 [如何选择开源许可证？](http://www.ruanyifeng.com/blog/2011/05/how_to_choose_free_software_licenses.html)
 
-![开源许可](../../images/other/free_software_licenses.png)
-
-<Badge text="主流的开源许可"/>
-
-[[toc]]
-
-
+![img](http://www.ruanyifeng.com/blogimg/asset/201105/free_software_licenses.png)
 
 * 对比
 
@@ -25,7 +19,8 @@ title: 开源许可
 | [MIT](#mit)  | 较为宽松的协议，包含两个变种BSD 2-Clause 和BSD 3-Clause，两者都与MIT协议只存在细微差异。|<tag text="协议和版权信息" size="small" type="success" />| <tag type="danger" text="责任承担"  />|
 | [BSD](#bsd) | 宽松简单且精要的一个协议。在适当标明来源及免责的情况下，它允许你对代码进行任何形式的使用。|<tag text="协议和版权信息" size="small" type="success" />| <tag type="danger" text="责任承担"  /><tag type="danger" text="商标使用"  /> |
 
-::: tip 用词解释
+#####  tip 用词解释
+
 - 协议和版权信息(License and copyright notice)：在代码中保留作者提供的协议和版权信息
 - 声明变更(State Changes)：在代码中声明对原来代码的重大修改及变更
 - 公开源码(Disclose Source)：代码必需公开。如果是基于LGPL协议 下，则只需使用的开源代码公开，不必将整个软件源码公开
@@ -33,14 +28,13 @@ title: 开源许可
 - 责任承担(Hold Liable)：代码的作者承担代码使用后的风险及产生的后果
 - 商标使用(Use Trademark)：可以使用作者的姓名，作品的Logo，或商标
 - 附加协议(Sublicensing)：允许在软件分发传播过程中附加上原来没有的协议条款等
-:::
 
 
 
 
 
 
-## Apache
+#### Apache
 
 `一个较宽松且简明地指出了专利授权的协议。`
 
@@ -51,15 +45,19 @@ Apache Licence 是著名的非盈利开源组织Apache采用的协议。该协�
 4. 如果再发布的产品中包含一个Notice文件，则在Notice文件中需要带有Apache Licence。你可以在Notice中增加自己的许可，但不可以表现为对Apache Licence构成更改。
 5. Apache Licence也是对商业应用友好的许可。使用者也可以在需要的时候修改代码来满足需要并作为开源或商业产品发布/销售。
 
-## GPL
 
-::: tip
-通用性公开许可证(General Public License，简称GPL） `Linux就是采用了GPL`
-:::
+
+
+
+#### GPL
+
+> 通用 性公开许可证(General Public License，简称GPL） `Linux就是采用了GPL`
+>
+> 
 
 `此协议是应用最为广泛的开源协议，拥有较强的版权自由( copyleft )要求。衍生代码的分发需开源并且也要遵守此协议。此协议有许多变种，不同变种的要求略有不同。`
 
-#### GPL协议最主要的几个原则:
+###### GPL协议最主要的几个原则:
 * 传染性  
     确保软件自始至终都以开放源代码形式发布，保护开发成果不被窃取用作商业发售。任何一套软件，只要其中使用了受 GPL 协议保护的第三方软件的源程序，并向非开发人员发布时，软件本身也就自动成为受 GPL 保护并且约束的实体。也就是说，此时它必须开放源代码。
 * 无版权  
@@ -71,11 +69,12 @@ Apache Licence 是著名的非盈利开源组织Apache采用的协议。该协�
 > 如果使用了GPL协议， 你的代码必须要开源，你可以不申明版权，但是必须要开源源代码
 
 
-## LGPL
 
-::: tip
-宽通用公共许可证(Lesser General Public License，简称LGPL）
-:::
+#### LGPL
+
+
+
+> 宽通 用公共许可证(Lesser General Public License，简称LGPL）
 
 `主要用于一些代码库。衍生代码可以以此协议发布（言下之意你可以用其他协议），但与此协议相关的代码必需遵循此协议`
 
@@ -93,11 +92,13 @@ GPL/LGPL都保障原作者的知识产权，避免有人利用开源代码复制
 
 > LGPL如果引用了LGPL协议的库，而没有对库本身进行修改，那么则不需要开源代码，如果你修改了这个库的代码，也只需要开源这个库的代码即可，自己的代码也可以不开源，如果是GPL协议 则必须要开源自己的代码
 
-## MPL
 
-::: tip
-Mozilla Public License，简称MPL
-:::
+
+#### MPL
+
+
+
+> Mo zilla Public License，简称MPL
 
 `Mozilla Public License(MPL 2.0)是由Mozilla基金创建维护的。此协议旨在较为宽松的BSD协议和更加互惠的GPL协议中寻找一个折衷点。`
 
@@ -112,11 +113,15 @@ Mozilla Public License，简称MPL
     3. MPL是允许修改，无偿使用的
     4. MPL软件对链接没有要求。(要求假如你修改了一个基于MPL协议的源代码，则必须列入或公开你所做的修改，假如其他源代码不是基于MPL则不需要公开其源代码)
 
-## MIT
 
-::: tip
-MIT许可证之名源自麻省理工学院（Massachusetts Institute of Technology, MIT），又称“X条款”（X License）或“X11条款”（X11 License
-:::
+
+#### MIT
+
+
+
+> MI T许可证之名源自麻省理工学院（Massachusetts Institute of Technology, MIT），又称“X条款”（X License）或“X11条款”（X11 License
+
+
 
 `宽松简单且精要的一个协议。在适当标明来源及免责的情况下，它允许你对代码进行任何形式的使用。`
 
@@ -126,11 +131,15 @@ MIT是和BSD一样宽松的许可协议, 作者只想保留版权, 而无任何�
 - 你可以免费使用软件或出售
 - 唯一的限制是，它是必须附有MIT授权协议作者
 
-## BSD
 
-::: tip
-伯克利软件发行(Berkeley Software Distribution，简称BSD）
-:::
+
+#### BSD
+
+
+
+> 伯克 利软件发行(Berkeley Software Distribution，简称BSD）
+
+
 
 `较为宽松的协议，包含两个变种BSD 2-Clause 和BSD 3-Clause，两者都与MIT协议只存在细微差异。`
 

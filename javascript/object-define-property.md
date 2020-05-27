@@ -1,14 +1,10 @@
----
-title: Object.defineProperty
----
+# Object.defineProperty
 
-# [Object.defineProperty](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty)
+[Object.defineProperty](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty)
 
-::: tip
-`Object.defineProperty()` 方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性， 并返回这个对象。
-:::
+> `Object.defineProperty()` 方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性， 并返回这个对象。
 
-## 用法
+#### 用法
 
 ```js
 Object.defineProperty(obj, prop, descriptor)
@@ -29,7 +25,7 @@ console.log(object1.property1);
 // 输出 42
 ```
 
-#### 参数
+##### 参数
 
 * `obj`  
 要在其上定义属性的对象。
@@ -41,19 +37,25 @@ console.log(object1.property1);
 * `descriptor`  
 将被定义或修改的属性描述符。
 
-#### 返回
+##### 返回
 
  被传递给函数的对象。
 
 
- ## 描述
+
+
+ #### 描述
 
  该方法允许精确添加或修改对象的属性。通过赋值操作添加的普通属性是可枚举的，能够在属性枚举期间呈现出来`（for...in 或 Object.keys 方法）`， 这些属性的值可以被改变，也可以被删除。这个方法允许修改默认的额外选项（或配置）。默认情况下，使用` Object.defineProperty()` 添加的属性值是不可修改的。
 
 
- ## 属性描述符
+
+
+ #### 属性描述符
 
  对象里目前存在的属性描述符有两种主要形式：`数据描述符`和`存取描述符`。`数据描述符`是一个具有值的属性，该值可能是可写的，也可能不是可写的。`存取描述符`是由getter-setter函数对描述的属性。描述符必须是这两种形式之一；不能同时是两者。
+
+
 
  #### 数据描述符和存取描述符均具有以下可选键值
 
@@ -102,6 +104,8 @@ o.propertyIsEnumerable('b'); // false
 o.propertyIsEnumerable('c'); // false
 ```
 
+
+
 #### 数据描述符同时具有以下可选键值：
 
 * value  
@@ -137,6 +141,8 @@ console.log(o.a); // 37
 }());
 ```
 
+
+
 #### 存取描述符同时具有以下可选键值：
 
 * get  
@@ -147,6 +153,8 @@ console.log(o.a); // 37
 一个给属性提供 setter 的方法，如果没有 setter 则为 undefined。当属性值修改时，触发执行该方法。该方法将接受唯一参数，即该属性新的参数值。
 `默认为 undefined`
 
+
+
 #### 描述符可同时具有的键值
 
 | | configurable | enumerable | value  | writable | get | get |
@@ -154,13 +162,13 @@ console.log(o.a); // 37
 |数据描述符| Yes |Yes|Yes|Yes|No|No|
 |存取描述符| Yes |Yes|No|No|Yes|Yes|
 
-::: tip
-如果一个描述符不具有value,writable,get 和 set 任意一个关键字，那么它将被认为是一个数据描述符。如果一个描述符同时有(value或writable)和(get或set)关键字，将会产生一个异常。
-:::
+
+
+> 如果 一个描述符不具有value,writable,get 和 set 任意一个关键字，那么它将被认为是一个数据描述符。如果一个描述符同时有(value或writable)和(get或set)关键字，将会产生一个异常。
 
 
 
-##  添加多个属性和默认值
+####  添加多个属性和默认值
 
 考虑特性被赋予的默认特性值非常重要，通常，使用点运算符和`Object.defineProperty()`为对象的属性赋值时，数据描述符中的属性默认值是不同的，如下例所示。
 
@@ -188,7 +196,9 @@ Object.defineProperty(o, "a", {
 });
 ```
 
-## 一般的 Setters 和 Getters
+
+
+#### 一般的 Setters 和 Getters
 
 下面的例子展示了如何实现一个自存档对象。 当设置temperature 属性时，archive 数组会获取日志条目。
 ```js

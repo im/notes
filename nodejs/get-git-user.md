@@ -1,16 +1,10 @@
----
-title: 获取git用户名、邮箱
----
-
 # 获取git用户名、邮箱
 
-::: tip
-获取git用户名及邮箱
-:::
+> 获取git用户名及邮箱
 
 
 
-* 依赖 `child_process 用来生成子进程 `
+#### 依赖 `child_process 用来生成子进程 `
 
 [参考地址 segmentfault](https://segmentfault.com/a/1190000016169207)
 
@@ -24,7 +18,9 @@ require('child_process').execSync
 // execSync 同步执行子进程
 ```
 
-* 代码
+
+
+#### 代码
 
 ```js
 // getGitUser.js
@@ -47,7 +43,7 @@ module.exports = () => {
 }
 ```
 
-* 使用
+#### 使用
 
 ```js
 const getGitUser = require('getGitUser')

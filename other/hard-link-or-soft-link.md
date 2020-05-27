@@ -1,17 +1,12 @@
----
-title: Linux硬链接与软连接
----
-
 
 
 # Linux硬链接与软连接  
 
-::: tip
-为解决文件的共享使用，Linux 系统引入了两种链接：`硬链接 (hard link)` 与`软链接（又称符号链接，即 soft link 或 symbolic link）`。链接为 Linux 系统解决了文件的共享使用，还带来了隐藏文件路径、增加权限安全及节省存储等好处。
-:::
+> 为解决文件的共享使用，Linux 系统引入了两种链接：`硬链接 (hard link)` 与`软链接（又称符号链接，即 soft link 或 symbolic link）`。链接为 Linux 系统解决了文件的共享使用，还带来了隐藏文件路径、增加权限安全及节省存储等好处。
 
 
-## 硬链接 (hard link)  
+
+#### 硬链接 (hard link)  
 
 <span class="vp-primary-text">若一个 inode 号对应多个文件名，则称这些文件为硬链接。换言之，硬链接就是同一个文件使用了多个别名</span>
 
@@ -41,7 +36,9 @@ ls -i # 查看文件 inode
 
 > inode 是随着文件的存在而存在，因此只有当文件存在时才可创建硬链接，即当 inode 存在且链接计数器（link count）不为 0 时。inode 号仅在各文件系统下是唯一的，当 Linux 挂载多个文件系统后将出现 inode 号重复的现象，因此硬链接创建时不可跨文件系统。
 
-## 软链接 （soft link）
+
+
+#### 软链接 （soft link）
 
 <span class="vp-primary-text">软链接与硬链接不同，<span class="vp-danger-text">若文件用户数据块中存放的内容是另一文件的路径名的指向，则该文件就是软连接</span>。软链接就是一个普通文件，只是数据块内容有点特殊。软链接有着自己的 inode 号以及用户数据块。因此软链接的创建与使用没有类似硬链接的诸多限制</span>
 
@@ -70,7 +67,7 @@ ll
 
 ### 参考文档
 
-::: tip
+
 [https://www.jianshu.com/p/dde6a01c4094](https://www.jianshu.com/p/dde6a01c4094)
 [https://www.ibm.com/developerworks/cn/linux/l-cn-hardandsymb-links/index.html](https://www.ibm.com/developerworks/cn/linux/l-cn-hardandsymb-links/index.html)
-:::
+

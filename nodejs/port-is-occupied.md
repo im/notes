@@ -1,16 +1,12 @@
----
-title: 判断端口是否被占用
----
+
 
 # 判断端口是否被占用
 
-::: tip
-当你需要同时启动多个服务的时候，有时候端口可能被其他服务占用，下面这个方法用来 检测接口是否被占用， 如果被占用就会在当前接口递增一个新的端口
-:::
+> 当你 需要同时启动多个服务的时候，有时候端口可能被其他服务占用，下面这个方法用来 检测接口是否被占用， 如果被占用就会在当前接口递增一个新的端口
 
 
 
-* 依赖
+#### 依赖
 
 `net模块为您提供异步网络包装器,它包含用于创建服务器和客户端的方法, net模块为node的内置模块 如果安装了node可以直接使用不需要安装`
 
@@ -18,7 +14,9 @@ title: 判断端口是否被占用
 const net = require('net')
 ```
 
-* 代码
+
+
+#### 代码
 
 ```js
 // portIsOccupied.js
@@ -43,7 +41,9 @@ function portIsOccupied(port) {
 module.exports = portIsOccupied
 ```
 
-* 使用
+
+
+#### 使用
 
 ```js
 const portIsOccupied = require('portIsOccupied')

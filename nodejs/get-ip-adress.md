@@ -1,11 +1,8 @@
----
-title: 获取ip地址
----
+
 
 # 获取ip地址
 
-
-* 代码
+#### 代码
 
 ```js
 // getIPAdress.js
@@ -23,7 +20,9 @@ module.exports = () => {
 }
 ```
 
-* 使用
+
+
+#### 使用
 
 ```js
 const getIPAdress = require('getIPAdress')

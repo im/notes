@@ -1,7 +1,3 @@
----
-title: markdown
----
-
 # Markdown 拓展
 
 ## Header Anchors
@@ -121,53 +117,7 @@ lang: en-US
 
 目录（Table of Contents）的渲染可以通过  [`markdown.toc`](../config/README.md#markdown-toc) 选项来配置。
 
-## 自定义容器 <Badge text="默认主题"/>
-
-**输入**
-
-```
-::: tip
-This is a tip
-:::
-
-::: warning
-This is a warning
-:::
-
-::: danger
-This is a dangerous warning
-:::
-```
-
-**输出**
-
-::: tip
-This is a tip
-:::
-
-::: warning
-This is a warning
-:::
-
-::: danger
-This is a dangerous thing
-:::
-
-你也可以自定义块中的标题：
-
-```
-::: danger STOP
-Danger zone, do not proceed
-:::
-```
-
-::: danger STOP
-Danger zone, do not proceed
-:::
-
-**参考:**
-
-- [vuepress-plugin-container](https://vuepress.github.io/plugins/container/)
+- https://vuepress.github.io/plugins/container/)
 
 ## 代码块中的语法高亮
 
@@ -176,7 +126,7 @@ VuePress 使用了 [Prism](https://prismjs.com/) 来为 markdown 中的代码块
 **输入**
 
 ````
-``` js
+​``` js
 export default {
   name: 'MyComponent',
   // ...
@@ -186,7 +136,7 @@ export default {
 
 **输出**
 
-``` js
+​``` js
 export default {
   name: 'MyComponent',
   // ...
@@ -196,7 +146,7 @@ export default {
 **输入**
 
 ````
-``` html
+​``` html
 <ul>
   <li
     v-for="todo in todos"
@@ -210,7 +160,7 @@ export default {
 
 **输出**
 
-``` html
+​``` html
 <ul>
   <li
     v-for="todo in todos"
@@ -229,7 +179,7 @@ export default {
 **输入**
 
 ````
-``` js {4}
+​``` js {4}
 export default {
   data () {
     return {
@@ -242,7 +192,7 @@ export default {
 
 **输出**
 
-``` js{4}
+​``` js{4}
 export default {
   data () {
     return {
