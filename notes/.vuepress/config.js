@@ -1,75 +1,49 @@
 const path = require("path");
 module.exports = (options, context, api) => {
     return {
-        title: "Billy Chin",
-        description: "Web development, Frontend, JavaScript",
+        title: "糖小米 .",
+        description: "Web development, Frontend, JavaScript, Nodejs",
         base: '/notes/',
         theme: "@vuepress/blog",
+        head: [
+            ['link', { rel: 'icon', href: '/notes/assets/favicon.ico' }]
+        ],
         themeConfig: {
             directories: [
                 {
-                    id: "zh",
-                    dirname: "_zh",
-                    title: "貼文",
-                    path: "/zh/",
-                    itemPermalink: "/zh/:year/:month/:day/:slug"
-                },
-                {
-                    id: "en",
-                    dirname: "_en",
-                    title: "Post",
-                    path: "/en/",
-                    itemPermalink: "/en/:year/:month/:day/:slug"
+                    id: "posts",
+                    dirname: "_posts",
+                    title: "文章",
+                    path: "/posts/",
+                    itemPermalink: "/posts/:year/:month/:day/:slug"
                 }
             ],
             sitemap: {
-                hostname: "https://billyyyyy3320.com/"
+                hostname: "https://tangxiaomi.top/notes/"
             },
             comment: {
                 service: "vssue",
                 autoCreateIssue: true,
                 prefix: "[Post]",
-                owner: "newsbielt703",
-                repo: "billy",
-                clientId: "4119e8c1b0093fc5d034",
-                clientSecret: "1ac1176791689b1ca31037c39489fc7b0667015d"
+                owner: "im",
+                repo: "notes",
+                clientId: "b5b53b3c7256700567b5",
+                clientSecret: "b68c52203c9b119d8adc6a38e0e6fbc593d6414e"
             },
-            newsletter: {
-                endpoint:
-                    "https://gmail.us5.list-manage.com/subscribe/post?u=942c0d587f8ea28269e80d6cd&amp;id=d77d789d53"
-            },
-            feed: {
-                canonical_base: "https://billyyyyy3320.com/",
-                posts_directories: ["/_en/"]
-            },
-            nav: [
-                {
-                    text: "部落格",
-                    link: "/zh/"
-                },
-                {
-                    text: "Blog",
-                    link: "/en/"
-                },
-                {
-                    text: "Github",
-                    link: "https://github.com/billyyyyy3320"
-                }
-            ],
             footer: {
                 contact: [
                     {
                         type: "github",
-                        link: "https://github.com/billyyyyy3320"
+                        link: "https://github.com/im"
                     },
                     {
                         type: "mail",
-                        link: "mailto:newsbielt703@gmail.com"
+                        link: "mailto:tangxiaomiemail@gmail.com"
                     }
                 ],
                 copyright: [
                     {
-                        text: "Billy Chin © 2019",
+                        text: "糖小米 © 2022",
                         link: ""
                     }
                 ]
