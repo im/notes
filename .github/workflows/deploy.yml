@@ -33,4 +33,4 @@ jobs:
               with:
                   ACCESS_TOKEN: ${{ secrets.PAGES_TOKEN }}
                   BRANCH: gh-pages
-                  FOLDER: ./notes/.vitepress/dist
+                  FOLDER: notes/.vuepress/dist
