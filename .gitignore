@@ -4,7 +4,6 @@ db.json
 *.log
 dist/
 node_modules/
-public/
 .deploy*/
 dark
 output
