@@ -1,0 +1,19 @@
+{
+    "name": "blog",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "git@github.com:im/blog.git",
+    "author": "tangxiaomi <81195314@qq.com>",
+    "license": "MIT",
+    "devDependencies": {
+        "@vuepress/theme-blog": "^2.3.3",
+        "vuepress": "^1.9.7"
+    },
+    "dependencies": {
+        "vue-switches": "^2.0.1"
+    },
+    "scripts": {
+        "dev": "vuepress dev notes",
+        "build": "vuepress build notes"
+    }
+}
