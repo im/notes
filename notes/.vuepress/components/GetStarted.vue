@@ -1,6 +1,6 @@
 <template>
   <div class="start">
-    <router-link to="/posts/">Get Started~</router-link>
+    <router-link to="/posts/"> Started</router-link>
   </div>
 </template>
 

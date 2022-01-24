@@ -1,12 +1,12 @@
 const path = require("path");
 module.exports = (options, context, api) => {
     return {
-        title: "糖小米 .",
+        title: "Tang Xiaomi .",
         description: "Web development, Frontend, JavaScript, Nodejs",
         base: '/notes/',
         theme: "@vuepress/blog",
         head: [
-            ['link', { rel: 'icon', href: '/notes/assets/favicon.ico' }]
+            ['link', { rel: 'icon', href: '/assets/favicon.ico' }]
         ],
         themeConfig: {
             directories: [
@@ -21,15 +21,15 @@ module.exports = (options, context, api) => {
             sitemap: {
                 hostname: "https://tangxiaomi.top/notes/"
             },
-            comment: {
-                service: "vssue",
-                autoCreateIssue: true,
-                prefix: "[Post]",
-                owner: "im",
-                repo: "notes",
-                clientId: "b5b53b3c7256700567b5",
-                clientSecret: "b68c52203c9b119d8adc6a38e0e6fbc593d6414e"
-            },
+            // comment: {
+            //     service: "vssue",
+            //     autoCreateIssue: true,
+            //     prefix: "[Post]",
+            //     owner: "im",
+            //     repo: "notes",
+            //     clientId: "b5b53b3c7256700567b5",
+            //     clientSecret: "b68c52203c9b119d8adc6a38e0e6fbc593d6414e"
+            // },
             footer: {
                 contact: [
                     {
