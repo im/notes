@@ -6,7 +6,7 @@ module.exports = (options, context, api) => {
         base: '/notes/',
         theme: "@vuepress/blog",
         head: [
-            ['link', { rel: 'icon', href: '/assets/favicon.ico' }]
+            ['link', { rel: 'icon', href: '/favicon.ico' }]
         ],
         themeConfig: {
             directories: [
