@@ -21,6 +21,7 @@ jobs:
             - name: 3. install yarn..
               run: |
                   npm install yarn -g
+                  yarn
 
             - name: 4. build docs..
               run: |
