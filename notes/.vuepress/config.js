@@ -9,15 +9,15 @@ module.exports = (options, context, api) => {
             ['link', { rel: 'icon', href: '/favicon.ico' }]
         ],
         themeConfig: {
-            directories: [
-                {
-                    id: "posts",
-                    dirname: "_posts",
-                    title: "文章",
-                    path: "/posts/",
-                    itemPermalink: "/posts/:year/:month/:day/:slug"
-                }
-            ],
+            // directories: [
+            //     {
+            //         id: "posts",
+            //         dirname: "_posts",
+            //         title: "文章",
+            //         path: "/posts/",
+            //         itemPermalink: "/posts/:year/:month/:day/:slug"
+            //     }
+            // ],
             sitemap: {
                 hostname: "https://tangxiaomi.top/notes/"
             },
