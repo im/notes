@@ -6,6 +6,7 @@
     "author": "tangxiaomi <81195314@qq.com>",
     "license": "MIT",
     "devDependencies": {
+        "@tangxiaomi/cli": "^0.0.2",
         "@vuepress/theme-blog": "^2.3.3",
         "vuepress": "^1.9.7"
     },

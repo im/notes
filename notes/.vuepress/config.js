@@ -1,7 +1,7 @@
 const path = require("path");
 module.exports = (options, context, api) => {
     return {
-        title: "Tang Xiaomi .",
+        title: "糖小米 .",
         description: "Web development, Frontend, JavaScript, Nodejs",
         base: '/notes/',
         theme: "@vuepress/blog",
