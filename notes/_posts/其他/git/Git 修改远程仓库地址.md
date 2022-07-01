@@ -52,3 +52,5 @@ vim config
 git remote -v
 ```
 
+e/)
+

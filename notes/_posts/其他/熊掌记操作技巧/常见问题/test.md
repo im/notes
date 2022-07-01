@@ -11,9 +11,10 @@ tags:
 #  test 
 ![Pro.jpg](/notes/note_images/63C211F7-626C-404F-9940-10E1E620CCF3-1452-00003AECE09594CC/Pro.jpg)
 
-这是教程的最后一部分！ 你可以查看熊掌记教程的其他章节，[[熊掌记入门]]、[[管理与发布]]以及[[方法与技巧]]。
+111sadksadj dsajdska dsajdksja dsajkdsja 
+d
 
-[image:61F85D9D-C0AE-40AB-9436-5AFC7DA62A8A-1452-00003B2BB2073477/31F2FB27-E5DF-4C23-B53F-312E4382C9E9.png]
+![31F2FB27-E5DF-4C23-B53F-312E4382C9E9.png](/notes/note_images/61F85D9D-C0AE-40AB-9436-5AFC7DA62A8A-1452-00003B2BB2073477/31F2FB27-E5DF-4C23-B53F-312E4382C9E9.png)
 
 llldsds 
 ## 附加功能

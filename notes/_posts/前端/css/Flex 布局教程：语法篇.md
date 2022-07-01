@@ -13,10 +13,10 @@ tags:
 ![bg2015071001.gif](/notes/note_images/67359FCF-DBA7-4859-81A4-615B683A83AA-82216-00013B9ED8229A40/bg2015071001.gif)
 布局的传统解决方案，基于 [盒状模型](https://developer.mozilla.org/en-US/docs/Web/CSS/box_model) ，依赖 [display](https://developer.mozilla.org/en-US/docs/Web/CSS/display) 属性 + [position](https://developer.mozilla.org/en-US/docs/Web/CSS/position) 属性 + [float](https://developer.mozilla.org/en-US/docs/Web/CSS/float) 属性。它对于那些特殊布局非常不方便，比如， [垂直居中](https://css-tricks.com/centering-css-complete-guide/) 就不容易实现。
 
-[image:7B127789-9884-457E-8C58-55F754982E45-82216-00013B9ED808867D/bg2015071002.png]
+![bg2015071002.png](/notes/note_images/7B127789-9884-457E-8C58-55F754982E45-82216-00013B9ED808867D/bg2015071002.png)
 2009年，W3C 提出了一种新的方案----Flex 布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能。
 
-[image:4FB442D8-134A-4F80-B287-CF20BD46A070-82216-00013B9ED7E4BF11/bg2015071003.jpg]
+![bg2015071003.jpg](/notes/note_images/4FB442D8-134A-4F80-B287-CF20BD46A070-82216-00013B9ED7E4BF11/bg2015071003.jpg)
 Flex 布局将成为未来布局的首选方案。本文介绍它的语法， [下一篇文章](http://www.ruanyifeng.com/blog/2015/07/flex-examples.html) 给出常见布局的 Flex 写法。网友 [JailBreak](http://vgee.cn/) 为本文的所有示例制作了 [Demo](http://static.vgee.cn/static/index.html) ，也可以参考。
 
 以下内容主要参考了下面两篇文章： [A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) 和 [A Visual Guide to CSS3 Flexbox Properties](https://scotch.io/tutorials/a-visual-guide-to-css3-flexbox-properties) 。
@@ -59,7 +59,7 @@ Webkit 内核的浏览器，必须加上 `-webkit` 前缀。
 
 采用 Flex 布局的元素，称为 Flex 容器（flex container），简称"容器"。它的所有子元素自动成为容器成员，称为 Flex 项目（flex item），简称"项目"。
 
-[image:3BA59B43-7C5D-4111-9ACD-2CBFBD5E60EB-82216-00013B9ED7B3DFCE/bg2015071004.png]
+![bg2015071004.png](/notes/note_images/3BA59B43-7C5D-4111-9ACD-2CBFBD5E60EB-82216-00013B9ED7B3DFCE/bg2015071004.png)
 容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做 `main start` ，结束位置叫做 `main end` ；交叉轴的开始位置叫做 `cross start` ，结束位置叫做 `cross end` 。
 
 项目默认沿主轴排列。单个项目占据的主轴空间叫做 `main size` ，占据的交叉轴空间叫做 `cross size` 。
@@ -87,7 +87,7 @@ Webkit 内核的浏览器，必须加上 `-webkit` 前缀。
 }
 ```
 
-[image:490CA10E-CFD7-4D43-BBB3-5127A762B2FB-82216-00013B9ED797E57B/bg2015071005.png]
+![bg2015071005.png](/notes/note_images/490CA10E-CFD7-4D43-BBB3-5127A762B2FB-82216-00013B9ED797E57B/bg2015071005.png)
 它可能有4个值。
 
 * `row` （默认值）：主轴为水平方向，起点在左端。
@@ -100,7 +100,7 @@ Webkit 内核的浏览器，必须加上 `-webkit` 前缀。
 
 默认情况下，项目都排在一条线（又称"轴线"）上。 `flex-wrap` 属性定义，如果一条轴线排不下，如何换行。
 
-[image:446C5978-3717-4DC0-8662-7741137484F0-82216-00013B9ED78313DD/bg2015071006.png]
+![bg2015071006.png](/notes/note_images/446C5978-3717-4DC0-8662-7741137484F0-82216-00013B9ED78313DD/bg2015071006.png)
  
 ```
 .box{
@@ -112,13 +112,13 @@ Webkit 内核的浏览器，必须加上 `-webkit` 前缀。
 
 （1） `nowrap` （默认）：不换行。
 
-[image:431748F2-AFBE-423A-875E-B1D196AB7C2D-82216-00013B9ED76BFEBE/bg2015071007.png]
+![bg2015071007.png](/notes/note_images/431748F2-AFBE-423A-875E-B1D196AB7C2D-82216-00013B9ED76BFEBE/bg2015071007.png)
 （2） `wrap` ：换行，第一行在上方。
 
-[image:B0C93E31-FBD4-4EBD-A05B-432D6E0C590D-82216-00013B9ED756B5B4/bg2015071008.jpg]
+![bg2015071008.jpg](/notes/note_images/B0C93E31-FBD4-4EBD-A05B-432D6E0C590D-82216-00013B9ED756B5B4/bg2015071008.jpg)
 （3） `wrap-reverse` ：换行，第一行在下方。
 
-[image:5010AFBB-73A9-4004-B80C-5578000A0944-82216-00013B9ED7410C02/bg2015071009.jpg]
+![bg2015071009.jpg](/notes/note_images/5010AFBB-73A9-4004-B80C-5578000A0944-82216-00013B9ED7410C02/bg2015071009.jpg)
 ### 3.3 flex-flow
 
 `flex-flow` 属性是 `flex-direction` 属性和 `flex-wrap` 属性的简写形式，默认值为 `row nowrap` 。
@@ -141,7 +141,7 @@ Webkit 内核的浏览器，必须加上 `-webkit` 前缀。
 }
 ```
 
-[image:85431DD8-8882-44F5-B0CB-891333CCF4BE-82216-00013B9ED7259CC8/bg2015071010.png]
+![bg2015071010.png](/notes/note_images/85431DD8-8882-44F5-B0CB-891333CCF4BE-82216-00013B9ED7259CC8/bg2015071010.png)
 它可能取5个值，具体对齐方式与轴的方向有关。下面假设主轴为从左到右。
 
 * `flex-start` （默认值）：左对齐
@@ -162,7 +162,7 @@ Webkit 内核的浏览器，必须加上 `-webkit` 前缀。
 }
 ```
 
-[image:DFEE0BC4-044A-4838-85C1-652D2333F8BE-82216-00013B9ED70F3045/bg2015071011.png]
+![bg2015071011.png](/notes/note_images/DFEE0BC4-044A-4838-85C1-652D2333F8BE-82216-00013B9ED70F3045/bg2015071011.png)
 它可能取5个值。具体的对齐方式与交叉轴的方向有关，下面假设交叉轴从上到下。
 
 * `flex-start` ：交叉轴的起点对齐。
@@ -183,7 +183,7 @@ Webkit 内核的浏览器，必须加上 `-webkit` 前缀。
 }
 ```
 
-[image:45FEDDC7-C196-41A6-B385-B336083565D3-82216-00013B9ED6F7A686/bg2015071012.png]
+![bg2015071012.png](/notes/note_images/45FEDDC7-C196-41A6-B385-B336083565D3-82216-00013B9ED6F7A686/bg2015071012.png)
 该属性可能取6个值。
 
 * `flex-start` ：与交叉轴的起点对齐。
@@ -217,7 +217,7 @@ Webkit 内核的浏览器，必须加上 `-webkit` 前缀。
 }
 ```
 
-[image:091DD95F-10F4-4160-8E30-0F22C7A07FAB-82216-00013B9ED6D59438/bg2015071013.png]
+![bg2015071013.png](/notes/note_images/091DD95F-10F4-4160-8E30-0F22C7A07FAB-82216-00013B9ED6D59438/bg2015071013.png)
 ### 4.2 flex-grow属性
 
 `flex-grow` 属性定义项目的放大比例，默认为 `0` ，即如果存在剩余空间，也不放大。
@@ -229,7 +229,7 @@ Webkit 内核的浏览器，必须加上 `-webkit` 前缀。
 }
 ```
 
-[image:D66E94B6-4737-4EB3-8325-345F2776037A-82216-00013B9ED6B9D5B3/bg2015071014.png]
+![bg2015071014.png](/notes/note_images/D66E94B6-4737-4EB3-8325-345F2776037A-82216-00013B9ED6B9D5B3/bg2015071014.png)
 如果所有项目的 `flex-grow` 属性都为1，则它们将等分剩余空间（如果有的话）。如果一个项目的 `flex-grow` 属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。
 
 ### 4.3 flex-shrink属性
@@ -243,7 +243,7 @@ Webkit 内核的浏览器，必须加上 `-webkit` 前缀。
 }
 ```
 
-[image:91F53B7E-F693-4927-8237-4642D0E37885-82216-00013B9ED69DD0F9/bg2015071015.jpg]
+![bg2015071015.jpg](/notes/note_images/91F53B7E-F693-4927-8237-4642D0E37885-82216-00013B9ED69DD0F9/bg2015071015.jpg)
 如果所有项目的 `flex-shrink` 属性都为1，当空间不足时，都将等比例缩小。如果一个项目的 `flex-shrink` 属性为0，其他项目都为1，则空间不足时，前者不缩小。
 
 负值对该属性无效。
@@ -287,7 +287,7 @@ Webkit 内核的浏览器，必须加上 `-webkit` 前缀。
 }
 ```
 
-[image:62DB5CD6-CDB6-487E-AF45-6F94066C7A7E-82216-00013B9ED68281B2/bg2015071016.png]
+![bg2015071016.png](/notes/note_images/62DB5CD6-CDB6-487E-AF45-6F94066C7A7E-82216-00013B9ED68281B2/bg2015071016.png)
 该属性可能取6个值，除了auto，其他都与align-items属性完全一致。
 
 （完）

@@ -36,7 +36,7 @@ tags:
 4. 抛出了一个函数 **nextTick**。
 
 ## nextTick 函数
-[image:6A30712E-461B-40A9-BDD4-F0884470CC81-2755-0000819DFE089A99/640.png]
+![640.png](/notes/note_images/6A30712E-461B-40A9-BDD4-F0884470CC81-2755-0000819DFE089A99/640.png)
 
 1. 声明一个局部变量 **_resolve** 。
 2. 把所有回调函数压进 **callbacks** 中，以栈的形式的存储所有 **callback**。
@@ -46,7 +46,7 @@ tags:
 ## timerFunc 函数
 我们开始说了，timerFunc 为全局变量，现在调用 timerFunc ，timerFunc 是什么时候被赋值为一个函数，并且函数里执行代码又是什么？
 
-[image:60F127E0-3442-48A8-A43F-1F22B9E6FADA-2755-0000819DFDCE9DB6/640.png]
+![640.png](/notes/note_images/60F127E0-3442-48A8-A43F-1F22B9E6FADA-2755-0000819DFDCE9DB6/640.png)
 
 我们看到，这段判断代码总共有四个分支，四个分支里对 timerFunc 有不同的赋值，我们先来看第一个分支。
 
@@ -134,7 +134,7 @@ else {
 
 我们可以发现，给 timerFunc 赋值是一个降级的过程。为什么呢，因为 Vue 在执行的过程中，执行环境不同，所以要适配环境。
 
-[image:4E0A01FA-9305-4366-9CE0-FE135DF8A2EB-2755-0000819DFD81A385/640.png]
+![640.png](/notes/note_images/4E0A01FA-9305-4366-9CE0-FE135DF8A2EB-2755-0000819DFD81A385/640.png)
 
 这张图便于我们更清晰的了解到降级的过程。
 

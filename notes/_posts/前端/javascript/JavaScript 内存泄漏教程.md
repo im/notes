@@ -35,7 +35,7 @@ free(buffer);
 
 最常使用的方法叫做 ["引用计数"](https://en.wikipedia.org/wiki/Reference_counting) （reference counting）：语言引擎有一张"引用表"，保存了内存里面所有的资源（通常是各种值）的引用次数。如果一个值的引用次数是 `0` ，就表示这个值不再用到了，因此可以将这块内存释放。
 
-[image:73373864-7E67-4F6C-BBDE-90DCB0E63D1A-82216-000140B82C6B09D4/bg2017041703.png]
+![bg2017041703.png](/notes/note_images/73373864-7E67-4F6C-BBDE-90DCB0E63D1A-82216-000140B82C6B09D4/bg2017041703.png)
 
 上图中，左下角的两个值，没有任何引用，所以可以释放。
 
@@ -70,7 +70,7 @@ arr = null;
 
 Chrome 浏览器查看内存占用，按照以下步骤操作。
 
-[image:98AF901E-BB6B-40C8-AE54-EDB30CD6D47D-82216-000140B82C580C62/bg2017041704.png]
+![bg2017041704.png](/notes/note_images/98AF901E-BB6B-40C8-AE54-EDB30CD6D47D-82216-000140B82C580C62/bg2017041704.png)
 
 1. 打开开发者工具，选择 Timeline 面板
 2. 在顶部的 `Capture` 字段里面勾选 Memory
@@ -80,11 +80,11 @@ Chrome 浏览器查看内存占用，按照以下步骤操作。
 
 如果内存占用基本平稳，接近水平，就说明不存在内存泄漏。
 
-[image:CF1EB850-55B9-4771-958B-A7A6D888EEFC-82216-000140B82C3E5538/bg2017041705.png]
+![bg2017041705.png](/notes/note_images/CF1EB850-55B9-4771-958B-A7A6D888EEFC-82216-000140B82C3E5538/bg2017041705.png)
 
 反之，就是内存泄漏了。
 
-[image:96D1C7B1-BE5B-42F5-A595-4A77BEBE1B46-82216-000140B82C23A8AD/bg2017041706.png]
+![bg2017041706.png](/notes/note_images/96D1C7B1-BE5B-42F5-A595-4A77BEBE1B46-82216-000140B82C23A8AD/bg2017041706.png)
 
 ### 3.2 命令行
 
@@ -100,7 +100,7 @@ console.log(process.memoryUsage());
 
 `process.memoryUsage` 返回一个对象，包含了 Node 进程的内存占用信息。该对象包含四个字段，单位是字节， [含义](http://stackoverflow.com/questions/12023359/what-do-the-return-values-of-node-js-process-memoryusage-stand-for) 如下。
 
-[image:8AF45791-ED47-4853-9A2A-21DDAC78BDEB-82216-000140B82C03BC58/bg2017041702-1.png]
+![bg2017041702-1.png](/notes/note_images/8AF45791-ED47-4853-9A2A-21DDAC78BDEB-82216-000140B82C03BC58/bg2017041702-1.png)
 
 * rss（resident set size）：所有内存占用，包括指令区和堆栈。
 * heapTotal："堆"占用的内存，包括用到的和没用到的。
@@ -117,7 +117,7 @@ console.log(process.memoryUsage());
 
 ES6 考虑到了这一点，推出了两种新的数据结构： [WeakSet](http://es6.ruanyifeng.com/#docs/set-map#WeakSet) 和 [WeakMap](http://es6.ruanyifeng.com/#docs/set-map#WeakMap) 。它们对于值的引用都是不计入垃圾回收机制的，所以名字里面才会有一个"Weak"，表示这是弱引用。
 
-[image:2D86F1A9-DE28-4127-8F31-450D4BBDF55E-82216-000140B82BCF174F/bg2017041707.jpg]
+![bg2017041707.jpg](/notes/note_images/2D86F1A9-DE28-4127-8F31-450D4BBDF55E-82216-000140B82BCF174F/bg2017041707.jpg)
 
 下面以 WeakMap 为例，看看它是怎么解决内存泄漏的。
 

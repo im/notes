@@ -40,7 +40,7 @@ tags:
 
 可以用一张图来说明下流程：
 
-[image:1E3F9181-65DC-42BE-BDEE-2282C67407A4-2755-000033FA427758A6/v2-a38ad24f9109e1a4cb7b49cc1b90cafe_1440w.jpg]
+![v2-a38ad24f9109e1a4cb7b49cc1b90cafe_1440w.jpg](/notes/note_images/1E3F9181-65DC-42BE-BDEE-2282C67407A4-2755-000033FA427758A6/v2-a38ad24f9109e1a4cb7b49cc1b90cafe_1440w.jpg)
 
 这里相信有人会想问，什么是 microtasks ?规范中规定，task分为两大类, 分别是 Macro Task （宏任务）和 Micro Task（微任务）, 并且每个宏任务结束后, 都要清空所有的微任务,这里的 Macro Task也是我们常说的 task ，有些文章并没有对其做区分，后面文章中所提及的task皆看做宏任务( macro task)。
 
@@ -99,7 +99,7 @@ console.log('script end');
 首先，事件循环从宏任务 (macrotask) 队列开始，最初始，宏任务队列中，只有一个 scrip t(整体代码)任务；当遇到任务源 (task source) 时，则会先分发任务到对应的任务队列中去。所以，就和上面例子类似，首先遇到了console.log，输出 script start； 接着往下走，遇到 setTimeout 任务源，将其分发到任务队列中去，记为 timeout1； 接着遇到 promise，new promise 中的代码立即执行，输出 promise1, 然后执行 resolve ,遇到 setTimeout ,将其分发到任务队列中去，记为 timemout2, 将其 then 分发到微任务队列中去，记为 then1； 接着遇到 console.log 代码，直接输出 script end 接着检查微任务队列，发现有个 then1 微任务，执行，输出then1 再检查微任务队列，发现已经清空，则开始检查宏任务队列，执行 timeout1,输出 timeout1； 接着执行 timeout2，输出 timeout2 至此，所有的都队列都已清空，执行完毕。其输出的顺序依次是：script start, promise1, script end, then1, timeout1, timeout2
 
 用流程图看更清晰：
-[image:DE665A41-20B9-4400-8C2C-9D834734D0B9-2755-000033FA42470A51/v2-a3ac02a230c49c9aa8c45af46eae2e1c_1440w.jpg]
+![v2-a3ac02a230c49c9aa8c45af46eae2e1c_1440w.jpg](/notes/note_images/DE665A41-20B9-4400-8C2C-9D834734D0B9-2755-000033FA42470A51/v2-a3ac02a230c49c9aa8c45af46eae2e1c_1440w.jpg)
 ### 
 总结
 有个小 tip：从规范来看，microtask 优先于 task 执行，所以如果有需要优先执行的逻辑，放入microtask 队列会比 task 更早的被执行。
