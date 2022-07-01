@@ -2,6 +2,7 @@ const fs = require('fs-extra')
 const { BASE_TEMPLATE_PATH, OUTPUT_PATH, NOTE_IMAGE_PATH, OUTPUT_IMAGE_PATH } = require('./constant')
 const getData = require('./data')
 const MD5 = require('./md5')
+const commit = require('./commit')
 let cache = {}
 
 const compile = (tplFile,data) => {
@@ -33,7 +34,7 @@ const moveNoteImg = () => {
 
 const createNote = (notes) => {
     notes.forEach(({ output, content }) => {
-        fs.outputFile(output, content)
+        fs.outputFileSync(output, content)
     })
 }
 
@@ -42,16 +43,21 @@ module.exports = () => {
     moveNoteImg()
 
     const getNotes = getData()
-    const changes = []
     getNotes.then(notes => {
+        const changes = []
+
         const results = notes.map(note => {
             const tags = note.tags.filter(Boolean)
             const output = OUTPUT_PATH + '/' + tags.join('/') + '/' + note.title + '.md'
-            const hash = MD5(note.title + note.updateDate)
-            if (cache[note.id] && cache[note.id] != hash) {
-                changes.push(note)
+            const hash = MD5(note.title + note.timer)
+            if (note.title === 'test') {
+                console.log(' note.timer: ', note.timer, hash, cache[note.id])
+                if (cache[note.id] && cache[note.id] != hash) {
+                    changes.push(note)
+                }
+                cache[note.id] = hash
             }
-            cache[note.id] = hash
+
             return {
                 ...note,
                 content: compile(BASE_TEMPLATE_PATH, note),
@@ -60,9 +66,7 @@ module.exports = () => {
         })
 
         createNote(results)
+        changes.length && commit(changes)
     })
-    console.log(changes)
-
-    console.log('update 111')
 
 }

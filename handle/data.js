@@ -51,11 +51,11 @@ const formatContent = (content) => {
     content = content.replace(/\[image:(.+?)\]/gi, (match,url) => {
         const data = url.split('/')
         const uuid = data[0] || ''
-        const imageName = data[1] || '' 
+        const imageName = data[1] || ''
         const path = BASE + IMAGE_DIR_NAME + '/' + uuid + '/' + imageName
         return `![${imageName}](${path})`
     })
-    return hideTags(content) 
+    return hideTags(content)
 }
 
 const formatDate = (dtnum) => {
@@ -78,6 +78,7 @@ module.exports = () => {
                         title: ZTITLE.trim(),
                         content: formatContent(ZTEXT),
                         createDate: formatDate(ZCREATIONDATE),
+                        timer: ZMODIFICATIONDATE,
                         updateDate: formatDate(ZMODIFICATIONDATE),
                         id: ZUNIQUEIDENTIFIER,
                         tags
