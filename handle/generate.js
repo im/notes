@@ -1,6 +1,8 @@
 const fs = require('fs-extra')
 const { BASE_TEMPLATE_PATH, OUTPUT_PATH, NOTE_IMAGE_PATH, OUTPUT_IMAGE_PATH } = require('./constant')
 const getData = require('./data')
+const MD5 = require('./md5')
+let cache = {}
 
 const compile = (tplFile,data) => {
     let content = fs.readFileSync(tplFile, 'utf8')
@@ -40,10 +42,16 @@ module.exports = () => {
     moveNoteImg()
 
     const getNotes = getData()
+    const changes = []
     getNotes.then(notes => {
         const results = notes.map(note => {
             const tags = note.tags.filter(Boolean)
             const output = OUTPUT_PATH + '/' + tags.join('/') + '/' + note.title + '.md'
+            const hash = MD5(note.title + note.updateDate)
+            if (cache[note.id] && cache[note.id] != hash) {
+                changes.push(note)
+            }
+            cache[note.id] = hash
             return {
                 ...note,
                 content: compile(BASE_TEMPLATE_PATH, note),
@@ -53,6 +61,7 @@ module.exports = () => {
 
         createNote(results)
     })
+    console.log(changes)
 
     console.log('update 111')
 
