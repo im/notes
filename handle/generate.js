@@ -66,6 +66,7 @@ module.exports = () => {
         })
 
         createNote(results)
+        console.log('changes: ', changes)
         changes.length && commit(changes)
     })
 
