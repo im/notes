@@ -1,12 +1,8 @@
 ---
-title: 
-date: 2022-01-25
+title: ${title}
+date: ${updateDate}
 tags:
-  - Git
-summary: 
-comment:
-  title: 
+${tags} 
 ---
 
-
-## 背景
+${content}
