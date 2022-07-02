@@ -54,8 +54,7 @@ const formatLink = (notes) => {
             const title = match ? match.replace(/\[\[/gi, '').replace(/\]\]/gi, '') : ''
             const note = notes.filter(note => note.title.trim() === title.trim())[0]
             if (note) {
-                const path = `/notes/${note.updateDate.replace(/\-/g, '/')}/${note.title}/`
-                console.log('path: ', path)
+                const path = `[note.title](/notes/${note.updateDate.replace(/\-/g, '/')}/${note.title}/) \n`
                 return path
             }
             return match
