@@ -47,12 +47,17 @@ const hideTags = (content) => {
     return content.replace(/(\n)[ \t]*(\#[^\s#].*)/g, '')
 }
 
-const formatLink = (content) => {
-    content.replace(/\[\[.*?\]\]/gi, (match,url) => {
-        console.log('url: ', url)
-        console.log('match: ', match)
+const formatLink = (notes) => {
+    notes.forEach((item) => {
+        const content = item.content
+        content.replace(/\[\[.*?\]\]/gi, (match) => {
+            const title = match ? match.replace(/\[\[/gi, '').replace(/\]\]/gi, '') : ''
+            const note = notes.filter(note => note.title.trim() === title.trim())[0]
+            console.log('note: ', note)
+        })
     })
-    return content
+
+    return notes
 }
 
 const formatContent = (content) => {
@@ -63,7 +68,7 @@ const formatContent = (content) => {
         const path = BASE + IMAGE_DIR_NAME + '/' + uuid + '/' + imageName
         return `![${imageName}](${path})`
     })
-    return formatLink(hideTags(content))
+    return hideTags(content)
 }
 
 const formatDate = (dtnum) => {
@@ -93,7 +98,7 @@ module.exports = () => {
                     }
                     note.title && notes.push(note)
                 })
-                resolve(notes)
+                resolve(formatLink(notes))
             })
         } catch (err) {
             reject(err)
