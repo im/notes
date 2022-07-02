@@ -43,7 +43,7 @@ module.exports = (notes) => {
     // console.log(`git commit -m ${messge}`)
     exec(`git pull`)
 
-    // exec(`git push origin master`)
+    exec(`git push origin master`)
 
     console.log(`Submission to Github successful, update time: ${updateDate} update note:${title}`)
 }
