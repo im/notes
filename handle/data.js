@@ -84,10 +84,13 @@ const formatDate = (dtnum) => {
 
 const notesFilter = (notes) => {
     const ignoreNotes = ['熊掌记操作技巧']
-    return notes.filter(v => {
-        console.log('tags: ', v.tags)
+    const result = notes.filter(v => {
         return !v.tags.filter(tag => ignoreNotes.includes(tag)).length
     })
+    result.forEach(v => {
+        console.log(v.tags)
+    })
+    return result
 }
 
 module.exports = () => {
