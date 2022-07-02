@@ -47,6 +47,14 @@ const hideTags = (content) => {
     return content.replace(/(\n)[ \t]*(\#[^\s#].*)/g, '')
 }
 
+const formatLink = (content) => {
+    content.replace(/\[\[.*?\]\]/gi, (match,url) => {
+        console.log('url: ', url)
+        console.log('match: ', match)
+    })
+    return content
+}
+
 const formatContent = (content) => {
     content = content.replace(/\[image:(.+?)\]/gi, (match,url) => {
         const data = url.split('/')
@@ -55,7 +63,7 @@ const formatContent = (content) => {
         const path = BASE + IMAGE_DIR_NAME + '/' + uuid + '/' + imageName
         return `![${imageName}](${path})`
     })
-    return hideTags(content)
+    return formatLink(hideTags(content))
 }
 
 const formatDate = (dtnum) => {
