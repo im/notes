@@ -54,7 +54,7 @@ const formatLink = (notes) => {
             const note = notes.filter(note => note.title.trim() === title.trim())[0]
             if (note) {
                 const name = note.title.replace(/\s+/g, '-')
-                const path = `[${note.title}](/notes/${note.updateDate.replace(/\-/g, '/')}/${name}/)\n`
+                const path = `[${note.title}](/${note.updateDate.replace(/\-/g, '/')}/${name}/)`
                 return path
             }
             return match
@@ -82,6 +82,14 @@ const formatDate = (dtnum) => {
     return format((dtnum + offset) * 1000)
 }
 
+const notesFilter = (notes) => {
+    const ignoreNotes = ['熊掌记操作技巧']
+    return notes.filter(v => {
+        console.log('tags: ', v.tags)
+        return !v.tags.filter(tag => ignoreNotes.includes(tag)).length
+    })
+}
+
 module.exports = () => {
     return new Promise((resolve, reject) => {
         try {
@@ -102,7 +110,7 @@ module.exports = () => {
                     }
                     note.title && notes.push(note)
                 })
-                resolve(formatLink(notes))
+                resolve(notesFilter(formatLink(notes)))
             })
         } catch (err) {
             reject(err)

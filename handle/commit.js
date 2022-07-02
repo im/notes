@@ -31,10 +31,11 @@ function format (millisecond, template) {
 }
 
 module.exports = (notes) => {
-    const { title, updateDate } = notes[0]
+    const { title, } = notes[0]
+    const updateDate = format(new Date(), 'YYYY-mm-dd HH:MM:SS')
 
-    const messge = `Update Note: ${title}, Update time: ${format(new Date(), 'YYYY-mm-dd HH:MM:SS')}`
-    console.log('messge: ', messge)
+    const messge = `Update Note: ${title}, Update time: ${updateDate}`
+    // console.log('messge: ', messge)
 
     exec('git add .')
     // console.log('git add .')
@@ -44,5 +45,5 @@ module.exports = (notes) => {
 
     // exec(`git push origin master`)
 
-    // console.log(`Submission to Github successful, update time: ${updateDate} update notes:${title}`)
+    console.log(`Submission to Github successful, update time: ${updateDate} update note:${title}`)
 }

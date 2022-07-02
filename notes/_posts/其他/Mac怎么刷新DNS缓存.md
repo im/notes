@@ -1,6 +1,6 @@
 ---
 title: Mac怎么刷新DNS缓存
-date: 2022-07-01
+date: 2022-07-02
 tags:
   - 其他 
  
@@ -10,7 +10,7 @@ tags:
 
 命令行输入：`open ~/.bash_profile`，回车
 
-在文件中添加如下配置： 
+在文件中添加如下配置：  cccc
 
 ```sh
 export PATH="/Applications/Google\ Chrome.app/Contents/MacOS":$PATH
