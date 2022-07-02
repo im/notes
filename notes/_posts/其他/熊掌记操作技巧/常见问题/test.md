@@ -12,9 +12,6 @@ tags:
 ![Pro.jpg](/notes/note_images/63C211F7-626C-404F-9940-10E1E620CCF3-1452-00003AECE09594CC/Pro.jpg)
 
 dkadasadsajkda  大大
-大叔大婶
-大家
-dada
 dsakjdas
 dsakj  大事记
 
