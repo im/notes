@@ -87,9 +87,6 @@ const notesFilter = (notes) => {
     const result = notes.filter(v => {
         return !v.tags.filter(tag => ignoreNotes.includes(tag)).length
     })
-    result.forEach(v => {
-        console.log(v.tags)
-    })
     return result
 }
 
