@@ -50,10 +50,15 @@ const hideTags = (content) => {
 const formatLink = (notes) => {
     notes.forEach((item) => {
         const content = item.content
-        content.replace(/\[\[.*?\]\]/gi, (match) => {
+        item.content = content.replace(/\[\[.*?\]\]/gi, (match) => {
             const title = match ? match.replace(/\[\[/gi, '').replace(/\]\]/gi, '') : ''
             const note = notes.filter(note => note.title.trim() === title.trim())[0]
-            console.log('note: ', note)
+            if (note) {
+                const path = `/notes/${note.updateDate.replace(/\-/g, '/')}/${note.title}/`
+                console.log('path: ', path)
+                return path
+            }
+            return match
         })
     })
 

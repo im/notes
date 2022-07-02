@@ -8,12 +8,12 @@ tags:
 ---
 
 # Flex 布局教程：实例篇
-[[Flex 布局教程：语法篇]] 介绍了Flex布局的语法，今天介绍常见布局的Flex写法。
+/notes/2021/12/01/Flex 布局教程：语法篇/ 介绍了Flex布局的语法，今天介绍常见布局的Flex写法。
 
 你会看到，不管是什么布局，Flex往往都可以几行命令搞定。
 
 ![bg2015071327.png](/notes/note_images/9FDCA9B1-1689-4A7A-B73F-C7CD0673B260-82216-00013B99E5837699/bg2015071327.png)
-我只列出代码，详细的语法解释请查阅 [[Flex 布局教程：语法篇]]。我的主要参考资料是 [Landon Schropp](http://davidwalsh.name/flexbox-dice) 的文章和 [Solved by Flexbox](http://philipwalton.github.io/solved-by-flexbox/) 。
+我只列出代码，详细的语法解释请查阅 /notes/2021/12/01/Flex 布局教程：语法篇/。我的主要参考资料是 [Landon Schropp](http://davidwalsh.name/flexbox-dice) 的文章和 [Solved by Flexbox](http://philipwalton.github.io/solved-by-flexbox/) 。
 <!--more-->
 ## 一、骰子的布局
 
