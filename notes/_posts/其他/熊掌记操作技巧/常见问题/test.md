@@ -1,6 +1,6 @@
 ---
 title: test
-date: 2022-07-01
+date: 2022-07-02
 tags:
   - 其他 
   - 熊掌记操作技巧 
@@ -10,9 +10,17 @@ tags:
 
 #  test 
 ![Pro.jpg](/notes/note_images/63C211F7-626C-404F-9940-10E1E620CCF3-1452-00003AECE09594CC/Pro.jpg)
-dadad
-我的老家 的撒积极去外地可敬的萨克dadadsdada
-是的就是这样的  打算几点 dajidasi  csacsadadadads   dasdad
+
+dkadasadsajkda 
+daskjd大家都卡dasdsa dasdas
+
+打就打谁
+打赏金大卡司
+打卡机大师课
+打开觉得撒
+
+[[Mac怎么刷新DNS缓存]]
+[[element-ui tabs的label slot不能及时动态更新]]
 
 ![31F2FB27-E5DF-4C23-B53F-312E4382C9E9.png](/notes/note_images/61F85D9D-C0AE-40AB-9436-5AFC7DA62A8A-1452-00003B2BB2073477/31F2FB27-E5DF-4C23-B53F-312E4382C9E9.png)
 

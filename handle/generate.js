@@ -50,13 +50,10 @@ module.exports = () => {
             const tags = note.tags.filter(Boolean)
             const output = OUTPUT_PATH + '/' + tags.join('/') + '/' + note.title + '.md'
             const hash = MD5(note.title + note.timer)
-            if (note.title === 'test') {
-                console.log(' note.timer: ', note.timer, hash, cache[note.id])
-                if (cache[note.id] && cache[note.id] != hash) {
-                    changes.push(note)
-                }
-                cache[note.id] = hash
+            if (cache[note.id] && cache[note.id] != hash) {
+                changes.push(note)
             }
+            cache[note.id] = hash
 
             return {
                 ...note,
@@ -66,7 +63,6 @@ module.exports = () => {
         })
 
         createNote(results)
-        console.log('changes: ', changes)
         changes.length && commit(changes)
     })
 
