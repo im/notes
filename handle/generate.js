@@ -48,7 +48,8 @@ module.exports = () => {
 
         const results = notes.map(note => {
             const tags = note.tags.filter(Boolean)
-            const output = OUTPUT_PATH + '/' + tags.join('/') + '/' + note.title + '.md'
+            const name = note.title.replace(/\s+/g, '-')
+            const output = OUTPUT_PATH + '/' + tags.join('/') + '/' + name + '.md'
             const hash = MD5(note.title + note.timer)
             if (cache[note.id] && cache[note.id] != hash) {
                 changes.push(note)

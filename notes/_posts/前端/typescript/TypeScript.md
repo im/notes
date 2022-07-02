@@ -10,19 +10,19 @@ tags:
 # TypeScript
 ## 目录
 * 手册
-	* [note.title](/notes/2021/12/01/基础类型/) 
+	* [基础类型](/notes/2021/12/01/基础类型/)
 
-	* [note.title](/notes/2021/12/01/接口/) 
+	* [接口](/notes/2021/12/01/接口/)
 
-	* [note.title](/notes/2021/12/01/函数/) 
+	* [函数](/notes/2021/12/01/函数/)
 
-	* [note.title](/notes/2021/12/01/字面量类型/) 
+	* [字面量类型](/notes/2021/12/01/字面量类型/)
 
-	* [note.title](/notes/2021/12/01/类/) 
+	* [类](/notes/2021/12/01/类/)
 
-	* [note.title](/notes/2021/12/01/枚举/) 
+	* [枚举](/notes/2021/12/01/枚举/)
 
-	* [note.title](/notes/2021/12/01/泛型/) 
+	* [泛型](/notes/2021/12/01/泛型/)
 
 * [手册（进阶）](zh/reference/README.md)
 	* [高级类型](zh/reference/advanced-types.md)

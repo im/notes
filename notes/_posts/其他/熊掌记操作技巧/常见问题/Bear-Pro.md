@@ -1,6 +1,6 @@
 ---
-title: test
-date: 2022-07-02
+title: Bear Pro
+date: 2022-07-01
 tags:
   - 其他 
   - 熊掌记操作技巧 
@@ -8,46 +8,14 @@ tags:
  
 ---
 
-#  test 
-![Pro.jpg](/notes/note_images/63C211F7-626C-404F-9940-10E1E620CCF3-1452-00003AECE09594CC/Pro.jpg)
+# Bear Pro
+![Pro.jpg](/notes/note_images/SFNoteIntro2_File0/Pro.jpg)
 
-dkadasadsajkda  大大
-大叔大婶
-大家
-dada
-dsakjdas
-dsakj  大事记
+这是教程的最后一部分！ 你可以查看熊掌记教程的其他章节，[熊掌记入门](/notes/2021/12/01/熊掌记入门/)
+、[管理与发布](/notes/2021/12/01/管理与发布/)
+以及[方法与技巧](/notes/2021/12/01/方法与技巧/)
+。
 
-大事记
-dasdkjsa  dadsa 
-打了卡大
-大口
-大萨达撒
-daskjd大家都卡dasdsa dasdas dasda
- dasdas dsada
-dsakjidsa
-dsakkd
-dasdas
-dasdas
-dasdas
-  三等奖爱的  打完球的  dsadad
- dsadas
- dasdas
-dasda
-dasdads
-打就打谁
-打赏金大卡司
-打卡机大师课
-打开觉得撒
-
-[Mac怎么刷新DNS缓存](/notes/2021/12/01/Mac怎么刷新DNS缓存/)
-
-[element-ui tabs的label slot不能及时动态更新](/notes/2022/07/01/element-ui-tabs的label-slot不能及时动态更新/)
-
-
-![31F2FB27-E5DF-4C23-B53F-312E4382C9E9.png](/notes/note_images/61F85D9D-C0AE-40AB-9436-5AFC7DA62A8A-1452-00003B2BB2073477/31F2FB27-E5DF-4C23-B53F-312E4382C9E9.png)
-
-llldsds 
 ## 附加功能
 你可以在 iPad、iPhone 和 Mac 上使用熊掌记绝大多数的核心功能。我们希望这独特的工具能让所有人都写出漂亮、整洁的笔记。
 

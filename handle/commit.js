@@ -4,7 +4,7 @@ const chalk = require('chalk')
 module.exports = (notes) => {
     const { title, updateDate } = notes[0]
 
-    const messge = `Update Note: ${title} Update time: ${updateDate}`
+    const messge = `Update Note: ${title}, Update time: ${updateDate}`
     console.log('messge: ', messge)
 
     exec('git add .')
