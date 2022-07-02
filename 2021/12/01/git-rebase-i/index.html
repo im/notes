@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Git rebase -i | 糖小米 .</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/notes/favicon.ico">
+    <meta name="description" content="
+变基时有六个命令可用：
+
+pick
+pick只是意味着包括提交。重新进行命令时，重新安排pick命令的顺序会更改提交的顺序。如果选择不包括提交，则应删除整行。
+
+reword
+该reword命令与相似pick，但是使用后，重新设置过程将暂停并为您提供更改提交消息的机会。提交所做的任何更改均不受影响。
+
+edit
+如果您选择edit提交，则将有机会修改提交，这意味着您可以完全添 ...">
+    
+    <link rel="preload" href="/notes/assets/css/0.styles.5f1d73a0.css" as="style"><link rel="preload" href="/notes/assets/js/app.5c3630a5.js" as="script"><link rel="preload" href="/notes/assets/js/7.4afd0a91.js" as="script"><link rel="preload" href="/notes/assets/js/1.208cd082.js" as="script"><link rel="preload" href="/notes/assets/js/16.48711904.js" as="script"><link rel="prefetch" href="/notes/assets/js/10.47e74a21.js"><link rel="prefetch" href="/notes/assets/js/11.49994ff3.js"><link rel="prefetch" href="/notes/assets/js/12.203adc88.js"><link rel="prefetch" href="/notes/assets/js/13.87007fe1.js"><link rel="prefetch" href="/notes/assets/js/14.0fee2772.js"><link rel="prefetch" href="/notes/assets/js/15.f22ea15e.js"><link rel="prefetch" href="/notes/assets/js/17.28a68dff.js"><link rel="prefetch" href="/notes/assets/js/18.cfe43cd4.js"><link rel="prefetch" href="/notes/assets/js/19.71636c62.js"><link rel="prefetch" href="/notes/assets/js/20.37aa4175.js"><link rel="prefetch" href="/notes/assets/js/21.806577aa.js"><link rel="prefetch" href="/notes/assets/js/22.88e1f851.js"><link rel="prefetch" href="/notes/assets/js/23.92731f46.js"><link rel="prefetch" href="/notes/assets/js/24.114b0c2c.js"><link rel="prefetch" href="/notes/assets/js/25.3c31df46.js"><link rel="prefetch" href="/notes/assets/js/26.3b0a7f01.js"><link rel="prefetch" href="/notes/assets/js/27.4fea17d8.js"><link rel="prefetch" href="/notes/assets/js/28.6b16c93d.js"><link rel="prefetch" href="/notes/assets/js/29.58ac9fa5.js"><link rel="prefetch" href="/notes/assets/js/30.3dbec0e6.js"><link rel="prefetch" href="/notes/assets/js/31.1d8f9c16.js"><link rel="prefetch" href="/notes/assets/js/32.2dd1762a.js"><link rel="prefetch" href="/notes/assets/js/33.db8913f1.js"><link rel="prefetch" href="/notes/assets/js/34.64ba0435.js"><link rel="prefetch" href="/notes/assets/js/35.c3e200a6.js"><link rel="prefetch" href="/notes/assets/js/36.2bf4c539.js"><link rel="prefetch" href="/notes/assets/js/37.c18afd54.js"><link rel="prefetch" href="/notes/assets/js/38.ae18cab1.js"><link rel="prefetch" href="/notes/assets/js/39.1faa2f04.js"><link rel="prefetch" href="/notes/assets/js/4.ffa57cc2.js"><link rel="prefetch" href="/notes/assets/js/40.deedd9c3.js"><link rel="prefetch" href="/notes/assets/js/41.608e8945.js"><link rel="prefetch" href="/notes/assets/js/42.bbd42f75.js"><link rel="prefetch" href="/notes/assets/js/43.56518cb7.js"><link rel="prefetch" href="/notes/assets/js/44.14b58115.js"><link rel="prefetch" href="/notes/assets/js/45.da3da00e.js"><link rel="prefetch" href="/notes/assets/js/46.f04ea11b.js"><link rel="prefetch" href="/notes/assets/js/47.247919bc.js"><link rel="prefetch" href="/notes/assets/js/48.30f17979.js"><link rel="prefetch" href="/notes/assets/js/49.a23d3462.js"><link rel="prefetch" href="/notes/assets/js/5.5d5ced76.js"><link rel="prefetch" href="/notes/assets/js/50.5fb687b2.js"><link rel="prefetch" href="/notes/assets/js/51.0468b01e.js"><link rel="prefetch" href="/notes/assets/js/52.f47f9e6f.js"><link rel="prefetch" href="/notes/assets/js/53.4aa9a0b6.js"><link rel="prefetch" href="/notes/assets/js/54.4753ebec.js"><link rel="prefetch" href="/notes/assets/js/55.8afc111e.js"><link rel="prefetch" href="/notes/assets/js/56.a10f840b.js"><link rel="prefetch" href="/notes/assets/js/57.0873d7e2.js"><link rel="prefetch" href="/notes/assets/js/58.9725c24c.js"><link rel="prefetch" href="/notes/assets/js/59.35690a5e.js"><link rel="prefetch" href="/notes/assets/js/6.599552f9.js"><link rel="prefetch" href="/notes/assets/js/60.0e48d77a.js"><link rel="prefetch" href="/notes/assets/js/61.80e80cb4.js"><link rel="prefetch" href="/notes/assets/js/62.7f3c47b7.js"><link rel="prefetch" href="/notes/assets/js/63.667777e9.js"><link rel="prefetch" href="/notes/assets/js/64.309211e6.js"><link rel="prefetch" href="/notes/assets/js/65.2f22764d.js"><link rel="prefetch" href="/notes/assets/js/66.5f80abdd.js"><link rel="prefetch" href="/notes/assets/js/67.88033ac7.js"><link rel="prefetch" href="/notes/assets/js/68.ae7c1ee4.js"><link rel="prefetch" href="/notes/assets/js/69.fa74cf8f.js"><link rel="prefetch" href="/notes/assets/js/70.22a3b497.js"><link rel="prefetch" href="/notes/assets/js/71.166c6787.js"><link rel="prefetch" href="/notes/assets/js/72.9bd8151b.js"><link rel="prefetch" href="/notes/assets/js/73.e049855b.js"><link rel="prefetch" href="/notes/assets/js/74.2a0388b3.js"><link rel="prefetch" href="/notes/assets/js/75.2f42ac0e.js"><link rel="prefetch" href="/notes/assets/js/76.2e4e22b3.js"><link rel="prefetch" href="/notes/assets/js/77.24f75892.js"><link rel="prefetch" href="/notes/assets/js/78.eb90fc13.js"><link rel="prefetch" href="/notes/assets/js/79.57e6087a.js"><link rel="prefetch" href="/notes/assets/js/8.51c84e7b.js"><link rel="prefetch" href="/notes/assets/js/80.fd29ad69.js"><link rel="prefetch" href="/notes/assets/js/9.eb348a45.js"><link rel="prefetch" href="/notes/assets/js/vuejs-paginate.a59a2aec.js">
+    <link rel="stylesheet" href="/notes/assets/css/0.styles.5f1d73a0.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div id="vuepress-theme-blog__global-layout"><section id="header-wrapper"><header id="header"><div class="header-wrapper"><div class="title"><a href="/notes/" class="nav-link home-link">糖小米 . </a></div> <div class="header-right-wrap"><ul class="nav"><li class="nav-item"><a href="/notes/" class="nav-link">Blog</a></li><li class="nav-item"><a href="/notes/tag/" class="nav-link">Tags</a></li></ul> <div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></div></header></section> <div id="mobile-header"><div class="mobile-header-bar"><div class="mobile-header-title"><a href="/notes/" class="nav-link mobile-home-link">糖小米 . </a> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></div> <div class="mobile-menu-wrapper"><hr class="menu-divider"> <ul class="mobile-nav"><li class="mobile-nav-item"><a href="/notes/" class="nav-link">Blog</a></li><li class="mobile-nav-item"><a href="/notes/tag/" class="nav-link">Tags</a></li> <li class="mobile-nav-item"><!----></li></ul></div></div></div> <div class="content-wrapper"><div id="vuepress-theme-blog__post-layout"><article itemscope="itemscope" itemtype="https://schema.org/BlogPosting" class="vuepress-blog-theme-content"><header><h1 itemprop="name headline" class="post-title">
+        Git rebase -i
+      </h1> <div class="post-meta"><!----> <div class="post-meta-date"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> <time pubdate itemprop="datePublished" datetime="2021-12-01T00:00:00.000Z">
+      Wed Dec 01 2021
+    </time></div> <ul itemprop="keywords" class="post-meta-tags"><li class="post-tag" data-v-42ccfcd5><a href="/notes/tag/其他" data-v-42ccfcd5><span data-v-42ccfcd5>其他</span></a></li><li class="post-tag" data-v-42ccfcd5><a href="/notes/tag/git" data-v-42ccfcd5><span data-v-42ccfcd5>git</span></a></li></ul></div></header> <div itemprop="articleBody" class="content__default"><h1 id="git-rebase-i"><a href="#git-rebase-i" class="header-anchor">#</a> Git rebase -i</h1> <h2 id="变基时有六个命令可用"><a href="#变基时有六个命令可用" class="header-anchor">#</a> 变基时有六个命令可用：</h2> <ul><li><p>pick
+pick只是意味着包括提交。重新进行命令时，重新安排pick命令的顺序会更改提交的顺序。如果选择不包括提交，则应删除整行。</p></li> <li><p>reword
+该reword命令与相似pick，但是使用后，重新设置过程将暂停并为您提供更改提交消息的机会。提交所做的任何更改均不受影响。</p></li> <li><p>edit
+如果您选择edit提交，则将有机会修改提交，这意味着您可以完全添加或更改提交。您还可以进行更多提交，然后再继续进行变基。这使您可以将大型提交拆分为较小的提交，或者删除在提交中所做的错误更改。</p></li> <li><p>squash
+该命令使您可以将两个或多个提交合并为一个提交。提交被压缩到其上方的提交中。Git使您有机会编写描述这两个更改的新提交消息。</p></li> <li><p>fixup
+这类似于squash，但是要合并的提交已丢弃其消息。提交仅合并到其上方的提交中，并且较早提交的消息用于描述这两个更改。</p></li> <li><p>exec
+这使您可以对提交运行任意的Shell命令。</p></li></ul> <h2 id="准备"><a href="#准备" class="header-anchor">#</a> 准备</h2> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># 我们初始化一个项目</span>
+<span class="token function">git</span> init
+
+<span class="token comment"># 制造一些提交</span>
+<span class="token function">touch</span> base.txt
+<span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>
+<span class="token function">git</span> commit -m <span class="token string">&quot;add base&quot;</span>
+
+<span class="token function">touch</span> <span class="token number">1</span>.txt
+<span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>
+<span class="token function">git</span> commit -m <span class="token string">&quot;add 1&quot;</span>
+
+<span class="token function">touch</span> <span class="token number">2</span>.txt
+<span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>
+<span class="token function">git</span> commit -m <span class="token string">&quot;add 2&quot;</span>
+
+<span class="token function">touch</span> <span class="token number">3</span>.txt
+<span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>
+<span class="token function">git</span> commit -m <span class="token string">&quot;add 3&quot;</span>
+
+<span class="token function">touch</span> <span class="token number">4</span>.txt
+<span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>
+<span class="token function">git</span> commit -m <span class="token string">&quot;add 4&quot;</span>
+
+<span class="token function">touch</span> <span class="token number">5</span>.txt
+<span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>
+<span class="token function">git</span> commit -m <span class="token string">&quot;add 5&quot;</span>
+
+
+<span class="token comment">## 查看现在的提交</span>
+<span class="token function">git</span> log
+commit a75ed742838ebc1ef1073502623478f73e1ec21f
+Author: 
+Date:   Wed Mar <span class="token number">4</span> <span class="token number">10</span>:02:51 <span class="token number">2020</span> +0800
+
+    <span class="token function">add</span> <span class="token number">5</span>
+
+commit 8b485bb4768b2abf8f6400dcba069f1a650ed5ec
+Author: 
+Date:   Wed Mar <span class="token number">4</span> 09:59:27 <span class="token number">2020</span> +0800
+
+    <span class="token function">add</span> <span class="token number">4</span>
+
+commit 63ce9fb010da550c668aca66758c45fbfad46e2b
+Author:
+Date:   Wed Mar <span class="token number">4</span> 09:59:04 <span class="token number">2020</span> +0800
+
+    <span class="token function">add</span> <span class="token number">3</span>
+
+commit 9cd34c4d42f52cfb40026dae613c8ad29d7cbc66
+Author: 
+Date:   Wed Mar <span class="token number">4</span> 09:58:45 <span class="token number">2020</span> +0800
+
+    <span class="token function">add</span> <span class="token number">2</span>
+
+commit 77bd0eb1a97e1676367ea236c1c47c155eaa8430
+Author: 
+Date:   Wed Mar <span class="token number">4</span> 09:58:23 <span class="token number">2020</span> +0800
+
+    <span class="token function">add</span> <span class="token number">1</span>
+</code></pre></div><p>现在我们已经有了一些，提交了，接下来开始练习</p> <h2 id="pick-更改提交顺序、删除提交"><a href="#pick-更改提交顺序、删除提交" class="header-anchor">#</a> pick 更改提交顺序、删除提交</h2> <p>pick只是意味着包括提交。重新进行命令时，重新安排pick`命令的顺序会更改提交的顺序。如果选择不包括提交，则应删除整行。</p> <p>::假定，我们现在要改变提交 5.txt 和 4.txt 的顺序，该怎么操作::</p> <p>更改涉及到了两次提交，最早提交次数为2（4.txt是倒数第二次提交）</p> <ol><li>告诉git 我要改变倒数第2次后的提交</li></ol> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">git</span> rebase -i HEAD~2
+</code></pre></div><p><strong>接着，git给你一个文本，告诉你我知道了，你说的这些可以有以下操作</strong></p> <p>下面是执行命令后的样子</p> <div class="language-bash extra-class"><pre class="language-bash"><code>pick 8b485bb <span class="token function">add</span> <span class="token number">4</span>
+pick a75ed74 <span class="token function">add</span> <span class="token number">5</span>
+
+<span class="token comment"># Rebase 63ce9fb..a75ed74 onto 63ce9fb (2 command(s))</span>
+<span class="token comment">#</span>
+<span class="token comment"># Commands:</span>
+<span class="token comment"># p, pick = use commit</span>
+<span class="token comment"># r, reword = use commit, but edit the commit message</span>
+<span class="token comment"># e, edit = use commit, but stop for amending</span>
+<span class="token comment"># s, squash = use commit, but meld into previous commit</span>
+<span class="token comment"># f, fixup = like &quot;squash&quot;, but discard this commit's log message</span>
+<span class="token comment"># x, exec = run command (the rest of the line) using shell</span>
+<span class="token comment"># d, drop = remove commit</span>
+<span class="token comment">#</span>
+<span class="token comment"># These lines can be re-ordered; they are executed from top to bottom.</span>
+<span class="token comment">#</span>
+<span class="token comment"># If you remove a line here THAT COMMIT WILL BE LOST.</span>
+<span class="token comment">#</span>
+<span class="token comment"># However, if you remove everything, the rebase will be aborted.</span>
+<span class="token comment">#</span>
+<span class="token comment"># Note that empty commits are commented out</span>
+~
+~
+~
+</code></pre></div><p>解释：我们刚刚执行的命令中 HEAD~2代表选择离HEAD最近的两条提交
+下面注释的是提示，我们不需要管，只要专注前两行就ok</p> <ol start="2"><li>把 第一行 和 第二行 交换顺序</li></ol> <p><strong>小技巧：这个是vi编辑器，首先Esc ，进入命令模式，移动到第一行 按dd,本行就被剪切，pick a75ed74 add 5就变成了第一行，接着按 p刚刚剪切的就成了第二行，快速交换顺序</strong></p> <p>不会用vi建议百度篇教程学习一哈</p> <p>变成下面的样子</p> <div class="language-bash extra-class"><pre class="language-bash"><code>pick a75ed74 <span class="token function">add</span> <span class="token number">5</span>
+pick 8b485bb <span class="token function">add</span> <span class="token number">4</span>
+</code></pre></div><p>接着 Esc,:wq 保存退出
+成功！</p> <p>git log查看，4 和 5 的顺序改变了
+<img src="/notes/note_images/DD22777A-951D-4394-B53E-E27B677FD8EF-2755-00001C591C5454CE/aHR0cHM6Ly9naXRlZS5jb20vcmVuc2hlbl8wNTIvbXlOb3RlLWltZy9yYXcvbWFzdGVyL2ltYWdlLzIwMjAwMzA4MTkzNTQxLTQzOTMucG5n.png" alt="aHR0cHM6Ly9naXRlZS5jb20vcmVuc2hlbl8wNTIvbXlOb3RlLWltZy9yYXcvbWFzdGVyL2ltYWdlLzIwMjAwMzA4MTkzNTQxLTQzOTMucG5n.png"></p> <h2 id="假定-我们现在要删除-某一个提交-该怎么操作"><a href="#假定-我们现在要删除-某一个提交-该怎么操作" class="header-anchor">#</a> 假定，我们现在要删除 某一个提交，该怎么操作</h2> <p>我们来删除 add 4 的那条提交</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">git</span> rebase -i HEAD~2
+</code></pre></div><p>出现如下</p> <div class="language-bash extra-class"><pre class="language-bash"><code>pick a75ed74 <span class="token function">add</span> <span class="token number">5</span>
+pick 8b485bb <span class="token function">add</span> <span class="token number">4</span>
+
+<span class="token comment"># Rebase 575fd8b..bb2a77d onto 575fd8b (1 command(s))</span>
+<span class="token comment"># .....略</span>
+</code></pre></div><p>我们删除 第二行</p> <p>接着 Esc,:wq 保存退出
+<img src="/notes/note_images/50CEB8D0-A8C3-4CE4-8C76-7DB27CB1EBAD-2755-00001C65D4170AED/aHR0cHM6Ly9naXRlZS5jb20vcmVuc2hlbl8wNTIvbXlOb3RlLWltZy9yYXcvbWFzdGVyL2ltYWdlLzIwMjAwMzA0MTA0MTMwLTY1NjExOS5wbmc.png" alt="aHR0cHM6Ly9naXRlZS5jb20vcmVuc2hlbl8wNTIvbXlOb3RlLWltZy9yYXcvbWFzdGVyL2ltYWdlLzIwMjAwMzA0MTA0MTMwLTY1NjExOS5wbmc.png"></p> <p>git log查看，4 和 5 的顺序改变了
+<img src="/notes/note_images/97B6E275-34A7-4845-B476-4730E543B677-2755-00001C66D53190C7/aHR0cHM6Ly9naXRlZS5jb20vcmVuc2hlbl8wNTIvbXlOb3RlLWltZy9yYXcvbWFzdGVyL2ltYWdlLzIwMjAwMzA0MTA0MzE2LTc3MzYwMC5wbmc.png" alt="aHR0cHM6Ly9naXRlZS5jb20vcmVuc2hlbl8wNTIvbXlOb3RlLWltZy9yYXcvbWFzdGVyL2ltYWdlLzIwMjAwMzA0MTA0MzE2LTc3MzYwMC5wbmc.png"></p> <h2 id="record-修改提交消息-提交内容不变"><a href="#record-修改提交消息-提交内容不变" class="header-anchor">#</a> record 修改提交消息(提交内容不变)</h2> <p>该reword命令与相似pick，但是使用后，重新设置过程将暂停并为您提供更改提交消息的机会。提交所做的任何更改均不受影响。</p> <p><strong>假定，我们现在要 修改某个提交的消息，该怎么操作</strong>
+修改一下 add 2 的提交消息</p> <p>git log 查看 add 2 距离 HEAD 有多少的距离，得：3</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">git</span> rebase -i HEAD~3
+</code></pre></div><p>出现如下</p> <div class="language-bash extra-class"><pre class="language-bash"><code>pick 9cd34c4 <span class="token function">add</span> <span class="token number">2</span>
+pick 63ce9fb <span class="token function">add</span> <span class="token number">3</span>
+pick 575fd8b <span class="token function">add</span> <span class="token number">5</span>
+
+<span class="token comment"># Rebase 77bd0eb..575fd8b onto 77bd0eb (3 command(s))</span>
+<span class="token comment"># .... 略</span>
+</code></pre></div><p>我们只需要修改 第一行 add 2 ，其余保持不变</p> <div class="language-bash extra-class"><pre class="language-bash"><code>r 9cd34c4 <span class="token function">add</span> <span class="token number">2</span>
+pick 63ce9fb <span class="token function">add</span> <span class="token number">3</span>
+pick 575fd8b <span class="token function">add</span> <span class="token number">5</span>
+
+<span class="token comment"># Rebase 77bd0eb..575fd8b onto 77bd0eb (3 command(s))</span>
+<span class="token comment"># .... 略</span>
+</code></pre></div><p>r 是 record简写</p> <p>接着 Esc,:wq 保存退出</p> <p>git会说 开始执行，接着弹出一个编辑窗口</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">add</span> <span class="token number">2</span>
+
+<span class="token comment"># Please enter the commit message for your changes. Lines starting</span>
+<span class="token comment"># with '#' will be ignored, and an empty message aborts the commit.</span>
+<span class="token comment">#</span>
+<span class="token comment"># Date:      Wed Mar 4 09:58:45 2020 +0800</span>
+<span class="token comment">#</span>
+<span class="token comment"># interactive rebase in progress; onto 77bd0eb</span>
+<span class="token comment"># Last command done (1 command done):</span>
+<span class="token comment">#    r 9cd34c4 add 2</span>
+<span class="token comment"># Next commands to do (2 remaining commands):</span>
+<span class="token comment">#    pick 63ce9fb add 3</span>
+<span class="token comment">#    pick 575fd8b add 5</span>
+<span class="token comment"># You are currently editing a commit while rebasing branch 'master' on '77bd0eb'.</span>
+<span class="token comment">#</span>
+<span class="token comment"># Changes to be committed:</span>
+<span class="token comment">#       new file:   2.txt</span>
+<span class="token comment">#</span>
+</code></pre></div><p>我们就可以修改 add 2 了</p> <p>下面的注释是对当前状态的一些说明</p> <p>大致是说，上一次执行的命令 是 <code>r 9cd34c4 add 2</code></p> <p>下面还有两条命令</p> <p>当前命令改变的committed的文件 是 2.txt 等等</p> <p><strong>修改 add 2</strong></p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">add</span> <span class="token number">2</span> ~ new comment
+</code></pre></div><p>接着 Esc,:wq 保存退出</p> <p>成功
+<img src="/notes/note_images/C88EBAC2-77A7-4AE9-9EAD-53F5F76306F4-2755-00001C7C65B2151E/aHR0cHM6Ly9naXRlZS5jb20vcmVuc2hlbl8wNTIvbXlOb3RlLWltZy9yYXcvbWFzdGVyL2ltYWdlLzIwMjAwMzA0MTA1OTEzLTE2Mzk3Ny5wbmc.png" alt="aHR0cHM6Ly9naXRlZS5jb20vcmVuc2hlbl8wNTIvbXlOb3RlLWltZy9yYXcvbWFzdGVyL2ltYWdlLzIwMjAwMzA0MTA1OTEzLTE2Mzk3Ny5wbmc.png"></p> <p>git log查看, 消息 “add 2” 变为了 “add 2 ~ new comment”
+<img src="/notes/note_images/A313E83F-B0C1-484F-9775-ADE848006612-2755-00001C8015543A99/aHR0cHM6Ly9naXRlZS5jb20vcmVuc2hlbl8wNTIvbXlOb3RlLWltZy9yYXcvbWFzdGVyL2ltYWdlLzIwMjAwMzA4MTkzODEzLTE4OTI4My5wbmc.png" alt="aHR0cHM6Ly9naXRlZS5jb20vcmVuc2hlbl8wNTIvbXlOb3RlLWltZy9yYXcvbWFzdGVyL2ltYWdlLzIwMjAwMzA4MTkzODEzLTE4OTI4My5wbmc.png"></p> <p>::只要不动pick的 顺序，就代表什么都不做::</p> <h2 id="edit修改提交"><a href="#edit修改提交" class="header-anchor">#</a> edit修改提交</h2> <p>如果您选择edit提交，则将有机会修改提交，这意味着您可以完全添加或更改提交。您还可以进行更多提交，然后再继续进行变基。这使您可以将大型提交拆分为较小的提交，或者删除在提交中所做的错误更改。</p> <p><strong>假定 我想要在两个提交之间 再加提交，怎么办</strong>
+假定，我们要在 add 3 和 add 5 之间 添加一条提交</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">git</span> rebase -i HEAD~2
+</code></pre></div><div class="language-bash extra-class"><pre class="language-bash"><code>pick <span class="token number">6934312</span> <span class="token function">add</span> <span class="token number">3</span>
+pick 5ce6dde <span class="token function">add</span> <span class="token number">5</span>
+
+<span class="token comment"># Rebase 7f9d45d..5ce6dde onto 7f9d45d (2 command(s))</span>
+<span class="token comment"># ....</span>
+</code></pre></div><p>修改为</p> <div class="language-bash extra-class"><pre class="language-bash"><code>e <span class="token number">6934312</span> <span class="token function">add</span> <span class="token number">3</span>
+pick 5ce6dde <span class="token function">add</span> <span class="token number">5</span>
+</code></pre></div><p>接着 Esc,:wq 保存退出</p> <p>有如下</p> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">git</span> rebase -i HEAD~2
+Stopped at 6934312135c150bf74bead26e371df1443273ca4<span class="token punctuation">..</span>. <span class="token function">add</span> <span class="token number">3</span>
+You can amend the commit now, with
+
+        <span class="token function">git</span> commit --amend
+
+Once you are satisfied with your changes, run
+
+        <span class="token function">git</span> rebase --continue
+
+
+xxxxxx MINGW32 ~/Desktop/git-demo <span class="token punctuation">(</span>master<span class="token operator">|</span>REBASE-i <span class="token number">1</span>/2<span class="token punctuation">)</span>
+</code></pre></div><p>可以看到，我们的master分支多了REBASE-i 1/2</p> <p>我们尝试做一些修改，给3.txt 增加一些内容，然后提交</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">git</span> <span class="token function">add</span> <span class="token number">3</span>.txt
+
+<span class="token function">git</span> commit -m <span class="token string">&quot;edit 3.txt&quot;</span>
+<span class="token punctuation">[</span>detached HEAD 7262a57<span class="token punctuation">]</span> edit <span class="token number">3</span>.txt
+ <span class="token number">1</span> <span class="token function">file</span> changed, <span class="token number">1</span> insertion<span class="token punctuation">(</span>+<span class="token punctuation">)</span>
+</code></pre></div><p>接着，我们继续 rebase</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">git</span> rebase --continue
+Successfully rebased and updated refs/heads/master.
+</code></pre></div><p>git log 查看，在 add 5 和 add 3 中间 增加了我们刚刚的修改
+<img src="/notes/note_images/CE3CC106-3F49-4880-A9A3-AC0D7487B34B-2755-00001C993D10676B/aHR0cHM6Ly9naXRlZS5jb20vcmVuc2hlbl8wNTIvbXlOb3RlLWltZy9yYXcvbWFzdGVyL2ltYWdlLzIwMjAwMzA0MTEzMDU2LTczMjkzMS5wbmc.png" alt="aHR0cHM6Ly9naXRlZS5jb20vcmVuc2hlbl8wNTIvbXlOb3RlLWltZy9yYXcvbWFzdGVyL2ltYWdlLzIwMjAwMzA0MTEzMDU2LTczMjkzMS5wbmc.png"></p> <p><strong>假定 我想要单纯的修改这次提交内容和消息，怎么办</strong></p> <p>参照上面的做到这一步，我们选择提交的方式 加一个参数 git commit --amend修改</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">git</span> <span class="token function">add</span> <span class="token number">3</span>.txt
+
+<span class="token function">git</span> commit --amend
+
+<span class="token comment"># 这样 就不会在多出一次提交</span>
+<span class="token comment"># 本次对 3.txt的修改会记录 到  add 3  这次提交记录中</span>
+</code></pre></div><p>接着结束这次 rebase</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">git</span> rebase --continue
+Successfully rebased and updated refs/heads/master.
+</code></pre></div><h2 id="squash合并提交"><a href="#squash合并提交" class="header-anchor">#</a> squash合并提交</h2> <p>squash</p> <p>该命令使您可以将两个或多个提交合并为一个提交。提交被压缩到其上方的提交中。Git使您有机会编写描述这两个更改的新提交消息。</p> <p><strong>假定，我想合并某几个提交，怎么办</strong></p> <p>如下
+<img src="/notes/note_images/A08A71EA-8B00-4810-9340-3FE86FB7701F-2755-00001CA471ACA90E/aHR0cHM6Ly9naXRlZS5jb20vcmVuc2hlbl8wNTIvbXlOb3RlLWltZy9yYXcvbWFzdGVyL2ltYWdlLzIwMjAwMzA0MTIzODIyLTY3NTQyMy5wbmc.png" alt="aHR0cHM6Ly9naXRlZS5jb20vcmVuc2hlbl8wNTIvbXlOb3RlLWltZy9yYXcvbWFzdGVyL2ltYWdlLzIwMjAwMzA0MTIzODIyLTY3NTQyMy5wbmc.png"></p> <p>我们合并 add 5 和 add 3</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">git</span> rebase - i HEAD~2
+</code></pre></div><div class="language-bash extra-class"><pre class="language-bash"><code>pick <span class="token number">6934312</span> <span class="token function">add</span> <span class="token number">3</span>
+pick 6fa47e4 <span class="token function">add</span> <span class="token number">5</span>
+
+<span class="token comment"># Rebase 7f9d45d..6fa47e4 onto 7f9d45d (2 command(s))</span>
+</code></pre></div><p>修改为</p> <div class="language-bash extra-class"><pre class="language-bash"><code>pick <span class="token number">6934312</span> <span class="token function">add</span> <span class="token number">3</span>
+s 6fa47e4 <span class="token function">add</span> <span class="token number">5</span>
+</code></pre></div><p>接着 Esc,:wq 保存退出</p> <p>开始执行变更</p> <p>然后 在弹出来的编辑框里 写提交信息</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># This is a combination of 2 commits.</span>
+<span class="token comment"># The first commit's message is:</span>
+
+<span class="token function">add</span> <span class="token number">3</span>
+
+<span class="token comment"># This is the 2nd commit message:</span>
+
+<span class="token function">add</span> <span class="token number">5</span>
+
+<span class="token comment"># Please enter the commit message for your changes. Lines starting</span>
+<span class="token comment"># with '#' will be ignored, and an empty message aborts the commit.</span>
+<span class="token comment">#</span>
+<span class="token comment"># Date:      Wed Mar 4 09:59:04 2020 +0800</span>
+<span class="token comment">#</span>
+<span class="token comment"># interactive rebase in progress; onto 7f9d45d</span>
+<span class="token comment"># Last commands done (2 commands done):</span>
+<span class="token comment">#    pick 6934312 add 3</span>
+<span class="token comment">#    s 6fa47e4 add 5</span>
+<span class="token comment"># No commands remaining.</span>
+<span class="token comment"># You are currently editing a commit while rebasing branch 'master' on '7f9d45d'.</span>
+<span class="token comment">#</span>
+<span class="token comment"># Changes to be committed:</span>
+<span class="token comment">#       new file:   3.txt</span>
+<span class="token comment">#       new file:   5.txt</span>
+</code></pre></div><p>我们可以修改提交消息，默认是把两个消息都合并</p> <p>接着 Esc,:wq 保存退出</p> <p>git log查看，合并成功
+<img src="/notes/note_images/68AE8D9D-F8FC-4FF0-B3A9-0E0B23C80F57-2755-00001CB127ED3354/aHR0cHM6Ly9naXRlZS5jb20vcmVuc2hlbl8wNTIvbXlOb3RlLWltZy9yYXcvbWFzdGVyL2ltYWdlLzIwMjAwMzA0MTI0NjU3LTUwMDk0MC5wbmc.png" alt="aHR0cHM6Ly9naXRlZS5jb20vcmVuc2hlbl8wNTIvbXlOb3RlLWltZy9yYXcvbWFzdGVyL2ltYWdlLzIwMjAwMzA0MTI0NjU3LTUwMDk0MC5wbmc.png"></p> <h2 id="fixup合并提交-只保留较早的提交信息"><a href="#fixup合并提交-只保留较早的提交信息" class="header-anchor">#</a> fixup合并提交，只保留较早的提交信息</h2> <p>这类似于squash，但是要合并的提交已丢弃其消息。提交仅合并到其上方的提交中，并且较早提交的消息用于描述这两个更改。</p> <p>最后两次提交</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">git</span> rebase -i HEAD~2
+</code></pre></div><div class="language-bash extra-class"><pre class="language-bash"><code>pick 7f9d45d <span class="token function">add</span> <span class="token number">2</span> ~ new comment
+pick 311adc9 <span class="token function">add</span> <span class="token number">3</span>
+
+<span class="token comment"># Rebase 77bd0eb..311adc9 onto 77bd0eb (2 command(s))</span>
+<span class="token comment">#  ----------------------</span>
+<span class="token comment"># 变更为</span>
+<span class="token comment"># -----------------------</span>
+
+pick 7f9d45d <span class="token function">add</span> <span class="token number">2</span> ~ new comment
+f 311adc9 <span class="token function">add</span> <span class="token number">3</span>
+
+<span class="token comment"># 保存</span>
+</code></pre></div><h2 id="exec-执行任意shell命令"><a href="#exec-执行任意shell命令" class="header-anchor">#</a> exec 执行任意shell命令</h2> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">git</span> rebase -i HEAD~3
+
+
+<span class="token comment"># 弹出编辑框</span>
+pick 81fe4d0 添加test2.txt和test3.txt
+pick 77bd0eb <span class="token function">add</span> <span class="token number">1</span>
+pick e7c68b8 <span class="token function">add</span> <span class="token number">2</span> ~ new comment
+
+<span class="token comment"># Rebase 258a059..e7c68b8 onto 258a059 (3 command(s))</span>
+
+<span class="token comment"># ----------------</span>
+<span class="token comment"># 加一行 命令</span>
+<span class="token comment"># ---------------</span>
+x <span class="token builtin class-name">echo</span> <span class="token string">&quot;Hello is echo do .......&quot;</span>
+pick 81fe4d0 添加test2.txt和test3.txt
+pick 77bd0eb <span class="token function">add</span> <span class="token number">1</span>
+pick e7c68b8 <span class="token function">add</span> <span class="token number">2</span> ~ new comment
+
+
+<span class="token comment">## 执行了我们刚刚键入的命令</span>
+Executing: <span class="token builtin class-name">echo</span> <span class="token string">&quot;Hello is echo do .......&quot;</span>
+Hello is <span class="token builtin class-name">echo</span> <span class="token keyword">do</span> <span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span>.
+Successfully rebased and updated refs/heads/master.
+
+</code></pre></div><p>其他</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># Commands:</span>
+<span class="token comment"># p, pick = use commit</span>
+<span class="token comment"># r, reword = use commit, but edit the commit message</span>
+<span class="token comment"># e, edit = use commit, but stop for amending</span>
+<span class="token comment"># s, squash = use commit, but meld into previous commit</span>
+<span class="token comment"># f, fixup = like &quot;squash&quot;, but discard this commit's log message</span>
+<span class="token comment"># x, exec = run command (the rest of the line) using shell</span>
+<span class="token comment"># d, drop = remove commit</span>
+</code></pre></div><h2 id="drop"><a href="#drop" class="header-anchor">#</a> drop</h2> <p>删除提交
+用法与 p,r,e,s,f,x 一致</p> <h2 id="命令写错了怎么办"><a href="#命令写错了怎么办" class="header-anchor">#</a> 命令写错了怎么办</h2> <p>看提示</p> <div class="language-bash extra-class"><pre class="language-bash"><code>You can fix this with <span class="token string">'git rebase --edit-todo'</span><span class="token builtin class-name">.</span>
+<span class="token comment"># 用 git rebase --edit--todo  来重新编辑命令</span>
+</code></pre></div></div> <footer><!----> <hr> <!----></footer></article> <div class="sticker vuepress-toc"><div class="vuepress-toc-item vuepress-toc-h2 active"><a href="#变基时有六个命令可用" title="变基时有六个命令可用：">变基时有六个命令可用：</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#准备" title="准备">准备</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#pick-更改提交顺序、删除提交" title="pick 更改提交顺序、删除提交">pick 更改提交顺序、删除提交</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#假定-我们现在要删除-某一个提交-该怎么操作" title="假定，我们现在要删除 某一个提交，该怎么操作">假定，我们现在要删除 某一个提交，该怎么操作</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#record-修改提交消息-提交内容不变" title="record 修改提交消息(提交内容不变)">record 修改提交消息(提交内容不变)</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#edit修改提交" title="edit修改提交">edit修改提交</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#squash合并提交" title="squash合并提交">squash合并提交</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#fixup合并提交-只保留较早的提交信息" title="fixup合并提交，只保留较早的提交信息">fixup合并提交，只保留较早的提交信息</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#exec-执行任意shell命令" title="exec 执行任意shell命令">exec 执行任意shell命令</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#drop" title="drop">drop</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#命令写错了怎么办" title="命令写错了怎么办">命令写错了怎么办</a></div></div></div></div> <footer class="footer" data-v-3d9deeb8><div class="footer-left-wrap" data-v-3d9deeb8><ul class="contact" data-v-3d9deeb8><li class="contact-item" data-v-3d9deeb8><a href="https://github.com/im" target="_blank" rel="noopener noreferrer" class="nav-link external" data-v-3d9deeb8><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github" data-v-3d9deeb8><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" data-v-3d9deeb8></path></svg>
+          
+        </a></li><li class="contact-item" data-v-3d9deeb8><a href="mailto:tangxiaomiemail@gmail.com" class="nav-link external" data-v-3d9deeb8><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail" data-v-3d9deeb8><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" data-v-3d9deeb8></path><polyline points="22,6 12,13 2,6" data-v-3d9deeb8></polyline></svg>
+          
+        </a></li></ul></div> <div class="footer-right-wrap" data-v-3d9deeb8><ul class="copyright" data-v-3d9deeb8><li class="copyright-item" data-v-3d9deeb8>糖小米 © 2022</li></ul></div></footer></div><div class="global-ui"></div></div>
+    <script src="/notes/assets/js/app.5c3630a5.js" defer></script><script src="/notes/assets/js/7.4afd0a91.js" defer></script><script src="/notes/assets/js/1.208cd082.js" defer></script><script src="/notes/assets/js/16.48711904.js" defer></script>
+  </body>
+</html>

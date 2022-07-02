@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>JS - CommonJS、ES2015、AMD、CMD模块规范对比与介绍 | 糖小米 .</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/notes/favicon.ico">
+    <meta name="description" content="
+CommonJS 基本介绍
+
+CommonJS 是一种思想，它是为 JS 的表现来制定规范。由于 JS 没有模块系统、标准库较少、缺乏包管理工具，因此 CommonJS 应运而生。
+CommonJS 的目标是希望 JS 可以在任何地方运行，不只是浏览器中。只要我们的 JavaScript 是根据 CommonJS API 编写的，那么就可以在与 CommonJS 兼容的系统上 ...">
+    
+    <link rel="preload" href="/notes/assets/css/0.styles.5f1d73a0.css" as="style"><link rel="preload" href="/notes/assets/js/app.5c3630a5.js" as="script"><link rel="preload" href="/notes/assets/js/7.4afd0a91.js" as="script"><link rel="preload" href="/notes/assets/js/1.208cd082.js" as="script"><link rel="preload" href="/notes/assets/js/34.64ba0435.js" as="script"><link rel="prefetch" href="/notes/assets/js/10.47e74a21.js"><link rel="prefetch" href="/notes/assets/js/11.49994ff3.js"><link rel="prefetch" href="/notes/assets/js/12.203adc88.js"><link rel="prefetch" href="/notes/assets/js/13.87007fe1.js"><link rel="prefetch" href="/notes/assets/js/14.0fee2772.js"><link rel="prefetch" href="/notes/assets/js/15.f22ea15e.js"><link rel="prefetch" href="/notes/assets/js/16.48711904.js"><link rel="prefetch" href="/notes/assets/js/17.28a68dff.js"><link rel="prefetch" href="/notes/assets/js/18.cfe43cd4.js"><link rel="prefetch" href="/notes/assets/js/19.71636c62.js"><link rel="prefetch" href="/notes/assets/js/20.37aa4175.js"><link rel="prefetch" href="/notes/assets/js/21.806577aa.js"><link rel="prefetch" href="/notes/assets/js/22.88e1f851.js"><link rel="prefetch" href="/notes/assets/js/23.92731f46.js"><link rel="prefetch" href="/notes/assets/js/24.114b0c2c.js"><link rel="prefetch" href="/notes/assets/js/25.3c31df46.js"><link rel="prefetch" href="/notes/assets/js/26.3b0a7f01.js"><link rel="prefetch" href="/notes/assets/js/27.4fea17d8.js"><link rel="prefetch" href="/notes/assets/js/28.6b16c93d.js"><link rel="prefetch" href="/notes/assets/js/29.58ac9fa5.js"><link rel="prefetch" href="/notes/assets/js/30.3dbec0e6.js"><link rel="prefetch" href="/notes/assets/js/31.1d8f9c16.js"><link rel="prefetch" href="/notes/assets/js/32.2dd1762a.js"><link rel="prefetch" href="/notes/assets/js/33.db8913f1.js"><link rel="prefetch" href="/notes/assets/js/35.c3e200a6.js"><link rel="prefetch" href="/notes/assets/js/36.2bf4c539.js"><link rel="prefetch" href="/notes/assets/js/37.c18afd54.js"><link rel="prefetch" href="/notes/assets/js/38.ae18cab1.js"><link rel="prefetch" href="/notes/assets/js/39.1faa2f04.js"><link rel="prefetch" href="/notes/assets/js/4.ffa57cc2.js"><link rel="prefetch" href="/notes/assets/js/40.deedd9c3.js"><link rel="prefetch" href="/notes/assets/js/41.608e8945.js"><link rel="prefetch" href="/notes/assets/js/42.bbd42f75.js"><link rel="prefetch" href="/notes/assets/js/43.56518cb7.js"><link rel="prefetch" href="/notes/assets/js/44.14b58115.js"><link rel="prefetch" href="/notes/assets/js/45.da3da00e.js"><link rel="prefetch" href="/notes/assets/js/46.f04ea11b.js"><link rel="prefetch" href="/notes/assets/js/47.247919bc.js"><link rel="prefetch" href="/notes/assets/js/48.30f17979.js"><link rel="prefetch" href="/notes/assets/js/49.a23d3462.js"><link rel="prefetch" href="/notes/assets/js/5.5d5ced76.js"><link rel="prefetch" href="/notes/assets/js/50.5fb687b2.js"><link rel="prefetch" href="/notes/assets/js/51.0468b01e.js"><link rel="prefetch" href="/notes/assets/js/52.f47f9e6f.js"><link rel="prefetch" href="/notes/assets/js/53.4aa9a0b6.js"><link rel="prefetch" href="/notes/assets/js/54.4753ebec.js"><link rel="prefetch" href="/notes/assets/js/55.8afc111e.js"><link rel="prefetch" href="/notes/assets/js/56.a10f840b.js"><link rel="prefetch" href="/notes/assets/js/57.0873d7e2.js"><link rel="prefetch" href="/notes/assets/js/58.9725c24c.js"><link rel="prefetch" href="/notes/assets/js/59.35690a5e.js"><link rel="prefetch" href="/notes/assets/js/6.599552f9.js"><link rel="prefetch" href="/notes/assets/js/60.0e48d77a.js"><link rel="prefetch" href="/notes/assets/js/61.80e80cb4.js"><link rel="prefetch" href="/notes/assets/js/62.7f3c47b7.js"><link rel="prefetch" href="/notes/assets/js/63.667777e9.js"><link rel="prefetch" href="/notes/assets/js/64.309211e6.js"><link rel="prefetch" href="/notes/assets/js/65.2f22764d.js"><link rel="prefetch" href="/notes/assets/js/66.5f80abdd.js"><link rel="prefetch" href="/notes/assets/js/67.88033ac7.js"><link rel="prefetch" href="/notes/assets/js/68.ae7c1ee4.js"><link rel="prefetch" href="/notes/assets/js/69.fa74cf8f.js"><link rel="prefetch" href="/notes/assets/js/70.22a3b497.js"><link rel="prefetch" href="/notes/assets/js/71.166c6787.js"><link rel="prefetch" href="/notes/assets/js/72.9bd8151b.js"><link rel="prefetch" href="/notes/assets/js/73.e049855b.js"><link rel="prefetch" href="/notes/assets/js/74.2a0388b3.js"><link rel="prefetch" href="/notes/assets/js/75.2f42ac0e.js"><link rel="prefetch" href="/notes/assets/js/76.2e4e22b3.js"><link rel="prefetch" href="/notes/assets/js/77.24f75892.js"><link rel="prefetch" href="/notes/assets/js/78.eb90fc13.js"><link rel="prefetch" href="/notes/assets/js/79.57e6087a.js"><link rel="prefetch" href="/notes/assets/js/8.51c84e7b.js"><link rel="prefetch" href="/notes/assets/js/80.fd29ad69.js"><link rel="prefetch" href="/notes/assets/js/9.eb348a45.js"><link rel="prefetch" href="/notes/assets/js/vuejs-paginate.a59a2aec.js">
+    <link rel="stylesheet" href="/notes/assets/css/0.styles.5f1d73a0.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div id="vuepress-theme-blog__global-layout"><section id="header-wrapper"><header id="header"><div class="header-wrapper"><div class="title"><a href="/notes/" class="nav-link home-link">糖小米 . </a></div> <div class="header-right-wrap"><ul class="nav"><li class="nav-item"><a href="/notes/" class="nav-link">Blog</a></li><li class="nav-item"><a href="/notes/tag/" class="nav-link">Tags</a></li></ul> <div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></div></header></section> <div id="mobile-header"><div class="mobile-header-bar"><div class="mobile-header-title"><a href="/notes/" class="nav-link mobile-home-link">糖小米 . </a> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></div> <div class="mobile-menu-wrapper"><hr class="menu-divider"> <ul class="mobile-nav"><li class="mobile-nav-item"><a href="/notes/" class="nav-link">Blog</a></li><li class="mobile-nav-item"><a href="/notes/tag/" class="nav-link">Tags</a></li> <li class="mobile-nav-item"><!----></li></ul></div></div></div> <div class="content-wrapper"><div id="vuepress-theme-blog__post-layout"><article itemscope="itemscope" itemtype="https://schema.org/BlogPosting" class="vuepress-blog-theme-content"><header><h1 itemprop="name headline" class="post-title">
+        JS - CommonJS、ES2015、AMD、CMD模块规范对比与介绍
+      </h1> <div class="post-meta"><!----> <div class="post-meta-date"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> <time pubdate itemprop="datePublished" datetime="2021-12-01T00:00:00.000Z">
+      Wed Dec 01 2021
+    </time></div> <ul itemprop="keywords" class="post-meta-tags"><li class="post-tag" data-v-42ccfcd5><a href="/notes/tag/前端" data-v-42ccfcd5><span data-v-42ccfcd5>前端</span></a></li><li class="post-tag" data-v-42ccfcd5><a href="/notes/tag/javascript" data-v-42ccfcd5><span data-v-42ccfcd5>javascript</span></a></li></ul></div></header> <div itemprop="articleBody" class="content__default"><h1 id="js-commonjs、es2015、amd、cmd模块规范对比与介绍"><a href="#js-commonjs、es2015、amd、cmd模块规范对比与介绍" class="header-anchor">#</a> JS - CommonJS、ES2015、AMD、CMD模块规范对比与介绍</h1> <h3 id="commonjs-基本介绍"><a href="#commonjs-基本介绍" class="header-anchor">#</a> CommonJS 基本介绍</h3> <ol><li>CommonJS 是一种思想，它是为 JS 的表现来制定规范。由于 JS 没有模块系统、标准库较少、缺乏包管理工具，因此 CommonJS 应运而生。</li> <li>CommonJS 的目标是希望 JS 可以在任何地方运行，不只是浏览器中。只要我们的 JavaScript 是根据 CommonJS API 编写的，那么就可以在与 CommonJS 兼容的系统上运行。</li> <li>根据 CommonJS API 编写的 JavaScript 可以做下面这些事情：
+<ul><li>编写服务端应用</li> <li>编写命令行工具</li> <li>编写基于 GUI 的桌面应用</li></ul></li> <li>CommonJS 规范有很多实现，最有名要数 NodeJS 了。</li></ol> <h3 id="commonjs-的模块规范"><a href="#commonjs-的模块规范" class="header-anchor">#</a> CommonJS 的模块规范</h3> <p>一个文件就是一个模块，拥有单独的作用域。普通方式定义的变量、函数、对象都属于该模块内。
+* 通过 require 来加载模块。
+* 通过 exports 和 modul.exports 来暴露模块中的内容。</p> <h3 id="使用-exports-暴露模块接口"><a href="#使用-exports-暴露模块接口" class="header-anchor">#</a> 使用 exports 暴露模块接口</h3> <ol><li>下面我们在 Node.js 中创建一个模块，文件名为：hangge.js</li></ol> <div class="language-js extra-class"><pre class="language-js"><code>exports<span class="token punctuation">.</span><span class="token function-variable function">hello</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Hello hangge.com'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ol start="2"><li>创建一个 main.js 文件，引入这个模块并调用。</li></ol> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> hangge <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./hangge'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+hangge<span class="token punctuation">.</span><span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><ol start="3"><li>运行结果如下：</li></ol> <p><img src="/notes/note_images/7B7C6A25-38C4-4181-A80C-705C07EE5F6F-2755-00000D8D7772AD69/2017052214293263636.png" alt="2017052214293263636.png"></p> <h3 id="使用-modul-exports-暴露模块对象"><a href="#使用-modul-exports-暴露模块对象" class="header-anchor">#</a> 使用 modul.exports 暴露模块对象</h3> <ol><li>下面我们把一个对象封装到模块中，文件名为：hangge.js</li></ol> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//私有变量</span>
+<span class="token keyword">var</span> test <span class="token operator">=</span> <span class="token number">110</span><span class="token punctuation">;</span>
+ 
+<span class="token comment">//公开方法</span>
+<span class="token keyword">function</span> <span class="token function">Hangge</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> name<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function-variable function">setName</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">thyName</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        name <span class="token operator">=</span> thyName<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function-variable function">hello</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Hello '</span> <span class="token operator">+</span> name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+ 
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> Hangge<span class="token punctuation">;</span>
+</code></pre></div><ol start="2"><li>创建一个 main.js 文件，引入这个模块并调用。</li></ol> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> Hangge <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./hangge'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> hello <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Hangge</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+hello<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">'hangge.com'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+hello<span class="token punctuation">.</span><span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><ol start="3"><li>运行结果如下：</li></ol> <p><img src="/notes/note_images/48D86580-2659-4A75-9374-E6A72DC25691-2755-00000D8D77430FB6/2017052214293263636.png" alt="2017052214293263636.png"></p> <h3 id="es2015-基本介绍"><a href="#es2015-基本介绍" class="header-anchor">#</a> ES2015 基本介绍</h3> <p>2015 年 6 月， ES2015（即 ECMAScript 6、ES6） 正式发布。ES2015 是该语言的一个显著更新，也是自 2009 年 ES5 标准确定后的第一个重大更新。
+虽然 ES2015 提出了许多令人激动的新特性，但由于目前 JavaScript 的运行环境众多，对 ECMAScript 标准的支持程度也不一样。</p> <h3 id="es2015-的模块规范"><a href="#es2015-的模块规范" class="header-anchor">#</a> ES2015 的模块规范</h3> <ul><li>一个模块就是一个独立的文件。该文件内部的所有变量，外部无法获取。</li> <li>export 命令用于规定模块的对外接口。</li> <li>import 命令用于输入其他模块提供的功能。</li> <li>ES6 模块的设计思想是尽量的静态化，使得编译时就能确定模块的依赖关系，以及输入和输出的变量。</li></ul> <h3 id="使用-export-命令规定对外接口"><a href="#使用-export-命令规定对外接口" class="header-anchor">#</a> 使用 export 命令规定对外接口</h3> <ol><li>下面我们在 Node.js 中创建一个模块，文件名为：hangge.js</li></ol> <div class="language- extra-class"><pre class="language-text"><code>//圆面积计算
+export function area(radius) {
+  return Math.PI * radius * radius;
+}
+ 
+//圆周长计算
+export function circumference(radius) {
+  return 2 * Math.PI * radius;
+}
+</code></pre></div><ol start="2"><li>创建一个 main.js 文件，引入这个模块并调用。这里 import 命令使用大括号的形式加载模块对外的接口。</li></ol> <div class="language- extra-class"><pre class="language-text"><code>import {area,circumference} from './hangge';
+console.log('圆面积：' + area(10));
+console.log('圆周长：' + circumference(11));
+</code></pre></div><p>当然也可以使用星号（*）指定一个对象，实现模块的整体加载。</p> <div class="language- extra-class"><pre class="language-text"><code>import * as circle from './hangge';
+console.log('圆面积：' + circle.area(10));
+console.log('圆周长：' + circle.circumference(11));
+</code></pre></div><ol start="3"><li>由于 NodeJS 目前还不支持 ES2015 的 Module，这里我们借助 babel-node 来执行，运行结果如下：</li></ol> <p><img src="/notes/note_images/3FA84205-B166-4AF7-A46E-3432906135CA-2755-00000D8D77142946/2017052310253156591.png" alt="2017052310253156591.png"></p> <h3 id="使用-export-default-命令来输出模块"><a href="#使用-export-default-命令来输出模块" class="header-anchor">#</a> 使用 export default 命令来输出模块</h3> <ol><li>下面我们使用 export default 命令用于指定模块的默认输出。模块文件名为：hangge.js</li></ol> <div class="language- extra-class"><pre class="language-text"><code>//圆面积计算（作为默认接口）
+export default function(radius) {
+  return Math.PI * radius * radius;
+}
+ 
+//圆周长计算
+export function circumference(radius) {
+  return 2 * Math.PI * radius;
+}
+</code></pre></div><ol start="2"><li>创建一个 main.js 文件，引入这个模块并调用。注意：对于 export default 指定模块的默认输出，import 语句不需要使用大括号。</li></ol> <div class="language- extra-class"><pre class="language-text"><code>import area, {circumference} from './hangge';
+console.log('圆面积：' + area(10));
+console.log('圆周长：' + circumference(11));
+</code></pre></div><ol start="3"><li>同样借助 babel-node 来执行，运行结果如下：</li></ol> <p><img src="/notes/note_images/C4550A10-A262-4D73-895F-4668D76C9CC4-2755-00000D8D76E70517/2017052310253156591.png" alt="2017052310253156591.png"></p> <h3 id="_1-amd-基本介绍"><a href="#_1-amd-基本介绍" class="header-anchor">#</a> 1，AMD 基本介绍</h3> <ul><li>AMD 全称为 Asynchromous Module Definition（异步模块定义）</li> <li>AMD 是 RequireJS 在推广过程中对模块定义的规范化产出，它是一个在浏览器端模块化开发的规范。</li> <li>AMD 模式可以用于浏览器环境并且允许非同步加载模块，也可以按需动态加载模块。</li></ul> <h3 id="_2-amd-的模块规范"><a href="#_2-amd-的模块规范" class="header-anchor">#</a> 2，AMD 的模块规范</h3> <ul><li>AMD 通过异步加载模块。模块加载不影响后面语句的运行。所有依赖某些模块的语句均放置在回调函数中。</li> <li>AMD 规范只定义了一个函数 define，通过 define 方法定义模块。该函数的描述如下：</li></ul> <h3 id="define-id-dependencies-factory"><a href="#define-id-dependencies-factory" class="header-anchor">#</a> define(id?, dependencies?, factory)</h3> <div class="language- extra-class"><pre><code>* id：指定义中模块的名字（可选）。如果没有提供该参数，模块的名字应该默认为模块加载器请求的指定脚本的名字。如果提供了该参数，模块名必须是“顶级”的和绝对的（不允许相对名字）。
+* dependencies：当前模块依赖的，已被模块定义的模块标识的数组字面量（可选）。
+* factory：一个需要进行实例化的函数或者一个对象。
+* AMD 规范允许输出模块兼容 CommonJS 规范，这时 define 方法如下：
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>define(function (require, exports, module) {
+    var reqModule = require(&quot;./someModule&quot;);
+    requModule.test();
+      
+    exports.asplode = function () {
+        //someing
+    }
+});
+</code></pre></div><h3 id="独立模块"><a href="#独立模块" class="header-anchor">#</a> 独立模块</h3> <ol><li>我们使用 RequireJS 定义一个不依赖其他模块得独立模块，文件名：hangge.js</li></ol> <div class="language- extra-class"><pre class="language-text"><code>define(function(){
+    var add = function(x,y) {
+        return x + y;
+    };
+    return {
+        add : add
+    }
+});
+</code></pre></div><ol start="2"><li>接着创建一个 html 页面，其内部加载并调用这个模块。</li></ol> <div class="language- extra-class"><pre class="language-text"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;script type=&quot;text/javascript&quot; src=&quot;require.js&quot;&gt;&lt;/script&gt;
+        &lt;script type=&quot;text/javascript&quot;&gt;
+          require(['hangge'], function (m){
+            console.log(m.add(2,3));
+          });
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div><ol start="3"><li>控制台输出如下：
+<img src="/notes/note_images/1C1E354F-6D0F-4223-A3DB-E8B0C447902A-2755-00000D8D76C02377/2017052215410526448.png" alt="2017052215410526448.png"></li></ol> <h3 id="使用样例2-存在依赖的函数式定义"><a href="#使用样例2-存在依赖的函数式定义" class="header-anchor">#</a> 使用样例2：存在依赖的函数式定义</h3> <p>下面定义的模块又依赖于 cart 和 inventory 这两个模块（它们都处在同一个文件夹下）</p> <div class="language- extra-class"><pre class="language-text"><code>define([&quot;./cart&quot;, &quot;./inventory&quot;], function(cart, inventory) {
+        //return an object to define the &quot;my/shirt&quot; module.
+        return {
+            color: &quot;blue&quot;,
+            size: &quot;large&quot;,
+            addToCart: function() {
+                inventory.decrement(this);
+                cart.add(this);
+            }
+        }
+    }
+);
+</code></pre></div><h3 id="cmd-基本介绍"><a href="#cmd-基本介绍" class="header-anchor">#</a> CMD 基本介绍</h3> <ol><li>CMD 全称为 Common Module Definition，它是国内玉伯大神在开发 SeaJS 的时候提出来的。</li> <li>CMD 与 AMD 挺相近，二者区别如下：
+<ul><li>对于依赖的模块 CMD 是延迟执行，而 AMD 是提前执行（不过 RequireJS 从 2.0 开始，也改成可以延迟执行。 ）</li> <li>CMD 推崇依赖就近，AMD 推崇依赖前置。</li> <li>AMD 的 api 默认是一个当多个用，CMD 严格的区分推崇职责单一，其每个 API 都简单纯粹。例如：AMD 里 require 分全局的和局部的。CMD 里面没有全局的 require，提供 seajs.use() 来实现模块系统的加载启动。</li></ul></li></ol> <h3 id="使用-exports-暴露模块接口-2"><a href="#使用-exports-暴露模块接口-2" class="header-anchor">#</a> 使用 exports 暴露模块接口</h3> <ol><li>下面使用 sea.js 创建一个模块，文件名为：hangge.js</li></ol> <div class="language- extra-class"><pre class="language-text"><code>define(function(require, exports) {
+    // 对外提供name属性
+    exports.name = 'hangge';
+    // 对外提供hello方法
+    exports.hello = function() {
+      console.log('Hello hangge.com');
+    };
+});
+</code></pre></div><ol start="2"><li>接着创建一个 html 页面，其内部加载并调用这个模块。</li></ol> <div class="language- extra-class"><pre class="language-text"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;script type=&quot;text/javascript&quot; src=&quot;sea.js&quot;&gt;&lt;/script&gt;
+        &lt;script type=&quot;text/javascript&quot;&gt;
+          //加载一个模块，在加载完成时，执行回调
+          seajs.use('hangge', function(a) {
+            a.hello();
+          });
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div><ol start="3"><li>控制台输出如下：
+<img src="/notes/note_images/0971EDA1-EE52-4B98-A40D-78AB75F45741-2755-00000D8D7698591A/2017052216214198614.png" alt="2017052216214198614.png"></li></ol> <h3 id="使用-modul-exports-暴露模块对象-2"><a href="#使用-modul-exports-暴露模块对象-2" class="header-anchor">#</a> 使用 modul.exports 暴露模块对象</h3> <ol><li>下面我们把一个对象封装到模块中，文件名为：hangge.js</li></ol> <div class="language- extra-class"><pre class="language-text"><code>define(function(require, exports, module) {
+    // 对外提供接口
+    module.exports = {
+        name: 'hangge',
+        hello: function() {
+          console.log('Hello hangge.com');
+        }
+    };
+});
+</code></pre></div><ol start="2"><li>接着创建一个 html 页面，其内部加载并调用这个模块。</li></ol> <div class="language- extra-class"><pre class="language-text"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;script type=&quot;text/javascript&quot; src=&quot;sea.js&quot;&gt;&lt;/script&gt;
+        &lt;script type=&quot;text/javascript&quot;&gt;
+          //加载一个模块，在加载完成时，执行回调
+          seajs.use('hangge', function(a) {
+            a.hello();
+          });
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div><ol start="3"><li>控制台输出如下：
+<img src="/notes/note_images/E310DC0F-C671-467A-AE5E-FC58EAAC4AEB-2755-00000D8D766640AD/2017052216214198614.png" alt="2017052216214198614.png"></li></ol></div> <footer><!----> <hr> <!----></footer></article> <div class="sticker vuepress-toc"><div class="vuepress-toc-item vuepress-toc-h3 active"><a href="#commonjs-基本介绍" title="CommonJS 基本介绍">CommonJS 基本介绍</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#commonjs-的模块规范" title="CommonJS 的模块规范">CommonJS 的模块规范</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#使用-exports-暴露模块接口" title="使用 exports 暴露模块接口">使用 exports 暴露模块接口</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#使用-modul-exports-暴露模块对象" title="使用 modul.exports 暴露模块对象">使用 modul.exports 暴露模块对象</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#es2015-基本介绍" title="ES2015 基本介绍">ES2015 基本介绍</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#es2015-的模块规范" title="ES2015 的模块规范">ES2015 的模块规范</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#使用-export-命令规定对外接口" title="使用 export 命令规定对外接口">使用 export 命令规定对外接口</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#使用-export-default-命令来输出模块" title="使用 export default 命令来输出模块">使用 export default 命令来输出模块</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#_1-amd-基本介绍" title="1，AMD 基本介绍">1，AMD 基本介绍</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#_2-amd-的模块规范" title="2，AMD 的模块规范">2，AMD 的模块规范</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#define-id-dependencies-factory" title="define(id?, dependencies?, factory)">define(id?, dependencies?, factory)</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#独立模块" title="独立模块">独立模块</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#使用样例2-存在依赖的函数式定义" title="使用样例2：存在依赖的函数式定义">使用样例2：存在依赖的函数式定义</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#cmd-基本介绍" title="CMD 基本介绍">CMD 基本介绍</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#使用-exports-暴露模块接口-2" title="使用 exports 暴露模块接口">使用 exports 暴露模块接口</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#使用-modul-exports-暴露模块对象-2" title="使用 modul.exports 暴露模块对象">使用 modul.exports 暴露模块对象</a></div></div></div></div> <footer class="footer" data-v-3d9deeb8><div class="footer-left-wrap" data-v-3d9deeb8><ul class="contact" data-v-3d9deeb8><li class="contact-item" data-v-3d9deeb8><a href="https://github.com/im" target="_blank" rel="noopener noreferrer" class="nav-link external" data-v-3d9deeb8><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github" data-v-3d9deeb8><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" data-v-3d9deeb8></path></svg>
+          
+        </a></li><li class="contact-item" data-v-3d9deeb8><a href="mailto:tangxiaomiemail@gmail.com" class="nav-link external" data-v-3d9deeb8><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail" data-v-3d9deeb8><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" data-v-3d9deeb8></path><polyline points="22,6 12,13 2,6" data-v-3d9deeb8></polyline></svg>
+          
+        </a></li></ul></div> <div class="footer-right-wrap" data-v-3d9deeb8><ul class="copyright" data-v-3d9deeb8><li class="copyright-item" data-v-3d9deeb8>糖小米 © 2022</li></ul></div></footer></div><div class="global-ui"></div></div>
+    <script src="/notes/assets/js/app.5c3630a5.js" defer></script><script src="/notes/assets/js/7.4afd0a91.js" defer></script><script src="/notes/assets/js/1.208cd082.js" defer></script><script src="/notes/assets/js/34.64ba0435.js" defer></script>
+  </body>
+</html>
