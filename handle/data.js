@@ -2,7 +2,6 @@ const { DB_PATH, DB_QUERY_NOTES, BASE, IMAGE_DIR_NAME } = require('./constant')
 
 const sqlite3 = require('sqlite3').verbose()
 const db = new sqlite3.Database(DB_PATH, {})
-
 function format (millisecond, template) {
     var res = ''
     try {
