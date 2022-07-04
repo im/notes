@@ -8,3 +8,5 @@ const debounceGenerate = debounce(generate, DELAY_TIME)
 fs.watchFile(DB_PATH, () => {
     debounceGenerate()
 })
+
+// generate()

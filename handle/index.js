@@ -1,3 +1,3 @@
-require('./watch')
+// require('./watch')
 
-// require('./generate')()
+require('./generate')()

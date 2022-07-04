@@ -11,5 +11,6 @@ module.exports = {
     DELAY_TIME: 60000,
     BASE_TEMPLATE_PATH: path.resolve('tpl/base.md'),
     OUTPUT_PATH: path.resolve('notes/_posts'),
-    OUTPUT_IMAGE_PATH: path.resolve('notes/.vuepress/public/note_images')
+    OUTPUT_IMAGE_PATH: path.resolve('notes/.vuepress/public/note_images'),
+    CACHE_PATH: path.resolve('cache.json')
 }
