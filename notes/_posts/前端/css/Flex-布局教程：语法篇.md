@@ -7,7 +7,7 @@ tags:
  
 ---
 
-# Flex 布局教程：语法篇
+
 网页布局（layout）是 CSS 的一个重点应用。
 
 ![bg2015071001.gif](/notes/note_images/67359FCF-DBA7-4859-81A4-615B683A83AA-82216-00013B9ED8229A40/bg2015071001.gif)
@@ -21,7 +21,7 @@ Flex 布局将成为未来布局的首选方案。本文介绍它的语法， [�
 
 以下内容主要参考了下面两篇文章： [A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) 和 [A Visual Guide to CSS3 Flexbox Properties](https://scotch.io/tutorials/a-visual-guide-to-css3-flexbox-properties) 。
 <!--more-->
-## 一、Flex 布局是什么？
+
 
 Flex 是 Flexible Box 的缩写，意为"弹性布局"，用来为盒状模型提供最大的灵活性。
 
@@ -55,7 +55,7 @@ Webkit 内核的浏览器，必须加上 `-webkit` 前缀。
 
 注意，设为 Flex 布局以后，子元素的 `float`、`clear` 和 `vertical-align` 属性将失效。
 
-## 二、基本概念
+
 
 采用 Flex 布局的元素，称为 Flex 容器（flex container），简称"容器"。它的所有子元素自动成为容器成员，称为 Flex 项目（flex item），简称"项目"。
 
@@ -64,7 +64,7 @@ Webkit 内核的浏览器，必须加上 `-webkit` 前缀。
 
 项目默认沿主轴排列。单个项目占据的主轴空间叫做 `main size` ，占据的交叉轴空间叫做 `cross size` 。
 
-## 三、容器的属性
+
 
 以下6个属性设置在容器上。
 
@@ -76,7 +76,7 @@ Webkit 内核的浏览器，必须加上 `-webkit` 前缀。
 * align-content
  
 
-### 3.1 flex-direction属性
+
 
 `flex-direction` 属性决定主轴的方向（即项目的排列方向）。
 
@@ -96,7 +96,7 @@ Webkit 内核的浏览器，必须加上 `-webkit` 前缀。
 * `column-reverse` ：主轴为垂直方向，起点在下沿。
  
 
-### 3.2 flex-wrap属性
+
 
 默认情况下，项目都排在一条线（又称"轴线"）上。 `flex-wrap` 属性定义，如果一条轴线排不下，如何换行。
 
@@ -119,7 +119,7 @@ Webkit 内核的浏览器，必须加上 `-webkit` 前缀。
 （3） `wrap-reverse` ：换行，第一行在下方。
 
 ![bg2015071009.jpg](/notes/note_images/5010AFBB-73A9-4004-B80C-5578000A0944-82216-00013B9ED7410C02/bg2015071009.jpg)
-### 3.3 flex-flow
+
 
 `flex-flow` 属性是 `flex-direction` 属性和 `flex-wrap` 属性的简写形式，默认值为 `row nowrap` 。
 
@@ -130,7 +130,7 @@ Webkit 内核的浏览器，必须加上 `-webkit` 前缀。
 }
 ```
 
-### 3.4 justify-content属性
+
 
 `justify-content` 属性定义了项目在主轴上的对齐方式。
 
@@ -151,7 +151,7 @@ Webkit 内核的浏览器，必须加上 `-webkit` 前缀。
 * `space-around` ：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。
  
 
-### 3.5 align-items属性
+
 
 `align-items` 属性定义项目在交叉轴上如何对齐。
 
@@ -172,7 +172,7 @@ Webkit 内核的浏览器，必须加上 `-webkit` 前缀。
 * `stretch` （默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。
  
 
-### 3.6 align-content属性
+
 
 `align-content` 属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。
 
@@ -194,7 +194,7 @@ Webkit 内核的浏览器，必须加上 `-webkit` 前缀。
 * `stretch` （默认值）：轴线占满整个交叉轴。
  
 
-## 四、项目的属性
+
 
 以下6个属性设置在项目上。
 
@@ -206,7 +206,7 @@ Webkit 内核的浏览器，必须加上 `-webkit` 前缀。
 * `align-self`
  
 
-### 4.1 order属性
+
 
 `order` 属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。
 
@@ -218,7 +218,7 @@ Webkit 内核的浏览器，必须加上 `-webkit` 前缀。
 ```
 
 ![bg2015071013.png](/notes/note_images/091DD95F-10F4-4160-8E30-0F22C7A07FAB-82216-00013B9ED6D59438/bg2015071013.png)
-### 4.2 flex-grow属性
+
 
 `flex-grow` 属性定义项目的放大比例，默认为 `0` ，即如果存在剩余空间，也不放大。
 
@@ -232,7 +232,7 @@ Webkit 内核的浏览器，必须加上 `-webkit` 前缀。
 ![bg2015071014.png](/notes/note_images/D66E94B6-4737-4EB3-8325-345F2776037A-82216-00013B9ED6B9D5B3/bg2015071014.png)
 如果所有项目的 `flex-grow` 属性都为1，则它们将等分剩余空间（如果有的话）。如果一个项目的 `flex-grow` 属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。
 
-### 4.3 flex-shrink属性
+
 
 `flex-shrink` 属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。
 
@@ -248,7 +248,7 @@ Webkit 内核的浏览器，必须加上 `-webkit` 前缀。
 
 负值对该属性无效。
 
-### 4.4 flex-basis属性
+
 
 `flex-basis` 属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为 `auto` ，即项目的本来大小。
 
@@ -261,7 +261,7 @@ Webkit 内核的浏览器，必须加上 `-webkit` 前缀。
 
 它可以设为跟 `width` 或 `height` 属性一样的值（比如350px），则项目将占据固定空间。
 
-### 4.5 flex属性
+
 
 `flex` 属性是 `flex-grow`, `flex-shrink` 和 `flex-basis` 的简写，默认值为 `0 1 auto` 。后两个属性可选。
 
@@ -276,7 +276,7 @@ Webkit 内核的浏览器，必须加上 `-webkit` 前缀。
 
 建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。
 
-### 4.6 align-self属性
+
 
 `align-self` 属性允许单个项目有与其他项目不一样的对齐方式，可覆盖 `align-items` 属性。默认值为 `auto` ，表示继承父元素的 `align-items` 属性，如果没有父元素，则等同于 `stretch` 。
 
@@ -293,4 +293,5 @@ Webkit 内核的浏览器，必须加上 `-webkit` 前缀。
 （完）
 
 [Flex 布局教程：语法篇](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)
+
 

@@ -8,11 +8,11 @@ tags:
  
 ---
 
-# element-ui tabs的label slot不能及时动态更新
+
 [https://github.com/ElemeFE/element/issues/2934](https://github.com/ElemeFE/element/issues/2934)
 
 
-## 问题
+
 ```jsx
 var Main = {
     template: `
@@ -53,7 +53,7 @@ new Vue({
 
 ```
 
-## 解决方法
+
 ```
 <el-tabs>, like <el-tabs ref="tabs">
 ```

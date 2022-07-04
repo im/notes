@@ -7,9 +7,9 @@ tags:
  
 ---
 
-# Git rebase -i
 
-## 变基时有六个命令可用：
+
+
 
 * pick
 pick只是意味着包括提交。重新进行命令时，重新安排pick命令的顺序会更改提交的顺序。如果选择不包括提交，则应删除整行。
@@ -31,12 +31,12 @@ pick只是意味着包括提交。重新进行命令时，重新安排pick命令
 
 <!--more-->
 
-## 准备
+
 ```bash
-# 我们初始化一个项目
+
 git init
 
-# 制造一些提交
+
 touch base.txt
 git add .
 git commit -m "add base"
@@ -62,7 +62,7 @@ git add .
 git commit -m "add 5"
 
 
-## 查看现在的提交
+
 git log
 commit a75ed742838ebc1ef1073502623478f73e1ec21f
 Author: 
@@ -97,7 +97,7 @@ Date:   Wed Mar 4 09:58:23 2020 +0800
 
 现在我们已经有了一些，提交了，接下来开始练习
 
-## pick 更改提交顺序、删除提交
+
 pick只是意味着包括提交。重新进行命令时，重新安排pick`命令的顺序会更改提交的顺序。如果选择不包括提交，则应删除整行。
 
 ::假定，我们现在要改变提交 5.txt 和 4.txt 的顺序，该怎么操作::
@@ -118,24 +118,19 @@ git rebase -i HEAD~2
 pick 8b485bb add 4
 pick a75ed74 add 5
 
-# Rebase 63ce9fb..a75ed74 onto 63ce9fb (2 command(s))
-#
-# Commands:
-# p, pick = use commit
-# r, reword = use commit, but edit the commit message
-# e, edit = use commit, but stop for amending
-# s, squash = use commit, but meld into previous commit
-# f, fixup = like "squash", but discard this commit's log message
-# x, exec = run command (the rest of the line) using shell
-# d, drop = remove commit
-#
-# These lines can be re-ordered; they are executed from top to bottom.
-#
-# If you remove a line here THAT COMMIT WILL BE LOST.
-#
-# However, if you remove everything, the rebase will be aborted.
-#
-# Note that empty commits are commented out
+
+
+
+
+
+
+
+
+
+
+
+
+
 ~
 ~
 ~
@@ -163,7 +158,7 @@ pick 8b485bb add 4
 git log查看，4 和 5 的顺序改变了
 ![aHR0cHM6Ly9naXRlZS5jb20vcmVuc2hlbl8wNTIvbXlOb3RlLWltZy9yYXcvbWFzdGVyL2ltYWdlLzIwMjAwMzA4MTkzNTQxLTQzOTMucG5n.png](/notes/note_images/DD22777A-951D-4394-B53E-E27B677FD8EF-2755-00001C591C5454CE/aHR0cHM6Ly9naXRlZS5jb20vcmVuc2hlbl8wNTIvbXlOb3RlLWltZy9yYXcvbWFzdGVyL2ltYWdlLzIwMjAwMzA4MTkzNTQxLTQzOTMucG5n.png)
 
-## 假定，我们现在要删除 某一个提交，该怎么操作
+
 我们来删除 add 4 的那条提交
 
 ```bash
@@ -176,8 +171,8 @@ git rebase -i HEAD~2
 pick a75ed74 add 5
 pick 8b485bb add 4
 
-# Rebase 575fd8b..bb2a77d onto 575fd8b (1 command(s))
-# .....略
+
+
 ```
 
 我们删除 第二行
@@ -188,7 +183,7 @@ pick 8b485bb add 4
 git log查看，4 和 5 的顺序改变了
 ![aHR0cHM6Ly9naXRlZS5jb20vcmVuc2hlbl8wNTIvbXlOb3RlLWltZy9yYXcvbWFzdGVyL2ltYWdlLzIwMjAwMzA0MTA0MzE2LTc3MzYwMC5wbmc.png](/notes/note_images/97B6E275-34A7-4845-B476-4730E543B677-2755-00001C66D53190C7/aHR0cHM6Ly9naXRlZS5jb20vcmVuc2hlbl8wNTIvbXlOb3RlLWltZy9yYXcvbWFzdGVyL2ltYWdlLzIwMjAwMzA0MTA0MzE2LTc3MzYwMC5wbmc.png)
 
-## record 修改提交消息(提交内容不变)
+
 该reword命令与相似pick，但是使用后，重新设置过程将暂停并为您提供更改提交消息的机会。提交所做的任何更改均不受影响。
 
 **假定，我们现在要 修改某个提交的消息，该怎么操作**
@@ -207,8 +202,8 @@ pick 9cd34c4 add 2
 pick 63ce9fb add 3
 pick 575fd8b add 5
 
-# Rebase 77bd0eb..575fd8b onto 77bd0eb (3 command(s))
-# .... 略
+
+
 ```
 
 我们只需要修改 第一行 add 2 ，其余保持不变
@@ -218,8 +213,8 @@ r 9cd34c4 add 2
 pick 63ce9fb add 3
 pick 575fd8b add 5
 
-# Rebase 77bd0eb..575fd8b onto 77bd0eb (3 command(s))
-# .... 略
+
+
 ```
 
 r 是 record简写
@@ -231,23 +226,19 @@ git会说 开始执行，接着弹出一个编辑窗口
 ```bash
 add 2
 
-# Please enter the commit message for your changes. Lines starting
-# with '#' will be ignored, and an empty message aborts the commit.
-#
-# Date:      Wed Mar 4 09:58:45 2020 +0800
-#
-# interactive rebase in progress; onto 77bd0eb
-# Last command done (1 command done):
-#    r 9cd34c4 add 2
-# Next commands to do (2 remaining commands):
-#    pick 63ce9fb add 3
-#    pick 575fd8b add 5
-# You are currently editing a commit while rebasing branch 'master' on '77bd0eb'.
-#
-# Changes to be committed:
-#       new file:   2.txt
-#
-```
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 我们就可以修改 add 2 了
 
@@ -276,7 +267,7 @@ git log查看, 消息 “add 2” 变为了 “add 2 ~ new comment”
 
 ::只要不动pick的 顺序，就代表什么都不做::
 
-## edit修改提交
+
 如果您选择edit提交，则将有机会修改提交，这意味着您可以完全添加或更改提交。您还可以进行更多提交，然后再继续进行变基。这使您可以将大型提交拆分为较小的提交，或者删除在提交中所做的错误更改。
 
 **假定 我想要在两个提交之间 再加提交，怎么办**
@@ -290,8 +281,8 @@ git rebase -i HEAD~2
 pick 6934312 add 3
 pick 5ce6dde add 5
 
-# Rebase 7f9d45d..5ce6dde onto 7f9d45d (2 command(s))
-# ....
+
+
 ```
 
 修改为
@@ -351,8 +342,8 @@ git add 3.txt
 
 git commit --amend
 
-# 这样 就不会在多出一次提交
-# 本次对 3.txt的修改会记录 到  add 3  这次提交记录中
+
+
 ```
 
 接着结束这次 rebase
@@ -362,7 +353,7 @@ git rebase --continue
 Successfully rebased and updated refs/heads/master.
 ```
 
-## squash合并提交
+
 squash
 
 该命令使您可以将两个或多个提交合并为一个提交。提交被压缩到其上方的提交中。Git使您有机会编写描述这两个更改的新提交消息。
@@ -382,7 +373,7 @@ git rebase - i HEAD~2
 pick 6934312 add 3
 pick 6fa47e4 add 5
 
-# Rebase 7f9d45d..6fa47e4 onto 7f9d45d (2 command(s))
+
 ```
 
 修改为
@@ -399,30 +390,27 @@ s 6fa47e4 add 5
 然后 在弹出来的编辑框里 写提交信息
 
 ```bash
-# This is a combination of 2 commits.
-# The first commit's message is:
+
+
 
 add 3
 
-# This is the 2nd commit message:
+
 
 add 5
 
-# Please enter the commit message for your changes. Lines starting
-# with '#' will be ignored, and an empty message aborts the commit.
-#
-# Date:      Wed Mar 4 09:59:04 2020 +0800
-#
-# interactive rebase in progress; onto 7f9d45d
-# Last commands done (2 commands done):
-#    pick 6934312 add 3
-#    s 6fa47e4 add 5
-# No commands remaining.
-# You are currently editing a commit while rebasing branch 'master' on '7f9d45d'.
-#
-# Changes to be committed:
-#       new file:   3.txt
-#       new file:   5.txt
+
+
+
+
+
+
+
+
+
+
+
+
 ```
 
 我们可以修改提交消息，默认是把两个消息都合并
@@ -433,7 +421,7 @@ git log查看，合并成功
 ![aHR0cHM6Ly9naXRlZS5jb20vcmVuc2hlbl8wNTIvbXlOb3RlLWltZy9yYXcvbWFzdGVyL2ltYWdlLzIwMjAwMzA0MTI0NjU3LTUwMDk0MC5wbmc.png](/notes/note_images/68AE8D9D-F8FC-4FF0-B3A9-0E0B23C80F57-2755-00001CB127ED3354/aHR0cHM6Ly9naXRlZS5jb20vcmVuc2hlbl8wNTIvbXlOb3RlLWltZy9yYXcvbWFzdGVyL2ltYWdlLzIwMjAwMzA0MTI0NjU3LTUwMDk0MC5wbmc.png)
 
 
-## fixup合并提交，只保留较早的提交信息
+
 这类似于squash，但是要合并的提交已丢弃其消息。提交仅合并到其上方的提交中，并且较早提交的消息用于描述这两个更改。
 
 最后两次提交
@@ -446,39 +434,41 @@ git rebase -i HEAD~2
 pick 7f9d45d add 2 ~ new comment
 pick 311adc9 add 3
 
-# Rebase 77bd0eb..311adc9 onto 77bd0eb (2 command(s))
-#  ----------------------
-# 变更为
-# -----------------------
+
+
+
+
 
 pick 7f9d45d add 2 ~ new comment
 f 311adc9 add 3
 
-# 保存
+
 ```
 
-## exec 执行任意shell命令
+
 ```bash
 git rebase -i HEAD~3
 
 
-# 弹出编辑框
+
+
 pick 81fe4d0 添加test2.txt和test3.txt
 pick 77bd0eb add 1
 pick e7c68b8 add 2 ~ new comment
 
-# Rebase 258a059..e7c68b8 onto 258a059 (3 command(s))
 
-# ----------------
-# 加一行 命令
-# ---------------
+
+
+
+
+
 x echo "Hello is echo do ......."
 pick 81fe4d0 添加test2.txt和test3.txt
 pick 77bd0eb add 1
 pick e7c68b8 add 2 ~ new comment
 
 
-## 执行了我们刚刚键入的命令
+
 Executing: echo "Hello is echo do ......."
 Hello is echo do .......
 Successfully rebased and updated refs/heads/master.
@@ -487,24 +477,25 @@ Successfully rebased and updated refs/heads/master.
 
 其他
 ```bash
-# Commands:
-# p, pick = use commit
-# r, reword = use commit, but edit the commit message
-# e, edit = use commit, but stop for amending
-# s, squash = use commit, but meld into previous commit
-# f, fixup = like "squash", but discard this commit's log message
-# x, exec = run command (the rest of the line) using shell
-# d, drop = remove commit
+
+
+
+
+
+
+
+
 ```
 
-## drop
+
 删除提交
 用法与 p,r,e,s,f,x 一致
 
-## 命令写错了怎么办
+
 看提示
 ```bash
 You can fix this with 'git rebase --edit-todo'.
-# 用 git rebase --edit--todo  来重新编辑命令
+
 ```
+
 

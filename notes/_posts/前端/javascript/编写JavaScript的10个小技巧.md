@@ -7,8 +7,8 @@ tags:
  
 ---
 
-# 编写JavaScript的10个小技巧
-## 简化条件表达式
+
+
 经常碰到这种情况，要判断某个变量是否为指定的某些值，用常规的逻辑表达式会很长。我的做法是把这些值放进数组里：
 
 ```javascript
@@ -22,7 +22,7 @@ if (['abc', 'def', 'ghi', 'jkl'].includes(x)) {
 }
 ```
 <!--more-->
-## 简化 if ... else
+
 if...else太常用了，以至于很多人都忘了其实还有其他方式来判断条件。比如简单的变量赋值，完全没必要用这种冗长的语句，一行表达式就搞定了：
 
 ```javascript
@@ -48,7 +48,7 @@ let test2 = (x > 100) ? 'greater 100' : (x < 50) ? 'less 50' : 'between 50 and 1
 console.log(test2); // "greater than 100"
 ```
 
-## 判空并赋默认值
+
 Code Review 的时候我经常看到这样的代码，判断变量不是null，undefined，''的时候赋值给第二个变量，否则给个默认值：
 
 ```javascript
@@ -59,7 +59,7 @@ if (first !== null || first !== undefined || first !== '') {
 let second = first || '';
 ```
 
-## 简写循环遍历
+
 for  循环是最基本的，但是有点繁琐。可以用 for...in、for...of 或者 forEach 代替：
 
 ```javascript
@@ -81,7 +81,7 @@ function testData(element, index, array) {
 // 打印输出: test[0] = 11, test[1] = 24, test[2] = 32
 ```
 
-## 简化 switch
+
 这个技巧也很常用，把switch  转换成对象的key-value形式，代码简洁多了：
 
 ```javascript
@@ -111,7 +111,7 @@ var data = {
 data[anything] && data[anything]();
 ```
 
-## 简化多行字符串拼接
+
 如果一个字符串表达式过长，我们可能会拆成多行拼接的方式。不过随着 ES6 的普及，更好的做法是用模板字符串：
 
 ```javascript
@@ -123,7 +123,7 @@ const data = `abc abc abc abc abc abc
          test test,test test test test`
 ```
 
-## 善用箭头函数简化 return
+
 ES6 的箭头函数真是个好东西，当函数简单到只需要返回一个表达式时，用箭头函数最合适不过了，return都不用写：
 
 ```javascript
@@ -138,7 +138,7 @@ getArea = diameter => (
 )
 ```
 
-## 简化分支条件语句
+
 又是你，if...else if...else！跟 switch类似，也可以用key-value形式简化：
 
 ```javascript
@@ -169,7 +169,7 @@ var func = types[type];
 (!func) && throw new Error('Invalid value ' + type); func();
 ```
 
-## 重复字符串 N 次
+
 有时候出于某种目的需要将字符串重复 N 次，最笨的方法就是用for循环拼接。其实更简单的方法是用repeat：
 
 ```javascript
@@ -183,7 +183,7 @@ console.log(str); // test test test test test
 'test '.repeat(5);
 ```
 
-## 指数运算
+
 能省则省，低碳环保。
 
 ```javascript
@@ -193,7 +193,7 @@ Math.pow(2,3); // 8
 2**3 // 8
 ```
 
-## 数字分隔符
+
 这是比较新的语法，ES2021 提出来的，数字字面量可以用下划线分割，提高了大数字的可读性：
 
 ```javascript
@@ -202,4 +202,5 @@ let number = 98234567
 // 新语法
 let number = 98_234_567
 ```
+
 

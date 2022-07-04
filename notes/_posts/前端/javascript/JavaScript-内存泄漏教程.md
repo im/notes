@@ -7,7 +7,7 @@ tags:
  
 ---
 
-# JavaScript 内存泄漏教程
+
 程序的运行需要内存。只要程序提出要求，操作系统或者运行时（runtime）就必须供给内存。
 
 对于持续运行的服务进程（daemon），必须及时释放不再用到的内存。否则，内存占用越来越高，轻则影响系统性能，重则导致进程崩溃。
@@ -29,7 +29,7 @@ free(buffer);
 
 这很麻烦，所以大多数语言提供自动内存管理，减轻程序员的负担，这被称为"垃圾回收机制"（**garbage collector**）。
 
-## 二、垃圾回收机制
+
 
 垃圾回收机制怎么知道，哪些内存不再需要呢？
 
@@ -60,13 +60,13 @@ arr = null;
 
 因此，并不是说有了垃圾回收机制，程序员就轻松了。你还是需要关注内存占用：那些很占空间的值，一旦不再用到，你必须检查是否还存在对它们的引用。如果是的话，就必须手动解除引用。
 
-## 三、内存泄漏的识别方法
+
 
 怎样可以观察到内存泄漏呢？
 
 [经验法则](https://www.toptal.com/nodejs/debugging-memory-leaks-node-js-applications) 是，如果连续五次垃圾回收之后，内存占用一次比一次大，就有内存泄漏。这就要求实时查看内存占用。
 
-### 3.1 浏览器
+
 
 Chrome 浏览器查看内存占用，按照以下步骤操作。
 
@@ -86,7 +86,7 @@ Chrome 浏览器查看内存占用，按照以下步骤操作。
 
 ![bg2017041706.png](/notes/note_images/96D1C7B1-BE5B-42F5-A595-4A77BEBE1B46-82216-000140B82C23A8AD/bg2017041706.png)
 
-### 3.2 命令行
+
 
 命令行可以使用 Node 提供的 [process.memoryUsage](https://nodejs.org/api/process.html#process_process_memoryusage) 方法。
 
@@ -109,7 +109,7 @@ console.log(process.memoryUsage());
 
 判断内存泄漏，以 `heapUsed` 字段为准。
 
-## 四、WeakMap
+
 
 前面说过，及时清除引用非常重要。但是，你不可能记得那么多，有时候一疏忽就忘了，所以才有那么多内存泄漏。
 
@@ -136,7 +136,7 @@ wm.get(element) // "some information"
 
 基本上，如果你要往对象上添加数据，又不想干扰垃圾回收机制，就可以使用 WeakMap。
 
-## 五、WeakMap 示例
+
 
 WeakMap 的例子很难演示，因为无法观察它里面的引用会自动消失。此时，其他引用都解除了，已经没有引用指向 WeakMap 的键名了，导致无法证实那个键名是不是存在。
 
@@ -218,4 +218,5 @@ undefined
 上面代码中，只要外部的引用消失，WeakMap 内部的引用，就会自动被垃圾回收清除。由此可见，有了它的帮助，解决内存泄漏就会简单很多。
 
 [JavaScript 内存泄漏教程](http://www.ruanyifeng.com/blog/2017/04/memory-leak.html)
+
 

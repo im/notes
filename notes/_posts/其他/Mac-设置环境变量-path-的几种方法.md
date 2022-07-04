@@ -6,7 +6,7 @@ tags:
  
 ---
 
-# Mac 设置环境变量 path 的几种方法
+
 
 Mac系统的环境变量，加载顺序为：
 
@@ -30,7 +30,7 @@ Mac系统的环境变量，加载顺序为：
 export PATH=$PATH:<PATH 1>:<PATH 2>:<PATH 3>:------:<PATH N>
 ```
 <!--more-->
-## 全局设置
+
 下面的几个文件设置是全局的，修改时需要root权限
 
 1. `/etc/paths` （全局建议修改这个文件 ）
@@ -59,7 +59,7 @@ sudo vim /etc/paths.d/mysql
 ```
 据说，这样可以自己生成新的文件，不用把变量全都放到 `paths` 一个文件里，方便管理。
 
-## 单个用户设置
+
 
 1. `~/.bash_profile` （任意一个文件中添加用户级环境变量）
 （注：Linux 里面是 `.bashrc` 而 Mac 是 `.bash_profile`）
@@ -81,5 +81,6 @@ $ source 相应的文件
 ```
 
 一般环境变量更改后，重启后生效。
+
 
 

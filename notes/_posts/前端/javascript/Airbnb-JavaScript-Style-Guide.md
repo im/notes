@@ -7,8 +7,8 @@ tags:
  
 ---
 
-# Airbnb JavaScript Style Guide
-## Types
+
+
 
 **1.1** ::Primitives::: When you access a primitive type you work directly on its value.
 
@@ -45,7 +45,7 @@ bar[0] = 9;
 console.log(foo[0], bar[0]); // => 9, 9
 ```
 
-## References
+
 
 * [2.1](#references--prefer-const) Use `const` for all of your references; avoid using `var`. eslint: [`prefer-const`](https://eslint.org/docs/rules/prefer-const.html), [`no-const-assign`](https://eslint.org/docs/rules/no-const-assign.html)
 
@@ -95,7 +95,7 @@ console.log(c); // Prints 1
 
 In the above code, you can see that referencing `a` and `b` will produce a ReferenceError, while `c` contains the number. This is because `a` and `b` are block scoped, while `c` is scoped to the containing function.
 
-## Objects
+
 
 * [3.1](#objects--no-new) Use the literal syntax for object creation. eslint: [`no-new-object`](https://eslint.org/docs/rules/no-new-object.html)
 
@@ -261,7 +261,7 @@ const copy = { ...original, c: 3 }; // copy => { a: 1, b: 2, c: 3 }
 const { a, ...noA } = copy; // noA => { b: 2, c: 3 }
 ```
 
-## Arrays
+
 
 * [4.1](#arrays--literals) Use the literal syntax for array creation. eslint: [`no-array-constructor`](https://eslint.org/docs/rules/no-array-constructor.html)
 
@@ -420,7 +420,7 @@ const numberInArray = [
 ];
 ```
 
-## Destructuring
+
 
 * [5.1](#destructuring--object) Use object destructuring when accessing and using multiple properties of an object. eslint: [`prefer-destructuring`](https://eslint.org/docs/rules/prefer-destructuring)
 
@@ -484,7 +484,7 @@ function processInput(input) {
 const { left, top } = processInput(input);
 ```
 
-## Strings
+
 
 * [6.1](#strings--quotes) Use single quotes `''` for strings. eslint: [`quotes`](https://eslint.org/docs/rules/quotes.html)
 
@@ -561,7 +561,7 @@ const foo = '\'this\' is "quoted"';
 const foo = `my name is '${name}'`;
 ```
 
-## Functions
+
 
 * [7.1](#functions--declarations) Use named function expressions instead of function declarations. eslint: [`func-style`](https://eslint.org/docs/rules/func-style)
 
@@ -827,7 +827,7 @@ console.log(
 );
 ```
 
-## Arrow Functions
+
 
 * [8.1](#arrows--use-them) When you must use an anonymous function (as when passing an inline callback), use arrow function notation. eslint: [`prefer-arrow-callback`](https://eslint.org/docs/rules/prefer-arrow-callback.html), [`arrow-spacing`](https://eslint.org/docs/rules/arrow-spacing.html)
 
@@ -986,7 +986,7 @@ const itemHeight = (item) => {
 )
 ```
 
-## Classes & Constructors
+
 
 * [9.1](#constructors--use-class) Always use `class`. Avoid manipulating `prototype` directly.
 
@@ -1177,7 +1177,7 @@ class Foo {
 }
 ```
 
-## Modules
+
 
 * [10.1](#modules--use-them) Always use modules (`import`/`export`) over a non-standard module system. You can always transpile to your preferred module system.
 
@@ -1344,7 +1344,7 @@ import bar from './bar';
 import baz from './baz';
 ```
 
-## Iterators and Generators
+
 
 * [11.1](#iterators--nope) Don’t use iterators. Prefer JavaScript’s higher-order functions instead of loops like `for-in` or `for-of`. eslint: [`no-iterator`](https://eslint.org/docs/rules/no-iterator.html) [`no-restricted-syntax`](https://eslint.org/docs/rules/no-restricted-syntax)
 
@@ -1453,7 +1453,7 @@ const foo = function* () {
 };
 ```
 
-## Properties
+
 
 * [12.1](#properties--dot) Use dot notation when accessing properties. eslint: [`dot-notation`](https://eslint.org/docs/rules/dot-notation.html)
 
@@ -1496,7 +1496,7 @@ const binary = Math.pow(2, 10);
 const binary = 2 ** 10;
 ```
 
-## Variables
+
 
 * [13.1](#variables--const) Always use `const` or `let` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that. eslint: [`no-undef`](https://eslint.org/docs/rules/no-undef) [`prefer-const`](https://eslint.org/docs/rules/prefer-const)
 
@@ -1721,7 +1721,7 @@ var { type, ...coords } = data;
 // 'coords' is now the 'data' object without its 'type' property.
 ```
 
-## Hoisting
+
 
 * [14.1](#hoisting--about) `var` declarations get hoisted to the top of their closest enclosing function scope, their assignment does not. `const` and `let` declarations are blessed with a new concept called [Temporal Dead Zones (TDZ)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_dead_zone). It’s important to know why [typeof is no longer safe](https://web.archive.org/web/20200121061528/http://es-discourse.com/t/why-typeof-is-no-longer-safe/15).
 
@@ -1814,7 +1814,7 @@ function example() {
 
 * For more information refer to [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting/) by [Ben Cherry](http://www.adequatelygood.com/).
 
-## Comparison Operators & Equality
+
 
 * [15.1](#comparison--eqeqeq) Use `===` and `!==` over `==` and `!=`. eslint: [`eqeqeq`](https://eslint.org/docs/rules/eqeqeq.html)
 
@@ -1988,7 +1988,7 @@ if (a || (b && c)) {
 const bar = a + (b / c) * d;
 ```
 
-## Blocks
+
 
 * [16.1](#blocks--braces) Use braces with all multiline blocks. eslint: [`nonblock-statement-body-position`](https://eslint.org/docs/rules/nonblock-statement-body-position)
 
@@ -2099,7 +2099,7 @@ function dogs(x) {
 }
 ```
 
-## Control Statements
+
 
 * [17.1](#control-statements) In case your control statement (`if`, `while` etc.) gets too long or exceeds the maximum line length, each (grouped) condition could be put into a new line. The logical operator should begin the line.
 
@@ -2166,7 +2166,7 @@ if (!isRunning) {
 }
 ```
 
-## Comments
+
 
 * [18.1](#comments--multiline) Use `/** ... */` for multiline comments.
 
@@ -2300,7 +2300,7 @@ class Calculator extends Abacus {
 }
 ```
 
-## Whitespace
+
 
 * [19.1](#whitespace--spaces) Use soft tabs (space character) set to 2 spaces. eslint: [`indent`](https://eslint.org/docs/rules/indent.html)
 
@@ -2775,7 +2775,7 @@ var y = 2;
 
 ```
 
-## Commas
+
 
 * [20.1](#commas--leading-trailing) Leading commas: **Nope.** eslint: [`comma-style`](https://eslint.org/docs/rules/comma-style.html)
 
@@ -2906,7 +2906,7 @@ createHero(
 );
 ```
 
-## Semicolons
+
 
 * [21.1](#semicolons--required) **Yup.** eslint: [`semi`](https://eslint.org/docs/rules/semi.html)
 
@@ -2953,7 +2953,7 @@ function foo() {
 
 [Read more](https://stackoverflow.com/questions/7365172/semicolon-before-self-invoking-function/7365214#7365214).
 
-## Type Casting & Coercion
+
 
 * [22.1](#coercion--explicit) Perform type coercion at the beginning of the statement.
 
@@ -3036,7 +3036,7 @@ const hasAge = Boolean(age);
 const hasAge = !!age;
 ```
 
-## Naming Conventions
+
 
 * [23.1](#naming--descriptive) Avoid single letter names. Be descriptive with your naming. eslint: [`id-length`](https://eslint.org/docs/rules/id-length)
 
@@ -3264,7 +3264,7 @@ export const MAPPING = {
 };
 ```
 
-## Accessors
+
 
 * [24.1](#accessors--not-required) Accessor functions for properties are not required.
 
@@ -3327,7 +3327,7 @@ class Jedi {
 }
 ```
 
-## Events
+
 
 * [25.1](#events--hash) When attaching data payloads to events (whether DOM events or something more proprietary like Backbone events), pass an object literal (also known as a "hash") instead of a raw value. This allows a subsequent contributor to add more data to the event payload without finding and updating every handler for the event. For example, instead of:
 
@@ -3355,7 +3355,7 @@ $(this).on('listingUpdated', (e, data) => {
 });
 ```
 
-## jQuery
+
 
 * [26.1](#jquery--dollar-prefix) Prefix jQuery object variables with a `$`.
 
@@ -3418,12 +3418,12 @@ $('.sidebar > ul').hide();
 $sidebar.find('ul').hide();
 ```
 
-## ECMAScript 5 Compatibility
+
 
 * [27.1](#es5-compat--kangax) Refer to [Kangax](https://twitter.com/kangax/)’s ES5 [compatibility table](https://kangax.github.io/es5-compat-table/).
 
 
-## ECMAScript 6+ (ES 2015+) Styles
+
 
 * [28.1](#es6-styles) This is a collection of links to the various ES6+ features.
 
@@ -3447,7 +3447,7 @@ $sidebar.find('ul').hide();
 
 > Why? [They are not finalized](https://tc39.github.io/process-document/), and they are subject to change or to be withdrawn entirely. We want to use JavaScript, and proposals are not JavaScript yet.
 
-## Standard Library
+
 The [Standard Library](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects)
 contains utilities that are functionally broken but remain for legacy reasons.
 
@@ -3484,7 +3484,7 @@ Number.isFinite('2e3'); // false
 Number.isFinite(parseInt('2e3', 10)); // true
 ```
 
-## Testing
+
 
 * [30.1](#testing--yup) **Yup.**
 
@@ -3493,6 +3493,7 @@ function foo() {
     return true;
 }
 ```
+
 
 
 

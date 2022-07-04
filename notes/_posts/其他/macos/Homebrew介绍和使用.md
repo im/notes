@@ -7,22 +7,22 @@ tags:
  
 ---
 
-# Homebrew介绍和使用
-## 一、Homebrew是什么
+
+
 Homebrew是一款Mac OS平台下的软件包管理工具，拥有安装、卸载、更新、查看、搜索等很多实用的功能。简单的一条指令，就可以实现包管理，而不用你关心各种依赖和文件路径的情况，十分方便快捷。
 援引 [官方](https://links.jianshu.com/go?to=http%3A%2F%2Fbrew.sh%2F) 的一句话：又提示缺少套件啦？别担心，Homebrew 随时守候。Homebrew —— OS X 不可或缺的套件管理器。
 
 <!--more-->
 
-## 二、Homebrew安装
 
-### 安装
+
+
 ```bash
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
 
-### 卸载
+
 ```bash
 $ cd `brew --prefix`
 $ rm -rf Cellar
@@ -33,7 +33,7 @@ $ rm -rf .git
 $ rm -rf ~/Library/Caches/Homebrew
 ```
 
-## 三、Homebrew基本使用
+
 * 安装任意包
 $ brew install <packageName>
 
@@ -65,7 +65,7 @@ $ brew -v
 $ brew -h
 
 
-## 四、注意
+
 在Mac OS X 10.11系统以后，/usr/local/等系统目录下的文件读写是需要系统root权限的，以往的Homebrew安装如果没有指定安装路径，会默认安装在这些需要系统root用户读写权限的目录下，导致有些指令需要添加sudo前缀来执行，比如升级Homebrew需要：
 ```bash
 $ sudo brew update
@@ -85,4 +85,5 @@ $ sudo chown -R gaojun /usr/local
 ```bash
 <install path> -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
+
 

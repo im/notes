@@ -7,16 +7,16 @@ tags:
  
 ---
 
-# JavaScript 实现复制粘贴
-## 实现思路
 
-## html:
+
+
+
 
 ```html
 <button onclick="copyToClip('内容')">Copy</button>
 ```
 
-## javascript:
+
 
 ```javascript
 /**
@@ -40,23 +40,24 @@ function copyToClip(content, message) {
 ```
 
 <!--more-->
-## (clipboard.js)[https://clipboardjs.com/]
+
 
 直接引用： `<script src="dist/clipboard.min.js"></script>`
 
 包： `npm install clipboard --save `，然后 `import Clipboard from 'clipboard'`
 
-## html:
+
 
 ```html
 <input id="demoInput" value="hello world" />
 <button class="btn" data-clipboard-target="#demoInput">点我复制</button>
 ```
 
-## javascript:
+
 
 ```javascript
 import Clipboard from 'clipboard'
 const btnCopy = new Clipboard('btn')
 ```
+
 

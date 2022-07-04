@@ -7,14 +7,14 @@ tags:
  
 ---
 
-# 从 Event Loop 角度解读 Vue NextTick 源码
-## 解读背景
+
+
 
 1. 在学习 **vue** 源码，**nextTick** 方法借助了浏览器的 **event loop** 事件循环做到了异步更新。
 2. 在公司面试的时候，笔试题最喜欢出关于 **JavaScript** 运行机制，**Promise/A+** 等关于 **event loop** 线程的题目。
 3. 学会 **nextTick** 原理帮助定位 **BUG** , 使用 **Vue** 会更加灵活。
 
-## 什么是 event loop
+
 
 ![640.gif](/notes/note_images/EAB69C4D-1AAC-4153-A1FE-C492361811CF-2755-0000819DFEFF1BC5/640.gif)
 
@@ -26,7 +26,7 @@ tags:
 
 **重复2, 3, 4，5……直到宏微任务为空。**
 
-## $nextTick 的实现原理
+
 从字面意思理解，**next** 下一个，**tick** 滴答（钟表）来源于定时器的周期性中断（输出脉冲），一次中断表示一个 **tick**，也被称做一个“时钟滴答”），**nextTick** 顾名思义就是下一个时钟滴答。看源码，在 **Vue 2.x** 版本中，**nextTick** 在 **src\core\util** 中的一个单独的文件 **next-tick.js** ，可见 **nextTick** 的重要性，虽然短短 **200** 多行，尤大却单独创建一个文件去维护。
 接下来我们来看整个文件。
 
@@ -35,7 +35,7 @@ tags:
 3. 一堆 **if，else if **判断。
 4. 抛出了一个函数 **nextTick**。
 
-## nextTick 函数
+
 ![640.png](/notes/note_images/6A30712E-461B-40A9-BDD4-F0884470CC81-2755-0000819DFE089A99/640.png)
 
 1. 声明一个局部变量 **_resolve** 。
@@ -43,14 +43,14 @@ tags:
 3. 当 **pending** 为 **false** 时，执行 **timerFunc** 函数。
 4. 当没有 **callback** 的时候，返回一个 **Promise** 的调用方式，可以用 **.then** 接收。
 
-## timerFunc 函数
+
 我们开始说了，timerFunc 为全局变量，现在调用 timerFunc ，timerFunc 是什么时候被赋值为一个函数，并且函数里执行代码又是什么？
 
 ![640.png](/notes/note_images/60F127E0-3442-48A8-A43F-1F22B9E6FADA-2755-0000819DFDCE9DB6/640.png)
 
 我们看到，这段判断代码总共有四个分支，四个分支里对 timerFunc 有不同的赋值，我们先来看第一个分支。
 
-### Promise 分支
+
 
 ```js
 if (typeof Promise !== 'undefined' && isNative(Promise)) {
@@ -72,7 +72,7 @@ if (typeof Promise !== 'undefined' && isNative(Promise)) {
 2. 使用 **Promise** 异步调用 **flushCallbacks** 函数。
 3. 当执行环境是 **iPhone** 等，使用 **setTimeout** 异步调用 **noop** ，**iOS** **中在一些异常的webview** 中，**promise** 结束后任务队列并没有刷新所以强制执行 **setTimeout** 刷新任务队列。
 
-### MutationObserver 分支
+
 
 ```js
 else if (!isIE && typeof MutationObserver !== 'undefined' && (
@@ -101,7 +101,7 @@ else if (!isIE && typeof MutationObserver !== 'undefined' && (
 2. 实例一个 **MutationObserver** 对象，这个对象主要是对浏览器 **DOM** 变化进行监听，当实例化 **MutationObserver** 对象并且执行对象 **observe**，设置 **DOM** 节点发生改变时自动触发回调。
 3. 把 **timerFunc** 赋值为一个改变 **DOM** 节点的方法，当 **DOM** 节点发生改变，触发 **flushCallbacks** 。（这里其实就是想用利用 **MutationObserver** 的特性进行异步操作）
 
-### setImmediate 分支
+
 
 ```js
 else if (typeof setImmediate !== 'undefined' && isNative(setImmediate)) {
@@ -117,7 +117,7 @@ else if (typeof setImmediate !== 'undefined' && isNative(setImmediate)) {
 1. 判断 **setImmediate** 是否存在，**setImmediate** 是高版本 **IE** （IE10+） 和 **edge** 才支持的。
 2. 如果存在，传入 **flushCallbacks** 执行 **setImmediate** 。
 
-### setTimeout 分支
+
 
 ```
 else {
@@ -130,7 +130,7 @@ else {
 
 1. 当以上所有分支异步 **api** 都不支持的时候，使用 **macro** **task** （宏任务）的 **setTimeout** 执行 **flushCallbacks** 。
 
-### 执行降级
+
 
 我们可以发现，给 timerFunc 赋值是一个降级的过程。为什么呢，因为 Vue 在执行的过程中，执行环境不同，所以要适配环境。
 
@@ -138,7 +138,7 @@ else {
 
 这张图便于我们更清晰的了解到降级的过程。
 
-## flushCallbacks 函数
+
 
 ```
 function flushCallbacks () {
@@ -153,8 +153,9 @@ function flushCallbacks () {
 
 循环遍历，按照 **队列** 数据结构 **“先进先出”** 的原则，逐一执行所有 **callback** 。
 
-## 总结
+
 到这里就全部讲完了，**nextTick** 的原理就是利用 **Event** **loop** 事件线程去异步重新渲染，分支判断首要选择 **Promise** 的原因是当同步JS代码执行完毕，执行栈清空会首先查看 **micro** **task** （微任务）队列是否为空，不为空首先执行微任务。在我们 **DOM** 依赖数据发生变化的时候，会异步重新渲染 **DOM** ，但是比如像 **echarts** ，**canvas**……这些 **Vue** 无法在初始状态下收集依赖的 **DOM** ，我们就需要手动执行 **nextTick** 方法使其重新渲染。
+
 
 
 

@@ -7,7 +7,7 @@ tags:
  
 ---
 
-# 为什么要用setTimeout来模拟setInterval
+
 setTimeout(fn,time): 等待time时间后执行fn
 setInterval(fn,time):  每隔time时间执行fn
 
@@ -18,7 +18,7 @@ setInterval(fn,time):  每隔time时间执行fn
 	
 我们就实际场景来说一下这两个缺陷
 
-## 时间间隔
+
 首先明确一个概念，定时器的时间间隔指的是什么？
 它不是指函数的执行时间，而是函数**被推入到消息队列的时间**。
 也就是说每隔time时间，fn就会被放入消息队列中，而不是执行。另外何时执行取决于何时被主线程的事件循环取到
@@ -37,7 +37,7 @@ setInterval(fn,time):  每隔time时间执行fn
 
 而我们可以用setTimeout模拟来弥补这两个缺陷。
 
-## setTimeout 模拟 setInterval
+
 可以这么理解：
 setTimeout执行后会立刻将fn放入到消息队列中，而setInterval每次在放入之前都会判断消息队列中存不存在上一个任务。
 
@@ -53,8 +53,9 @@ setTimeout(function a(){
 },time)
 ```
 
-## 优点：
+
 在一个定时器执行完以前不会插入另一个定时器
 确保了每个函数执行的等待时间间隔
+
 
 

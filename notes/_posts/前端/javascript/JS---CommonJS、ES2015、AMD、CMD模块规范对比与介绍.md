@@ -7,8 +7,8 @@ tags:
  
 ---
 
-# JS - CommonJS、ES2015、AMD、CMD模块规范对比与介绍
-### CommonJS 基本介绍
+
+
 
 1. CommonJS 是一种思想，它是为 JS 的表现来制定规范。由于 JS 没有模块系统、标准库较少、缺乏包管理工具，因此 CommonJS 应运而生。
 2. CommonJS 的目标是希望 JS 可以在任何地方运行，不只是浏览器中。只要我们的 JavaScript 是根据 CommonJS API 编写的，那么就可以在与 CommonJS 兼容的系统上运行。
@@ -18,14 +18,14 @@ tags:
 	* 编写基于 GUI 的桌面应用
 4. CommonJS 规范有很多实现，最有名要数 NodeJS 了。
 
-### CommonJS 的模块规范
+
 一个文件就是一个模块，拥有单独的作用域。普通方式定义的变量、函数、对象都属于该模块内。
 	* 通过 require 来加载模块。
 	* 通过 exports 和 modul.exports 来暴露模块中的内容。
 
 <!--more-->
 	
-### 使用 exports 暴露模块接口
+
 
 1. 下面我们在 Node.js 中创建一个模块，文件名为：hangge.js
 ```js
@@ -44,7 +44,7 @@ hangge.hello();
 
 ![2017052214293263636.png](/notes/note_images/7B7C6A25-38C4-4181-A80C-705C07EE5F6F-2755-00000D8D7772AD69/2017052214293263636.png)
 
-### 使用 modul.exports 暴露模块对象
+
 
 1. 下面我们把一个对象封装到模块中，文件名为：hangge.js
 ```js
@@ -78,17 +78,17 @@ hello.hello();
 ![2017052214293263636.png](/notes/note_images/48D86580-2659-4A75-9374-E6A72DC25691-2755-00000D8D77430FB6/2017052214293263636.png)
 
 
-### ES2015 基本介绍
+
 2015 年 6 月， ES2015（即 ECMAScript 6、ES6） 正式发布。ES2015 是该语言的一个显著更新，也是自 2009 年 ES5 标准确定后的第一个重大更新。
 虽然 ES2015 提出了许多令人激动的新特性，但由于目前 JavaScript 的运行环境众多，对 ECMAScript 标准的支持程度也不一样。
 
-### ES2015 的模块规范
+
 * 一个模块就是一个独立的文件。该文件内部的所有变量，外部无法获取。
 * export 命令用于规定模块的对外接口。
 * import 命令用于输入其他模块提供的功能。
 * ES6 模块的设计思想是尽量的静态化，使得编译时就能确定模块的依赖关系，以及输入和输出的变量。
 
-### 使用 export 命令规定对外接口
+
 
 1. 下面我们在 Node.js 中创建一个模块，文件名为：hangge.js
 ```
@@ -120,7 +120,7 @@ console.log('圆周长：' + circle.circumference(11));
 
 ![2017052310253156591.png](/notes/note_images/3FA84205-B166-4AF7-A46E-3432906135CA-2755-00000D8D77142946/2017052310253156591.png)
 
-### 使用 export default 命令来输出模块
+
 
 1. 下面我们使用 export default 命令用于指定模块的默认输出。模块文件名为：hangge.js
 ```
@@ -146,16 +146,16 @@ console.log('圆周长：' + circumference(11));
 
 ![2017052310253156591.png](/notes/note_images/C4550A10-A262-4D73-895F-4668D76C9CC4-2755-00000D8D76E70517/2017052310253156591.png)
 
-### 1，AMD 基本介绍
+
 * AMD 全称为 Asynchromous Module Definition（异步模块定义）
 * AMD 是 RequireJS 在推广过程中对模块定义的规范化产出，它是一个在浏览器端模块化开发的规范。
 * AMD 模式可以用于浏览器环境并且允许非同步加载模块，也可以按需动态加载模块。
 
-### 2，AMD 的模块规范
+
 * AMD 通过异步加载模块。模块加载不影响后面语句的运行。所有依赖某些模块的语句均放置在回调函数中。
 * AMD 规范只定义了一个函数 define，通过 define 方法定义模块。该函数的描述如下：
 
-### define(id?, dependencies?, factory)
+
 	* id：指定义中模块的名字（可选）。如果没有提供该参数，模块的名字应该默认为模块加载器请求的指定脚本的名字。如果提供了该参数，模块名必须是“顶级”的和绝对的（不允许相对名字）。
 	* dependencies：当前模块依赖的，已被模块定义的模块标识的数组字面量（可选）。
 	* factory：一个需要进行实例化的函数或者一个对象。
@@ -171,7 +171,7 @@ define(function (require, exports, module) {
 });
 ```
 
-### 独立模块
+
 
 1. 我们使用 RequireJS 定义一个不依赖其他模块得独立模块，文件名：hangge.js
 ```
@@ -205,7 +205,7 @@ define(function(){
 3. 控制台输出如下：
 ![2017052215410526448.png](/notes/note_images/1C1E354F-6D0F-4223-A3DB-E8B0C447902A-2755-00000D8D76C02377/2017052215410526448.png)
 
-### 使用样例2：存在依赖的函数式定义
+
 下面定义的模块又依赖于 cart 和 inventory 这两个模块（它们都处在同一个文件夹下）
 ```
 define(["./cart", "./inventory"], function(cart, inventory) {
@@ -222,7 +222,7 @@ define(["./cart", "./inventory"], function(cart, inventory) {
 );
 ```
 
-### CMD 基本介绍
+
 
 1. CMD 全称为 Common Module Definition，它是国内玉伯大神在开发 SeaJS 的时候提出来的。 
 2. CMD 与 AMD 挺相近，二者区别如下：
@@ -230,7 +230,7 @@ define(["./cart", "./inventory"], function(cart, inventory) {
 	* CMD 推崇依赖就近，AMD 推崇依赖前置。
 	* AMD 的 api 默认是一个当多个用，CMD 严格的区分推崇职责单一，其每个 API 都简单纯粹。例如：AMD 里 require 分全局的和局部的。CMD 里面没有全局的 require，提供 seajs.use() 来实现模块系统的加载启动。
 	
-### 使用 exports 暴露模块接口
+
 
 1. 下面使用 sea.js 创建一个模块，文件名为：hangge.js
 ```
@@ -266,7 +266,7 @@ define(function(require, exports) {
 3. 控制台输出如下：
 ![2017052216214198614.png](/notes/note_images/0971EDA1-EE52-4B98-A40D-78AB75F45741-2755-00000D8D7698591A/2017052216214198614.png)
 
-### 使用 modul.exports 暴露模块对象
+
 
 1. 下面我们把一个对象封装到模块中，文件名为：hangge.js
 ```
@@ -302,5 +302,6 @@ define(function(require, exports, module) {
 
 3. 控制台输出如下：
 ![2017052216214198614.png](/notes/note_images/E310DC0F-C671-467A-AE5E-FC58EAAC4AEB-2755-00000D8D766640AD/2017052216214198614.png)
+
 
 

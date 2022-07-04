@@ -6,7 +6,7 @@ tags:
  
 ---
 
-# iframe 报错 Refused to display 'URL' in a frame because it set 'X-Frame-Options' to 'DENY'
+
 [https://developer.mozilla.org/zh-CN/docs/Web/HTTP/X-Frame-Options](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/X-Frame-Options)
 
 X-Frame-Options 有三个值:
@@ -22,7 +22,7 @@ X-Frame-Options 有三个值:
 
 换一句话说，如果设置为 DENY，不光在别人的网站 frame 嵌入时会无法加载，在同域名页面中同样会无法加载。另一方面，如果设置为 SAMEORIGIN，那么页面就可以在同域名页面的 frame 中嵌套。
 
-## express 配置
+
 ```js
 const helmet = require('helmet');
 const app = express();
@@ -36,4 +36,5 @@ const frameguard = require('frameguard')
 app.use(frameguard({ action: 'SAMEORIGIN' }))
 
 ```
+
 

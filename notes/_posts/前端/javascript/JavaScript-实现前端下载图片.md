@@ -7,12 +7,12 @@ tags:
  
 ---
 
-# JavaScript 实现前端下载图片
-## 实现思路
+
+
 -   将图片装换成 Data URLs
 -   下载图片
 
-#### Data URLs
+
 
 > Data URLs，即前缀为 data: 协议的的 URL，其允许内容创建者向文档中嵌入小文件。
 > Data URLs 由四个部分组成：前缀(data:)、指示数据类型的 MIME 类型、如果非文本则为可选的 base64 标记、数据本身：
@@ -22,7 +22,7 @@ tags:
 
 详细请看 MDN 对 [Data URLs](~https://developer.mozilla.org/zh-CN/docs/Web/HTTP/data_URIs~) 的解释。
 <!--more-->
-## 代码实现
+
 
 以下是获取图片 DataURL 的示例代码：
 
@@ -75,4 +75,5 @@ downLoad(downloadName, url) {
     };
 }
 ```
+
 

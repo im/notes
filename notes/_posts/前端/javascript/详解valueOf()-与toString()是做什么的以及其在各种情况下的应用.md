@@ -7,8 +7,8 @@ tags:
  
 ---
 
-# 详解valueOf() 与toString()是做什么的以及其在各种情况下的应用
-## 前言
+
+
 各种引用对象都继承或最终继承于 Object ，使用着Object的原型，所以它们不管何时都有 toString() 和 valueOf() 方法，只不过有些类型的原型重写了这两个方法，比如 Function 实例的原型就重写了 toString() 方法，按照原型链的规则，如果方法和属性在原型链的各原型中有重名，则优先使用最近的方法和属性。
 
 ---
@@ -21,11 +21,11 @@ tags:
 
 <!--more-->
 
-## toString()
+
 对于不同的引用对象，使用的toString()也不一定相同
 我们来看看其对三个最常见的引用对象的处理。
 
-### Function
+
 
 很简单，就是function本身的样子
 
@@ -80,7 +80,7 @@ console.log(1)
 }`)//true
 ```
 
-### Array
+
 
 我们先来看一下 Array 是怎样的
 
@@ -98,7 +98,7 @@ console.log(arr == '1,2,3,4,5,2,1,5,2,1,5')//true
 
 所以就可以得出结论了arr.toString()就是将每个元素用逗号隔开类似于arr.join(’,’)
 
-### Date
+
 
 ```js
 let date = new Date('1998-02-23')
@@ -107,7 +107,7 @@ console.log(date == 'Mon Feb 23 1998 08:00:00 GMT+0800 (中国标准时间)')//t
 
 它也比较直接，只要你传的值是它能解析的日期格式，toString()后给你的是和上边格式一样的字符串
 
-### Object
+
 
 ```js
 let obj1 = {},obj2 = {name:'name'}
@@ -117,8 +117,8 @@ console.log(obj1 == '[object Object]')//true
 
 Object不管写成啥样，都会变成’[object Object]'这个字符串
 
-## valueOf()
-### Function
+
+
 
 ```js
 let fn = function () {}
@@ -127,21 +127,21 @@ console.log(fn.valueOf() === fn)//true
 
 也就是说fn.valueOf()返回的是fn本身。是不是很无聊。
 
-### Array
+
 
 ```js
 let arr = [1,2,3,4,5,2,1,5,2, 1,5]
 console.log(arr.valueOf() === arr)//Array也是返回自身
 ```
 
-### Object
+
 
 ```js
 let obj = {}
 console.log(obj.valueOf() === obj)//Object也是返回自身
 ```
 
-### Date
+
 
 难道date也是返回自身吗
 
@@ -214,4 +214,5 @@ console.log(+obj)//先用valueOf再用toString
 * alert(),String()中都只使用了toString()，
 * 如果需要进行运算，都是先进行valueOf再toString
 * 总而言之，与数字、运算有关的用valueOf优先,其他都是toString优先
+
 

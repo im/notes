@@ -7,19 +7,19 @@ tags:
  
 ---
 
-# Git 修改远程仓库地址
-## 命令直接修改
+
+
 ```bash
 git remote set-url origin [url]
 ```
 
-## 先删后加
+
 ```bash
 git remote rm origin
 git remote add origin [url]
 ```
 
-## 直接修改配置文件
+
 ```bash
 cd .git
 vim config
@@ -47,8 +47,9 @@ vim config
     active = true
 ```
 
-## 查看远程地址
+
 ```bash
 git remote -v
 ```
+
 

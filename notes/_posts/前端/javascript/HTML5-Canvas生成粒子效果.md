@@ -7,12 +7,12 @@ tags:
  
 ---
 
-# HTML5 Canvas生成粒子效果
-## Install
+
+
 
 [breathing-halftone.pkgd.min.js](~https://cdn.jsdelivr.net/gh/im/oss@master/js/breathing-halftone.pkgd.min.js~)
 
-## Usage
+
 
 ```js
 // get the image
@@ -27,7 +27,7 @@ new BreathingHalftone(img, {
 })
 ```
 <!--more-->
-## Options
+
 
 ```json
 {
@@ -88,7 +88,7 @@ new BreathingHalftone(img, {
 }
 ```
 
-## Dome
+
 ```html
 <script src="https://cdn.jsdelivr.net/gh/im/oss@master/js/breathing-halftone.pkgd.min.js"></script>
 <img width="400" height="400" id="html5-canvas-particle-effect-dome" src="/images/header/avatar.jpg" />
@@ -102,7 +102,8 @@ window.onload = function () {
 </script>
 ```
 
-## Quote
+
 
 > [http://breathing-halftone.desandro.com/](~http://breathing-halftone.desandro.com/~)
+
 

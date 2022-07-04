@@ -7,9 +7,9 @@ tags:
  
 ---
 
-# css 中的 bfc（Block Formatting Contexts）
 
-## 常见定位方案
+
+
 在讲 BFC 之前，我们先来了解一下常见的定位方案，定位方案是控制元素的布局，有三种常见方案:
 
 * 普通流 (normal flow)
@@ -24,7 +24,7 @@ tags:
 
 > 在绝对定位布局中，元素会整体脱离普通流，因此绝对定位元素不会对其兄弟元素造成影响，而元素具体的位置由绝对定位的坐标决定。  
 
-## BFC 概念
+
 Formatting context(格式化上下文) 是 W3C CSS2.1 规范中的一个概念。它是页面中的一块渲染区域，并且有一套渲染规则，它决定了其子元素将如何定位，以及和其他元素的关系和相互作用。
 
 那么 BFC 是什么呢？
@@ -35,7 +35,7 @@ BFC 即 `Block Formatting Contexts` (块级格式化上下文)，它属于上述
 
 通俗一点来讲，可以把 BFC 理解为一个封闭的大箱子，箱子内部的元素无论如何翻江倒海，都不会影响到外部。
 
-## 触发 BFC
+
 只要元素满足下面任一条件即可触发 BFC 特性：
 
 * body 根元素
@@ -44,9 +44,9 @@ BFC 即 `Block Formatting Contexts` (块级格式化上下文)，它属于上述
 * display 为 inline-block、table-cells、flex
 * overflow 除了 visible 以外的值 (hidden、auto、scroll)
 
-## BFC 特性及应用
 
-### 同一个 BFC 下外边距会发生折叠
+
+
 
 从效果上看，因为两个 div 元素都处于同一个 BFC 容器下 (这里指 body 元素) 所以第一个 div 的下边距和第二个 div 的上边距发生了重叠，所以两个盒子之间距离只有 100px，而不是 200px。
 
@@ -99,5 +99,6 @@ BFC 即 `Block Formatting Contexts` (块级格式化上下文)，它属于上述
 
 
 这个方法可以用来实现两列自适应布局，效果不错，这时候左边的宽度固定，右边的内容自适应宽度(去掉上面右边内容的宽度)。
+
 
 

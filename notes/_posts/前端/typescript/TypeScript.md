@@ -7,8 +7,8 @@ tags:
  
 ---
 
-# TypeScript
-## 目录
+
+
 * 手册
 	* [基础类型](/2021/12/01/基础类型/)
 	* [接口](/2021/12/01/接口/)
@@ -64,4 +64,5 @@ tags:
 	* [结合ASP.NET v5使用TypeScript](zh/wiki/using-typescript-with-asp.net-5.md)
 	* [架构概述](zh/wiki/architectural-overview.md)
 	* [发展路线图](zh/wiki/roadmap.md)
+
 
