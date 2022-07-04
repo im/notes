@@ -10,7 +10,9 @@ tags:
 
 命令行输入：`open ~/.bash_profile`，回车
 
-在文件中添加如下配置：
+在文件中添加如下配置：  dasda
+dasdas 
+dsads
 
 ```sh
 export PATH="/Applications/Google\ Chrome.app/Contents/MacOS":$PATH
