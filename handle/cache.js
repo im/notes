@@ -4,8 +4,17 @@ const { CACHE_PATH } = require('./constant')
 module.exports = {
 
     get: () => {
-        const content = fs.readJsonSync(CACHE_PATH) || {}
-        return content
+        try {
+            const content = fs.readJsonSync(CACHE_PATH) || {}
+            return content
+        } catch (err) {
+            // console.log('err: ', err)
+        }
+        return {}
+    },
+
+    clear: () => {
+        fs.removeSync(CACHE_PATH)
     },
 
     set: (notes) => {
