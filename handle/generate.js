@@ -52,7 +52,6 @@ module.exports = () => {
             const output = OUTPUT_PATH + '/' + tags.join('/') + '/' + name + '.md'
             const hash = MD5(note.title + note.timer)
             if (cacheNotes[note.id] && cacheNotes[note.id] != hash) {
-                console.log('note: ', note)
                 changes.push(note)
             }
             return {
