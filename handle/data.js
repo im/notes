@@ -71,7 +71,7 @@ const formatContent = (content) => {
         const imageName = data[1] || ''
         const path = BASE + IMAGE_DIR_NAME + '/' + uuid + '/' + imageName
         return `![${imageName}](${path})`
-    }).replace(/^(?:#)\s*(.+?)[ \t]*$/gm, '')
+    }).replace(/^(#{1,1})(.*)/g, '')
     return hideTags(content)
 }
 

@@ -56,6 +56,9 @@ module.exports = () => {
             if (cacheNotes[note.id] && cacheNotes[note.id] != hash) {
                 changes.push(note)
             }
+            if (!cacheNotes[note.id]) {
+                changes.push(note)
+            }
             return {
                 ...note,
                 content: compile(BASE_TEMPLATE_PATH, note),
