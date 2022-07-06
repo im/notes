@@ -83,7 +83,7 @@ const formatDate = (dtnum) => {
 }
 
 const notesFilter = (notes) => {
-    const ignoreNotes = ['熊掌记操作技巧']
+    const ignoreNotes = ['熊掌记操作技巧', '草稿']
     const result = notes.filter(v => {
         return !v.tags.filter(tag => ignoreNotes.includes(tag)).length
     })
