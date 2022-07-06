@@ -19,7 +19,8 @@
     },
     "scripts": {
         "dev": "vuepress dev notes",
-        "bear": "node handle/index.js",
+        "g": "node handle/index.js",
+        "c": "node handle/index.js clear",
         "build": "vuepress build notes"
     }
 }

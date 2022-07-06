@@ -1,9 +1,7 @@
 ---
 title: Windows下如何查看某个端口被谁占用
-date: 2021-12-01
+date: 2022-07-06
 tags:
-  - 其他 
-  - windows 
  
 ---
 
@@ -31,5 +29,4 @@ tasklist|findstr "9088"
 ```shell
 taskkill /T /F /PID 9088
 ```
-
 

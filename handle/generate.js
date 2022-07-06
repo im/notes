@@ -24,8 +24,10 @@ const compile = (tplFile,data) => {
 }
 
 const initOutputDir = () => {
-    fs.removeSync(OUTPUT_PATH)
-    fs.mkdirpSync(OUTPUT_PATH)
+    if (process.argv[2] === 'clear') {
+        fs.removeSync(OUTPUT_PATH)
+        fs.mkdirpSync(OUTPUT_PATH)
+    }
 }
 
 const moveNoteImg = () => {
@@ -39,7 +41,7 @@ const createNote = (notes) => {
 }
 
 module.exports = () => {
-    // initOutputDir()
+    initOutputDir()
     moveNoteImg()
 
     const getNotes = getData()
