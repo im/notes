@@ -21,15 +21,15 @@ module.exports = (options, context, api) => {
             sitemap: {
                 hostname: "https://tangxiaomi.top/notes/"
             },
-            // comment: {
-            //     service: "vssue",
-            //     autoCreateIssue: true,
-            //     prefix: "[Post]",
-            //     owner: "im",
-            //     repo: "notes",
-            //     clientId: "b5b53b3c7256700567b5",
-            //     clientSecret: "b68c52203c9b119d8adc6a38e0e6fbc593d6414e"
-            // },
+            comment: {
+                service: "vssue",
+                autoCreateIssue: true,
+                prefix: "[Post]",
+                owner: "im",
+                repo: "notes",
+                clientId: "b5b53b3c7256700567b5",
+                clientSecret: "b68c52203c9b119d8adc6a38e0e6fbc593d6414e"
+            },
             footer: {
                 contact: [
                     {
