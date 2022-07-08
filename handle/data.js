@@ -79,7 +79,7 @@ const formatDate = (dtnum) => {
     const hour = 3600
     const year = 365.25 * 24 * hour
     const offset = year * 31 + hour * 6
-    return format((dtnum + offset) * 1000)
+    return format((dtnum + offset) * 1000, 'YYYY-mm-dd HH:MM:SS')
 }
 
 const notesFilter = (notes) => {

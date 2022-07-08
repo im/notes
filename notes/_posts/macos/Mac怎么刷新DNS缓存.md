@@ -1,6 +1,6 @@
 ---
 title: Mac怎么刷新DNS缓存
-date: 2022-07-08
+date: 2022-07-08 10:39:49
 tags:
   - macos 
  

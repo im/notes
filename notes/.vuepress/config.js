@@ -9,7 +9,7 @@ module.exports = (options, context, api) => {
             ['link', { rel: 'icon', href: '/favicon.ico' }]
         ],
         themeConfig: {
-            dateFormat: 'YYYY-MM-DD hh:mm:ss',
+            dateFormat: 'YYYY-MM-DD HH:mm:ss',
             // directories: [
             //     {
             //         id: "posts",
