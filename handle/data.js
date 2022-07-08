@@ -66,6 +66,7 @@ const formatLink = (notes) => {
 
 const formatContent = (content) => {
     content = content.replace(/\[image:(.+?)\]/gi, (match,url) => {
+        console.log('url: ', url)
         const data = url.split('/')
         const uuid = data[0] || ''
         const imageName = data[1] || ''
