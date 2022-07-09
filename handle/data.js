@@ -1,5 +1,5 @@
 const { DB_PATH, DB_QUERY_NOTES, BASE, IMAGE_DIR_NAME } = require('./constant')
-
+const MD5 = require('./md5')
 const sqlite3 = require('sqlite3').verbose()
 const db = new sqlite3.Database(DB_PATH, {})
 function format (millisecond, template) {
@@ -66,11 +66,12 @@ const formatLink = (notes) => {
 
 const formatContent = (content) => {
     content = content.replace(/\[image:(.+?)\]/gi, (match,url) => {
-        console.log('url: ', url)
         const data = url.split('/')
         const uuid = data[0] || ''
         const imageName = data[1] || ''
-        const path = BASE + IMAGE_DIR_NAME + '/' + uuid + '/' + imageName
+        const names = imageName.split('.')
+        const hash = MD5(names[0]) + '.' + names[1]
+        const path = BASE + IMAGE_DIR_NAME + '/' + uuid + '/' + hash
         return `![${imageName}](${path})`
     }).replace(/^(#{1,1})(.*)/g, '')
     return hideTags(content)

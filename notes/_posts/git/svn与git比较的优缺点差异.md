@@ -14,7 +14,7 @@ tags:
  
 ### 1. Subversion属于集中式的版本控制系统
 集中式的版本控制系统都有一个单一的集中管理的服务器，保存所有文件的修订版本，而协同工作的人们都通过客户端连到这台服务器，取出最新的文件或者提交更新。
- ![aHR0cHM6Ly9pbWFnZXMyMDE4LmNuYmxvZ3MuY29tL2Jsb2cvODcyNjEwLzIwMTgwNi84NzI2MTAtMjAxODA2MDgxNDU5NDY3ODktMTE3NjM5NjE1Mi5wbmc.png](/notes/note_images/7D60366B-C856-44FC-B52B-3730FF75B010-2755-000021ADFA92B9DD/aHR0cHM6Ly9pbWFnZXMyMDE4LmNuYmxvZ3MuY29tL2Jsb2cvODcyNjEwLzIwMTgwNi84NzI2MTAtMjAxODA2MDgxNDU5NDY3ODktMTE3NjM5NjE1Mi5wbmc.png)
+ ![aHR0cHM6Ly9pbWFnZXMyMDE4LmNuYmxvZ3MuY29tL2Jsb2cvODcyNjEwLzIwMTgwNi84NzI2MTAtMjAxODA2MDgxNDU5NDY3ODktMTE3NjM5NjE1Mi5wbmc.png](/notes/note_images/7D60366B-C856-44FC-B52B-3730FF75B010-2755-000021ADFA92B9DD/23d9db76bf325eccd20b1437c7e9cbfc.png)
 
 <!--more--> 
 
@@ -35,7 +35,7 @@ Subversion原理上只关心文件内容的具体差异。每次记录有哪些�
  
 ### Git属于分布式的版本控制系统
 
-![aHR0cHM6Ly9pbWFnZXMyMDE4LmNuYmxvZ3MuY29tL2Jsb2cvODcyNjEwLzIwMTgwNi84NzI2MTAtMjAxODA2MDgxNTAwMDQ0OTItNzYyMTYyNzY2LnBuZw.png](/notes/note_images/08D74C90-5AE2-4104-AC69-0269834130CC-2755-000021ADFA5C66EE/aHR0cHM6Ly9pbWFnZXMyMDE4LmNuYmxvZ3MuY29tL2Jsb2cvODcyNjEwLzIwMTgwNi84NzI2MTAtMjAxODA2MDgxNTAwMDQ0OTItNzYyMTYyNzY2LnBuZw.png)
+![aHR0cHM6Ly9pbWFnZXMyMDE4LmNuYmxvZ3MuY29tL2Jsb2cvODcyNjEwLzIwMTgwNi84NzI2MTAtMjAxODA2MDgxNTAwMDQ0OTItNzYyMTYyNzY2LnBuZw.png](/notes/note_images/08D74C90-5AE2-4104-AC69-0269834130CC-2755-000021ADFA5C66EE/b11f360e914a63daa84bb02f565e2f05.png)
  
 Git记录版本历史只关心文件数据的整体是否发生变化。Git 不保存文件内容前后变化的差异数据。
 实际上，Git 更像是把变化的文件作快照后，记录在一个微型的文件系统中。每次提交更新时，它会纵览一遍所有文件的指纹信息并对文件作一快照，然后保存一个指向这次快照的索引。为提高性能，若文件没有变化，Git 不会再次保存，而只对上次保存的快照作一连接。

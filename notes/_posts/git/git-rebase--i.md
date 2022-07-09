@@ -160,7 +160,7 @@ pick 8b485bb add 4
 成功！
 
 git log查看，4 和 5 的顺序改变了
-![aHR0cHM6Ly9naXRlZS5jb20vcmVuc2hlbl8wNTIvbXlOb3RlLWltZy9yYXcvbWFzdGVyL2ltYWdlLzIwMjAwMzA4MTkzNTQxLTQzOTMucG5n.png](/notes/note_images/DD22777A-951D-4394-B53E-E27B677FD8EF-2755-00001C591C5454CE/aHR0cHM6Ly9naXRlZS5jb20vcmVuc2hlbl8wNTIvbXlOb3RlLWltZy9yYXcvbWFzdGVyL2ltYWdlLzIwMjAwMzA4MTkzNTQxLTQzOTMucG5n.png)
+![aHR0cHM6Ly9naXRlZS5jb20vcmVuc2hlbl8wNTIvbXlOb3RlLWltZy9yYXcvbWFzdGVyL2ltYWdlLzIwMjAwMzA4MTkzNTQxLTQzOTMucG5n.png](/notes/note_images/DD22777A-951D-4394-B53E-E27B677FD8EF-2755-00001C591C5454CE/0e12e7b7392dec4587cbdef39e16347a.png)
 
 ## 假定，我们现在要删除 某一个提交，该怎么操作
 我们来删除 add 4 的那条提交
@@ -182,10 +182,10 @@ pick 8b485bb add 4
 我们删除 第二行
 
 接着 Esc,:wq 保存退出
-![aHR0cHM6Ly9naXRlZS5jb20vcmVuc2hlbl8wNTIvbXlOb3RlLWltZy9yYXcvbWFzdGVyL2ltYWdlLzIwMjAwMzA0MTA0MTMwLTY1NjExOS5wbmc.png](/notes/note_images/50CEB8D0-A8C3-4CE4-8C76-7DB27CB1EBAD-2755-00001C65D4170AED/aHR0cHM6Ly9naXRlZS5jb20vcmVuc2hlbl8wNTIvbXlOb3RlLWltZy9yYXcvbWFzdGVyL2ltYWdlLzIwMjAwMzA0MTA0MTMwLTY1NjExOS5wbmc.png)
+![aHR0cHM6Ly9naXRlZS5jb20vcmVuc2hlbl8wNTIvbXlOb3RlLWltZy9yYXcvbWFzdGVyL2ltYWdlLzIwMjAwMzA0MTA0MTMwLTY1NjExOS5wbmc.png](/notes/note_images/50CEB8D0-A8C3-4CE4-8C76-7DB27CB1EBAD-2755-00001C65D4170AED/3afbb1c129e896b7047ba780f056df89.png)
 
 git log查看，4 和 5 的顺序改变了
-![aHR0cHM6Ly9naXRlZS5jb20vcmVuc2hlbl8wNTIvbXlOb3RlLWltZy9yYXcvbWFzdGVyL2ltYWdlLzIwMjAwMzA0MTA0MzE2LTc3MzYwMC5wbmc.png](/notes/note_images/97B6E275-34A7-4845-B476-4730E543B677-2755-00001C66D53190C7/aHR0cHM6Ly9naXRlZS5jb20vcmVuc2hlbl8wNTIvbXlOb3RlLWltZy9yYXcvbWFzdGVyL2ltYWdlLzIwMjAwMzA0MTA0MzE2LTc3MzYwMC5wbmc.png)
+![aHR0cHM6Ly9naXRlZS5jb20vcmVuc2hlbl8wNTIvbXlOb3RlLWltZy9yYXcvbWFzdGVyL2ltYWdlLzIwMjAwMzA0MTA0MzE2LTc3MzYwMC5wbmc.png](/notes/note_images/97B6E275-34A7-4845-B476-4730E543B677-2755-00001C66D53190C7/eaa99f3f3d9a0ee1f3475cea0ba6b2b8.png)
 
 ## record 修改提交消息(提交内容不变)
 该reword命令与相似pick，但是使用后，重新设置过程将暂停并为您提供更改提交消息的机会。提交所做的任何更改均不受影响。
@@ -267,10 +267,10 @@ add 2 ~ new comment
 接着 Esc,:wq 保存退出
 
 成功
-![aHR0cHM6Ly9naXRlZS5jb20vcmVuc2hlbl8wNTIvbXlOb3RlLWltZy9yYXcvbWFzdGVyL2ltYWdlLzIwMjAwMzA0MTA1OTEzLTE2Mzk3Ny5wbmc.png](/notes/note_images/C88EBAC2-77A7-4AE9-9EAD-53F5F76306F4-2755-00001C7C65B2151E/aHR0cHM6Ly9naXRlZS5jb20vcmVuc2hlbl8wNTIvbXlOb3RlLWltZy9yYXcvbWFzdGVyL2ltYWdlLzIwMjAwMzA0MTA1OTEzLTE2Mzk3Ny5wbmc.png)
+![aHR0cHM6Ly9naXRlZS5jb20vcmVuc2hlbl8wNTIvbXlOb3RlLWltZy9yYXcvbWFzdGVyL2ltYWdlLzIwMjAwMzA0MTA1OTEzLTE2Mzk3Ny5wbmc.png](/notes/note_images/C88EBAC2-77A7-4AE9-9EAD-53F5F76306F4-2755-00001C7C65B2151E/28647b388aa269ed77d12aedcc50e588.png)
 
 git log查看, 消息 “add 2” 变为了 “add 2 ~ new comment”
-![aHR0cHM6Ly9naXRlZS5jb20vcmVuc2hlbl8wNTIvbXlOb3RlLWltZy9yYXcvbWFzdGVyL2ltYWdlLzIwMjAwMzA4MTkzODEzLTE4OTI4My5wbmc.png](/notes/note_images/A313E83F-B0C1-484F-9775-ADE848006612-2755-00001C8015543A99/aHR0cHM6Ly9naXRlZS5jb20vcmVuc2hlbl8wNTIvbXlOb3RlLWltZy9yYXcvbWFzdGVyL2ltYWdlLzIwMjAwMzA4MTkzODEzLTE4OTI4My5wbmc.png)
+![aHR0cHM6Ly9naXRlZS5jb20vcmVuc2hlbl8wNTIvbXlOb3RlLWltZy9yYXcvbWFzdGVyL2ltYWdlLzIwMjAwMzA4MTkzODEzLTE4OTI4My5wbmc.png](/notes/note_images/A313E83F-B0C1-484F-9775-ADE848006612-2755-00001C8015543A99/111214b3613532476676b2a7f165ab3d.png)
 
 
 ::只要不动pick的 顺序，就代表什么都不做::
@@ -339,7 +339,7 @@ Successfully rebased and updated refs/heads/master.
 ```
 
 git log 查看，在 add 5 和 add 3 中间 增加了我们刚刚的修改
-![aHR0cHM6Ly9naXRlZS5jb20vcmVuc2hlbl8wNTIvbXlOb3RlLWltZy9yYXcvbWFzdGVyL2ltYWdlLzIwMjAwMzA0MTEzMDU2LTczMjkzMS5wbmc.png](/notes/note_images/CE3CC106-3F49-4880-A9A3-AC0D7487B34B-2755-00001C993D10676B/aHR0cHM6Ly9naXRlZS5jb20vcmVuc2hlbl8wNTIvbXlOb3RlLWltZy9yYXcvbWFzdGVyL2ltYWdlLzIwMjAwMzA0MTEzMDU2LTczMjkzMS5wbmc.png)
+![aHR0cHM6Ly9naXRlZS5jb20vcmVuc2hlbl8wNTIvbXlOb3RlLWltZy9yYXcvbWFzdGVyL2ltYWdlLzIwMjAwMzA0MTEzMDU2LTczMjkzMS5wbmc.png](/notes/note_images/CE3CC106-3F49-4880-A9A3-AC0D7487B34B-2755-00001C993D10676B/a2cc68868bb16b9106c6d9d84b11c578.png)
 
 **假定 我想要单纯的修改这次提交内容和消息，怎么办**
 
@@ -369,7 +369,7 @@ squash
 **假定，我想合并某几个提交，怎么办**
 
 如下
-![aHR0cHM6Ly9naXRlZS5jb20vcmVuc2hlbl8wNTIvbXlOb3RlLWltZy9yYXcvbWFzdGVyL2ltYWdlLzIwMjAwMzA0MTIzODIyLTY3NTQyMy5wbmc.png](/notes/note_images/A08A71EA-8B00-4810-9340-3FE86FB7701F-2755-00001CA471ACA90E/aHR0cHM6Ly9naXRlZS5jb20vcmVuc2hlbl8wNTIvbXlOb3RlLWltZy9yYXcvbWFzdGVyL2ltYWdlLzIwMjAwMzA0MTIzODIyLTY3NTQyMy5wbmc.png)
+![aHR0cHM6Ly9naXRlZS5jb20vcmVuc2hlbl8wNTIvbXlOb3RlLWltZy9yYXcvbWFzdGVyL2ltYWdlLzIwMjAwMzA0MTIzODIyLTY3NTQyMy5wbmc.png](/notes/note_images/A08A71EA-8B00-4810-9340-3FE86FB7701F-2755-00001CA471ACA90E/e25629cc975c91477385843c1b32bd45.png)
 
 我们合并 add 5 和 add 3
 
@@ -429,7 +429,7 @@ add 5
 接着 Esc,:wq 保存退出
 
 git log查看，合并成功
-![aHR0cHM6Ly9naXRlZS5jb20vcmVuc2hlbl8wNTIvbXlOb3RlLWltZy9yYXcvbWFzdGVyL2ltYWdlLzIwMjAwMzA0MTI0NjU3LTUwMDk0MC5wbmc.png](/notes/note_images/68AE8D9D-F8FC-4FF0-B3A9-0E0B23C80F57-2755-00001CB127ED3354/aHR0cHM6Ly9naXRlZS5jb20vcmVuc2hlbl8wNTIvbXlOb3RlLWltZy9yYXcvbWFzdGVyL2ltYWdlLzIwMjAwMzA0MTI0NjU3LTUwMDk0MC5wbmc.png)
+![aHR0cHM6Ly9naXRlZS5jb20vcmVuc2hlbl8wNTIvbXlOb3RlLWltZy9yYXcvbWFzdGVyL2ltYWdlLzIwMjAwMzA0MTI0NjU3LTUwMDk0MC5wbmc.png](/notes/note_images/68AE8D9D-F8FC-4FF0-B3A9-0E0B23C80F57-2755-00001CB127ED3354/581cee4a8fc8fb365468bd1ef6efd619.png)
 
 
 ## fixup合并提交，只保留较早的提交信息
