@@ -5,17 +5,18 @@
     "author": "tangxiaomi <81195314@qq.com>",
     "license": "MIT",
     "devDependencies": {
+        "@tangxiaomi/cli": "^0.0.2",
+        "@tangxiaomi/eslint-config": "^0.0.3",
         "chalk": "^4.1.2",
         "child_process": "^1.0.2",
         "fs-extra": "^10.1.0",
-        "@tangxiaomi/cli": "^0.0.2",
-        "@tangxiaomi/eslint-config": "^0.0.3",
         "sqlite3": "^5.0.8"
     },
     "dependencies": {
-        "vuepress": "^1.9.7",
         "@vuepress/theme-blog": "^2.3.3",
-        "vue-switches": "^2.0.1"
+        "crypto-js": "^4.1.1",
+        "vue-switches": "^2.0.1",
+        "vuepress": "^1.9.7"
     },
     "scripts": {
         "dev": "vuepress dev notes",
