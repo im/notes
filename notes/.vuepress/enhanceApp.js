@@ -5,30 +5,12 @@ const hashMap = {
     'b6c191fff6b83348baa79d20d297ae40': true
 }
 
-const isLogin = () => {
-    const cipher = storageGet('cipher') || ''
-    const hash = MD5(cipher).toString()
-    return hashMap[hash]
-}
-
-const storageGet = (name) => {
-    const data = window.localStorage.getItem(name)
-    if (data) {
-        return JSON.parse(data)
-    } else {
-        return null
-    }
-}
-
-const storageSet = (name, data) => {
-    window.localStorage.setItem(name, JSON.stringify(data))
-}
-
 export default ({
     Vue, // the version of Vue being used in the VuePress app
     options, // the options for the root Vue instance
     router, // the router instance for the app
-    siteData // site metadata
+    siteData,
+    isServer
 }) => {
     router.addRoute({
         name: 'login',
@@ -36,25 +18,39 @@ export default ({
         component: () => import('./login.vue')
     })
 
+    if (!isServer) {
+        Vue.nextTick(() => {
+            const isLogin = () => {
+                const cipher = storageGet('cipher') || ''
+                const hash = MD5(cipher).toString()
+                return hashMap[hash]
+            }
 
-
-    Vue.nextTick(() => {
-        router.beforeEach(({ name }, from, next) => {
-            if (!isLogin()) {
-                if (name === 'login') {
-                    return next()
-                }
-                return next({
-                    name: 'login'
-                })
-            } else {
-                if (name === 'login') {
-                    return next({
-                        path: "/index.html"
-                    })
+            const storageGet = (name) => {
+                const data = window.localStorage.getItem(name)
+                if (data) {
+                    return JSON.parse(data)
+                } else {
+                    return null
                 }
             }
-            next()
+            router.beforeEach(({ name }, from, next) => {
+                if (!isLogin()) {
+                    if (name === 'login') {
+                        return next()
+                    }
+                    return next({
+                        name: 'login'
+                    })
+                } else {
+                    if (name === 'login') {
+                        return next({
+                            path: "/index.html"
+                        })
+                    }
+                }
+                next()
+            })
         })
-    })
+    }
 }
