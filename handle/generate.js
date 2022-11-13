@@ -7,7 +7,7 @@ const commit = require('./commit')
 const FS = require('fs')
 const path = require('path')
 
-const compile = (tplFile,data) => {
+const compile = (tplFile, data) => {
     let content = fs.readFileSync(tplFile, 'utf8')
 
     return content.replace(/\${(\w+)}/gi, (match, name) => {
@@ -40,10 +40,10 @@ const moveNoteImg = () => {
         try {
             const files = FS.readdirSync(dirPath)
             files.forEach(fileName => {
-                const inputPath = path.join(dirPath,fileName)
+                const inputPath = path.join(dirPath, fileName)
                 const names = fileName.split('.')
                 const hash = MD5(names[0]) + '.' + names[1]
-                const outputPath = path.join(OUTPUT_IMAGE_PATH,dir,hash)
+                const outputPath = path.join(OUTPUT_IMAGE_PATH, dir, hash)
                 fs.copySync(inputPath, outputPath, { overwrite: true })
             })
         } catch (err) {

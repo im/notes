@@ -2,7 +2,7 @@ const { DB_PATH, DB_QUERY_NOTES, BASE, IMAGE_DIR_NAME } = require('./constant')
 const MD5 = require('./md5')
 const sqlite3 = require('sqlite3').verbose()
 const db = new sqlite3.Database(DB_PATH, {})
-function format (millisecond, template) {
+function format(millisecond, template) {
     var res = ''
     try {
         var date = new Date(millisecond)
@@ -33,7 +33,7 @@ function format (millisecond, template) {
 
 const getTags = (content) => {
     let arr = []
-    content.replace(/(\n)[ \t]*(\#[^\s#].*)/g, ($1,$2,p) => {
+    content.replace(/(\n)[ \t]*(\#[^\s#].*)/g, ($1, $2, p) => {
         arr = p.split('#')
     })
     const tags = arr.map(item => {
@@ -54,7 +54,7 @@ const formatLink = (notes) => {
             const note = notes.filter(note => note.title.trim() === title.trim())[0]
             if (note) {
                 const name = note.title.replace(/\s+/g, '-')
-                const path = `[${note.title}](/${note.updateDate.replace(/\-/g, '/')}/${name}/)`
+                const path = `[${note.title}](/${format(note.updateDate, 'YYYY/mm/dd')}/${name}/)`
                 return path
             }
             return match
@@ -64,8 +64,9 @@ const formatLink = (notes) => {
     return notes
 }
 
+
 const formatContent = (content) => {
-    content = content.replace(/\[image:(.+?)\]/gi, (match,url) => {
+    content = content.replace(/\[image:(.+?)\]/gi, (match, url) => {
         const data = url.split('/')
         const uuid = data[0] || ''
         const imageName = data[1] || ''
@@ -99,7 +100,7 @@ module.exports = () => {
                 if (err) console.log(err)
                 const notes = []
                 rows.forEach((item) => {
-                    const { ZTITLE, ZTEXT, ZCREATIONDATE, ZMODIFICATIONDATE,ZUNIQUEIDENTIFIER } = item
+                    const { ZTITLE, ZTEXT, ZCREATIONDATE, ZMODIFICATIONDATE, ZUNIQUEIDENTIFIER } = item
                     const tags = getTags(ZTEXT)
                     const note = {
                         title: ZTITLE.trim(),
