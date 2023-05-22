@@ -63,8 +63,9 @@ jobs:
             --buildDrafts --gc --verbose \
             --baseURL ${{ steps.pages.outputs.base_url }}
       - name: ls
-        run: ls
-     - name: Deploy to GitHub Pages
+        run: |
+          ls
+      - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
             ACCESS_TOKEN: ${{ secrets.PAGES_TOKEN }}
