@@ -64,7 +64,7 @@ params:
     ShowPostNavLinks: true
     ShowBreadCrumbs: false
     ShowCodeCopyButtons: true
-    ShowRssButtonInSectionTermList: true
+    ShowRssButtonInSectionTermList: false
     ShowToc: false
     # comments: false
     # images: ["papermod-cover.png"]
