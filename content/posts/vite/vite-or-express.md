@@ -1,7 +1,7 @@
 ---
 title: 如何在 Vite 中拦截开发服务器并使用 Express
 date: "2023-03-11"
-tags: ["markdown", "text"]
+tags: ["vite", "typescript", "express"]
 ---
 
 
@@ -52,7 +52,7 @@ export default function myPlugin () {
 
 接下来，我们注册了 `cors`、`body-parser` 和 `cookie-parser` 中间件，这样我们就可以在应用程序中使用这些中间件了。
 
-然后，我们将应用程序添加到 Vite 开发服务器的中间件栈中，这样就可以使用自定义的 Express 应用程序来处理 HTTP 请求了。
+然后，我们将应用程序添加到 Vite 开发服务器的中间件中，这样就可以使用自定义的 `express` 应用程序来处理 HTTP 请求了。
 
 最后，我们向应用程序中添加了一个处理 `/login` URL 路径的路由处理函数，用于执行登录逻辑。
 
