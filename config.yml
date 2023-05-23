@@ -1,7 +1,9 @@
 baseURL: "https://tangxiaomi.top/notes/" # if your site is in 'https', then make sure your base url isn't written using 'http' otherwise your sitemap would contain http (as opposeed to https) URLs. This would affect Google indexing of your URLs.
-title: PaperMod
+title: Notes
 paginate: 3
 theme: PaperMod
+languageCode: "zh"
+defaultContentLanguage: "zh"
 
 enableInlineShortcodes: true
 enableRobotsTXT: true
@@ -17,80 +19,25 @@ minify:
     # minifyOutput: true
 
 languages:
-    en:
-        languageName: "English"
+    zh:
+        # languageName: "zh"
         # languagedirection: rtl
-        weight: 1
+        # weight: 1
         taxonomies:
-          category: categories
-          tag: tags
+          # category: categories
+          # tag: tags
           series: series
-        menu:
-            main:
-                - name: Archive
-                  url: archives
-                  weight: 5
-                - name: Tags
-                  url: tags/
-                  weight: 9
-                - name: Search
-                  url: search/
-                  weight: 10
-    fr:
-        languageName: ":fr:"
-        languageAltTitle: French
-        weight: 2
-        title: PaperModL2
-        taxonomies:
-          category: FRcategories
-          tag: FRtags
-          series: FRseries
-        profileMode:
-            enabled: true
-            title: PaperMod
-            imageUrl: "https://raw.githubusercontent.com/twitter/twemoji/master/assets/svg/1f317.svg"
-            imageTitle: ProfileMode image
-            # imageWidth: 120
-            # imageHeight: 120
-            subtitle: "☄️ Fast | ☁️ Fluent | 🌙 Smooth | 📱 Responsive"
-            buttons:
-                - name: Blog
-                  url: posts
-                - name: Profile Mode
-                  url: https://github.com/adityatelange/hugo-PaperMod/wiki/Features#profile-mode
-        menu:
-            main:
-                - name: Archive
-                  url: archives/
-                  weight: 5
-                - name: FRTags
-                  url: frtags
-                  weight: 10
-                - name: FRCategories
-                  url: frcategories
-                  weight: 10
-                - name: FRSeries
-                  url: frseries
-                  weight: 10
-                - name: NullLink
-                  url: "#"
-
-    fa:
-        languagedirection: rtl
-        weight: 3
-        title: PaperMod RTL
-        homeInfoParams:
-            Title: "Hi there \U0001F44B"
-            Content: Welcome to RTL layout
-        taxonomies:
-          category: FAcategories
-          tag: FAtags
-          series: FAseries
-        menu:
-            main:
-                - name: FATags
-                  url: fatags
-                  weight: 10
+        # menu:
+        #     main:
+        #         - name: Archive
+        #           url: archives
+        #           weight: 5
+        #         - name: Tags
+        #           url: tags/
+        #           weight: 9
+        #         - name: Search
+        #           url: search/
+        #           weight: 10
 
 outputs:
     home:
@@ -99,14 +46,16 @@ outputs:
         - JSON
 
 params:
+    hideFooter: true
     env: production # to enable google analytics, opengraph, twitter-cards and schema.
     description: "Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod"
-    author: Theme PaperMod
-    # author: ["Me", "You"] # multiple authors
+    # author: Theme PaperMod
+    author: ["糖小米"] # multiple authors
+    DateFormat: "January 2, 2006"
 
     defaultTheme: auto
     # disableThemeToggle: true
-    ShowShareButtons: true
+    ShowShareButtons: false
     ShowReadingTime: true
     # disableSpecial1stPost: true
     displayFullLangName: true
@@ -119,17 +68,19 @@ params:
     images: ["papermod-cover.png"]
 
     profileMode:
-        enabled: false
-        title: PaperMod
-        imageUrl: "#"
-        imageTitle: my image
+        enabled: true
+        title: '糖小米'
+        imageUrl: "/notes/avatar.svg"
+        imageTitle: '糖小米'
         # imageWidth: 120
         # imageHeight: 120
         buttons:
-            - name: Archives
+            - name: 归档
               url: archives
-            - name: Tags
+            - name: 标签
               url: tags
+            - name: 搜索
+              url: search
 
     homeInfoParams:
         Title: "PaperMod"
@@ -145,16 +96,14 @@ params:
 
     socialIcons:
         - name: github
-          url: "https://github.com/adityatelange/hugo-PaperMod"
-        - name: KoFi
-          url: "https://ko-fi.com/adityatelange"
-        - name: Rss
-          url: "index.xml"
+          url: "https://github.com/im/"
+        # - name: Rss
+        #   url: "index.xml"
 
-    editPost:
-        URL: "https://github.com/adityatelange/hugo-PaperMod/tree/exampleSite/content"
-        Text: "Suggest Changes" # edit text
-        appendFilePath: true # to append file path to Edit link
+    # editPost:
+    #     URL: "https://github.com/adityatelange/hugo-PaperMod/tree/exampleSite/content"
+    #     Text: "Suggest Changes" # edit text
+    #     appendFilePath: true # to append file path to Edit link
 
     # label:
     #     text: "Home"
