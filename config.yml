@@ -87,14 +87,14 @@ params:
     homeInfoParams:
         Title: "糖小米"
         languagedirection: rtl
-        # Content: >
-        #     Welcome to demo of hugo's theme PaperMod.
+        Content: >
+            Welcome to demo of hugo's theme PaperMod.
 
-        #     - **PaperMod** is a simple but fast and responsive theme with useful feature-set that enhances UX.
+            - **PaperMod** is a simple but fast and responsive theme with useful feature-set that enhances UX.
 
-        #     - Do give a 🌟 on Github !
+            - Do give a 🌟 on Github !
 
-        #     - PaperMod is based on theme [Paper](https://github.com/nanxiaobei/hugo-paper).
+            - PaperMod is based on theme [Paper](https://github.com/nanxiaobei/hugo-paper).
 
     socialIcons:
         - name: github
