@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: http://tangxiaomi.top/notes/sitemap.xml
