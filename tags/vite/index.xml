@@ -6,11 +6,11 @@
     <description>Recent content in vite on Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>cn</language>
-    <lastBuildDate>Sat, 11 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://tangxiaomi.top/notes/tags/vite/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 23 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://tangxiaomi.top/notes/tags/vite/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>如何在 Vite 中拦截开发服务器并使用 express</title>
       <link>http://tangxiaomi.top/notes/posts/vite/vite-or-express/</link>
-      <pubDate>Sat, 11 Mar 2023 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 23 May 2023 00:00:00 +0000</pubDate>
       
       <guid>http://tangxiaomi.top/notes/posts/vite/vite-or-express/</guid>
       <description>Vite 是一个快速、轻量级、易于使用的前端工具。它为开发者提供了一种现代的构建方式，可以快速地构建出高效且易于维护的 Web 应用程序。
