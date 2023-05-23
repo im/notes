@@ -48,7 +48,7 @@ outputs:
 params:
     hideFooter: true
     env: production # to enable google analytics, opengraph, twitter-cards and schema.
-    description: "Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod"
+    description: "https://tangxiaomi.top/notes/"
     # author: Theme PaperMod
     author: ["糖小米"] # multiple authors
     DateFormat: "January 2, 2006"
