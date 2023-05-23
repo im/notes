@@ -1,5 +1,5 @@
 ---
-title: 如何在 Vite 中拦截开发服务器并使用 Express
+title: 如何在 Vite 中拦截开发服务器并使用 express
 date: "2023-03-11"
 tags: ["vite", "typescript", "express"]
 ---
@@ -7,13 +7,13 @@ tags: ["vite", "typescript", "express"]
 
 Vite 是一个快速、轻量级、易于使用的前端工具。它为开发者提供了一种现代的构建方式，可以快速地构建出高效且易于维护的 Web 应用程序。
 
-在 Vite 版本 4.2 及以上的版本中，我们可以使用 `configureServer` 方法来拦截 Vite 开发服务器，并将其替换为 Express HTTP 服务器。这样，我们就可以使用更加灵活的 HTTP 服务器组合，并且可以方便地实现登录、鉴权等功能。
+在 Vite 版本 4.2 及以上的版本中，我们可以使用 `configureServer` 方法来拦截 Vite 开发服务器，并将其替换为 express HTTP 服务器。这样，我们就可以使用更加灵活的 HTTP 服务器组合，并且可以方便地实现登录、鉴权等功能。
 
 ## 配置 Vite 插件
 
-为了使用自定义的 Express 应用程序，我们需要编写一个 Vite 插件
+为了使用自定义的 express 应用程序，我们需要编写一个 Vite 插件
 
-我们可以通过 `myPlugin` 函数来创建一个新插件。这个插件暴露了一个 `configureServer` 方法，我们可以在这个方法中创建并配置一个 Express 应用程序。
+我们可以通过 `myPlugin` 函数来创建一个新插件。这个插件暴露了一个 `configureServer` 方法，我们可以在这个方法中创建并配置一个 express 应用程序。
 
 ```ts
 import express from 'express'
@@ -48,7 +48,7 @@ export default function myPlugin () {
 }
 ```
 
-在 `configureServer` 方法中，我们首先创建了一个新的 Express 应用程序 `app`。
+在 `configureServer` 方法中，我们首先创建了一个新的 express 应用程序 `app`。
 
 接下来，我们注册了 `cors`、`body-parser` 和 `cookie-parser` 中间件，这样我们就可以在应用程序中使用这些中间件了。
 
@@ -73,6 +73,6 @@ export default defineConfig({
 
 ## 结论
 
-通过使用 `configureServer` 方法，我们可以轻松地拦截 Vite 开发服务器，并使用 Express HTTP 服务器来替换它。
+通过使用 `configureServer` 方法，我们可以轻松地拦截 Vite 开发服务器，并使用 express HTTP 服务器来替换它。
 
 这种方式可以让我们在 Vite 开发服务器中使用更加灵活的 HTTP 服务器组合，并且可以方便地实现登录、鉴权等功能。
