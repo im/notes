@@ -4,8 +4,8 @@ date: "2022-05-09"
 categories:
   - 技术教程
 tags:
-  - Git
-  - SSH
+  - git
+  - ssh
 description: "本教程将介绍如何在 Git 中配置 SSH，并提供常用的 Git SSH 命令。"
 ---
 
