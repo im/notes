@@ -1,213 +1,72 @@
-
 ---
-title:  Git 入门指南 🚀
+title:  Git 命令手册 📖
 date: "2023-05-23"
 tags: ["git"]
 ---
 
-
-如果你是一个开发者，你一定知道如何使用 Git。Git 是一个版本控制系统，可以帮助我们有效地管理我们的代码和文件。在本文中，我们将介绍 Git 的一些基础知识，以及一些经常使用的 Git 命令。
-
-## Git 基础概念 🤔
-
-在开始学习 Git 之前，让我们来了解一些 Git 的基础概念：
-
-- **仓库（Repository）**：存放你的代码和文件的地方。
-- **分支（Branch）**：与主分支不同的版本，可以用于开发新功能或修复问题。
-- **提交（Commit）**：将更改保存到本地的操作。
-- **推送（Push）**：将本地的代码更改推送到存储库。
-- **拉取（Pull）**：将存储库中的更改同步到本地。
-
-## 常用 Git 命令 🙌
-
-现在，我们来学习一些常用的 Git 命令。
-
-### 1. git init
-
-`git init` 命令用于创建一个新的 Git 仓库。
-
-```bash
-# 初始化一个新的 Git 仓库
-git init
-```
-
-### 2. git clone
-
-`git clone` 命令用于将存储库复制到本地。
-
-```bash
-# 克隆存储库
-git clone https://github.com/username/repository.git
-```
-
-### 3. git add
-
-`git add` 命令用于将更改添加到暂存区。
-
-```bash
-# 添加单个文件
-git add file.txt
-
-# 添加多个文件
-git add file1.txt file2.txt
-
-# 添加所有更改
-git add .
-```
-
-### 4. git commit
-
-`git commit` 命令用于将更改提交到本地存储库。
-
-```bash
-# 提交更改
-git commit -m "commit message"
-```
-
-### 5. git push
-
-`git push` 命令用于将更改推送到远程存储库。
-
-```bash
-# 推送到默认分支
-git push
-
-# 推送到指定分支
-git push origin branch-name
-```
-
-### 6. git pull
-
-`git pull` 命令用于从远程存储库拉取更改，并将其合并到本地存储库中。
-
-```bash
-# 拉取远程代码
-git pull
-```
-
-### 7. git status
-
-`git status` 命令用于显示当前的 Git 仓库状态。
-
-```bash
-# 显示 Git 仓库状态
-git status
-```
-
-### 8. git branch
-
-`git branch` 命令可以用于创建，重命名，删除，列出和查找分支等命令。
-
-```bash
-# 创建新的分支
-git branch new-branch
-
-# 删除分支
-git branch -d branch-name
-
-# 切换到分支
-git checkout branch-name
-
-# 重命名分支
-git branch -m new-branch-name
-
-# 列出本地分支
-git branch
-
-# 查找分支
-git branch --contains commit-hash
-```
-
-### 9. git checkout
-
-`git checkout` 命令用于切换分支或恢复文件。
-
-```bash
-# 切换分支
-git checkout branch-name
-
-# 恢复文件
-git checkout file.txt
-```
-
-### 10. git log
-
-`git log` 命令用于显示 Git 存储库的提交历史记录。
-
-```bash
-# 显示提交历史记录
-git log
-```
-
-### 11. git diff
-
-`git diff` 命令用于显示文件的改动情况。
-
-```bash
-# 查看工作目录中的更改
-git diff
-
-# 查看已经暂存的更改
-git diff --cached
-
-# 查看某个提交版本和当前版本之间的差异
-git diff HEAD commit-hash
-```
-
-### 12. git reset
-
-`git reset` 命令用于撤销提交并重置存储库。
-
-```bash
-# 撤销最新的提交
-git reset --soft HEAD~1
-
-# 撤销最新的提交并将文件恢复到工作目录中
-git reset --hard HEAD~1
-```
-
-### 13. git merge
-
-`git merge` 命令用于合并两个分支。
-
-```bash
-# 合并分支
-git merge source-branch
-
-# 合并固定的提交到当前分支
-git cherry-pick commit-hash
-```
-
-### 14. git stash
-
-`git stash` 命令可用来保存当前目录中的更改，以便稍后恢复。
-
-```bash
-# 保存当前目录下的改动
-git stash
-
-# 恢复最后一个被 stash 的状态
-git stash pop
-
-# 查看 stash 列表
-git stash list
-```
-
-### 15. git remote
-
-`git remote` 命令用于管理与存储库的远程连接。
-
-```bash
-# 添加远程存储库
-git remote add origin https://github.com/username/repository.git
-
-# 查看远程存储库列表
-git remote -v
-
-# 删除远程存储库
-git remote rm origin
-```
-
-## 结论 👍
-
-以上就是一些常用的 Git 命令，当然还有很多其他的命令和用法，但这些已经足够让你入门 Git 了。希望本文能够帮助你更好地理解和应用 Git，管理你的代码并提高你的工作效率！同时，加入 Emoji 表情也能增加文章的趣味性。加油！
+这是一份 Git 命令的快速查找手册，包含了 Git 的常用命令和基本用法。快速找到你需要的命令和用法，让你的 Git 使用更加轻松自如。
+
+## 🚀 初始化
+
+- `git init` : 初始化一个 Git 仓库。
+- `git clone <URL>` : 克隆一个远程 Git 仓库。
+
+## 📝 添加与提交
+
+- `git add <file>` : 将文件添加到暂存区。
+- `git add .` : 将所有修改添加到暂存区。
+- `git commit -m "<message>"` : 提交变更并附上提交信息。
+- `git commit -a` : 跳过暂存区，直接提交所有变更。
+
+## 🌿 分支和合并
+
+- `git branch` : 列出当前仓库的所有分支。
+- `git branch <branch>` : 创建一个新分支。
+- `git checkout <branch>` : 切换到一个分支。
+- `git checkout -b <branch>` : 创建一个新的分支并立即切换到该分支。
+- `git merge <branch>` : 合并指定分支到当前分支。
+- `git merge --no-ff <branch>` : 强制 Git 创建一个新的合并提交，即使当前分支可以通过快进合并到指定分支。
+
+## 🔀 推送与拉取
+
+- `git pull` : 从远程仓库拉取代码。
+- `git push` : 将本地分支的更改推送到远程仓库。
+- `git push -u <remote> <branch>` : 第一次推送分支时，使用此命令将本地分支推送到远程仓库。
+- `git fetch <remote>` : 从远程仓库拉取变更，但不自动合并它们。
+- `git fetch --all` : 从远程仓库拉取所有分支的变更，但不自动合并它们。
+- `git push <remote> --delete <branch>` : 从远程仓库删除指定分支。
+
+## 🔎 查看日志
+
+- `git log` : 查看提交日志。
+- `git log --oneline` : 查看简洁的提交日志。
+- `git log --graph --oneline` : 查看提交日志并显示分支合并图。
+- `git blame <file>` : 显示指定文件的每一行是由谁添加的。
+
+## ❌ 撤销与修改
+
+- `git checkout <file>` : 用仓库中的文件替换工作目录中的文件，从而撤消最近的修订。
+- `git reset HEAD <file>` : 取消已暂存文件。
+- `git reset HEAD~` : 返回上一个commit版本，并将文件修改保留在工作目录。
+- `git reset <commit>` : 恢复指定提交的状态，同时将工作区和暂存区的修改移回到工作区。
+- `git reset --hard` : 取消所有本地修改，并恢复到最近的提交状态。
+- `git clean -f` : 删除未被跟踪的文件。
+
+## 🎨 其他命令
+
+- `git status` : 显示工作目录下已提交和未提交的修改。
+- `git diff` : 显示工作目录和本地仓库之间的差异。
+- `git stash` : 将工作目录中的未提交修改保存到一个栈中。
+- `git stash apply` : 恢复最新的stash，并将内容应用于工作区。
+- `git stash list` : 显示所有的stash记录。
+- `git stash pop` : 删除最新的stash，并将其应用于工作区。
+- `git stash drop` : 删除最新的stash。
+- `git remote add <name> <url>` : 将一个新远程仓库添加到当前 Git 仓库中。
+- `git remote -v` : 显示当前仓库的所有远程仓库及其 URL。
+- `git tag` : 列出已经存在的标签。
+- `git tag <tagname>` : 新建一个标签，默认为HEAD，用于后续推送到远程仓库。
+- `git push origin <tagname>` : 将指定标签推送到远程仓库。
+- `git push origin --tags` : 将所有标签推送到远程仓库。
+- `git show <commit>` : 显示指定提交的信息。
+
+这就是我们的 Git 命令手册，如果你有任何疑问或建议，请在评论区留言。希望这份手册能为你在 Git 使用中提供帮助！ 🌟
