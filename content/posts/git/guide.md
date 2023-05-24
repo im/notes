@@ -1,6 +1,8 @@
 ---
 title:  Git 命令手册 📖
 date: "2023-05-23"
+categories:
+  - 技术教程
 tags: ["git"]
 ---
 
@@ -68,5 +70,3 @@ tags: ["git"]
 - `git push origin <tagname>` : 将指定标签推送到远程仓库。
 - `git push origin --tags` : 将所有标签推送到远程仓库。
 - `git show <commit>` : 显示指定提交的信息。
-
-这就是我们的 Git 命令手册，如果你有任何疑问或建议，请在评论区留言。希望这份手册能为你在 Git 使用中提供帮助！ 🌟

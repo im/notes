@@ -35,7 +35,11 @@ Enter file in which to save the key (/Users/you/.ssh/id_rsa):
 
 这时候你可以在命令行中按一下回车键，这样默认情况下文件名为 `id_rsa`，然后继续回车并设置一个密码（不需要也可以不设置）。
 
-现在你在家目录下会找到一个 `.ssh` 的文件夹，里面会有两个文件： `id_rsa` 和 `id_rsa.pub`。其中，`id_rsa` 是你的私钥，不能泄露；`id_rsa.pub` 是你的公钥，可以告诉 Git 托管服务商。
+```bash
+cd ~/.ssh
+```
+
+输入命令进入 `.ssh` 文件夹，里面会有两个文件： `id_rsa` 和 `id_rsa.pub`。其中，`id_rsa` 是你的私钥，不能泄露；`id_rsa.pub` 是你的公钥，可以告诉 Git 托管服务商。
 
 ## 2. 添加 SSH 密钥到 GitHub 或 GitLab
 
@@ -68,4 +72,4 @@ git push origin master
 - `git pull` 从远程仓库拉取代码
 - `git remote` 显示远程仓库的信息
 
-恭喜你，现在你已经成功地配置了 Git SSH！现在你可以安全地和远程仓库进行交互了。如果你有任何疑问或问题，请在评论区留言。
+恭喜你，现在你已经成功地配置了 Git SSH！现在你可以安全地和远程仓库进行交互了

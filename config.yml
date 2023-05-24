@@ -71,7 +71,9 @@ params:
 
     profileMode:
         enabled: true
-        title: '糖小米 🚀 '
+        # title: ' '
+        # title: '糖小米 🚀 '
+        title: '糖小米'
         imageUrl: "/notes/avatar.svg"
         imageTitle: '糖小米'
         imageWidth: 200
