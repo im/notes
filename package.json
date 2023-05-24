@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch" : "node monitor.js" 
+    "watch": "node monitor.js"
   },
   "keywords": [],
   "author": "",
@@ -13,5 +13,8 @@
   "dependencies": {
     "chokidar": "^3.5.3",
     "simple-git": "^3.18.0"
+  },
+  "devDependencies": {
+    "shelljs": "^0.8.5"
   }
 }
